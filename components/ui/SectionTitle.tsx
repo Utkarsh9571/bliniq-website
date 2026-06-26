@@ -30,7 +30,7 @@ export default function SectionTitle({
         {title}
       </h2>
       <div
-        className={`h-[1px] w-20 bg-brand-accent/40 mt-5 ${
+        className={`h-px w-20 bg-brand-accent/40 mt-5 ${
           align === "center" ? "mx-auto" : align === "right" ? "ml-auto" : ""
         }`}
       />

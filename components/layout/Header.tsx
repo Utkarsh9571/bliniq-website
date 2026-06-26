@@ -25,12 +25,11 @@ export default function Header() {
 
           {/* CTA / Mobile toggle */}
           <div className="flex items-center gap-4">
-            <Button
-              variant="outline"
-              className="hidden lg:inline-flex py-2 px-5 text-[10px]"
-            >
-              Book Consultation
-            </Button>
+            <a href="https://wa.me/918383061539" className="hidden lg:inline-flex">
+              <Button variant="outline" className="py-2 px-5 text-[10px]">
+                WhatsApp Consult
+              </Button>
+            </a>
 
             {/* Mobile menu button */}
             <button
@@ -79,13 +78,15 @@ export default function Header() {
         <div className="md:hidden fixed inset-x-0 top-20 bg-brand-bg-sec border-b border-brand-border p-8 animate-fade-in z-45">
           <Navigation mobile={true} onLinkClick={() => setMobileMenuOpen(false)} />
           <div className="mt-8 flex flex-col gap-4">
-            <Button
-              variant="primary"
-              className="w-full"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Book Consultation
-            </Button>
+            <a href="https://wa.me/918383061539" className="w-full">
+              <Button
+                variant="primary"
+                className="w-full"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                WhatsApp Consult
+              </Button>
+            </a>
           </div>
         </div>
       )}

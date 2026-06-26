@@ -13,9 +13,9 @@ export default function Navigation({
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "#services" },
-    { label: "Doctors", href: "#doctors" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Blog", href: "#blog" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Chief Surgeon", href: "#doctors" },
+    { label: "Reviews", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },
   ];
 

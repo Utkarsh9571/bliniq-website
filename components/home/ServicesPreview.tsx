@@ -7,16 +7,16 @@ import CTAButton from "../ui/CTAButton";
 export default function ServicesPreview() {
   const mockServices = [
     {
-      title: "Facial Aesthetics",
-      desc: "Advanced non-surgical fillers, neuromodulators, and structural contouring.",
+      title: "Laser Liposuction",
+      desc: "USFDA approved minimally-invasive fat removal targeting abdomen, flanks, arms, and double chin with zero scars.",
     },
     {
-      title: "Skin Rejuvenation",
-      desc: "Laser therapy, chemical peels, and customized micro-needling treatments.",
+      title: "Gynecomastia Correction",
+      desc: "Male chest reduction surgery for gland excision and chest contouring, using micro-incisions hidden in the armpits.",
     },
     {
-      title: "Body Sculpting",
-      desc: "Targeted fat reduction, muscle toning, and advanced body contouring.",
+      title: "Tummy Tuck & Body Lift",
+      desc: "Removal of excess sagging skin and muscle tightening following major weight loss or pregnancy.",
     },
   ];
 
@@ -24,13 +24,13 @@ export default function ServicesPreview() {
     <section id="services" className="py-20 bg-brand-bg-sec">
       <Container>
         <SectionTitle
-          title="Our Signature Treatments"
-          subtitle="Exceptional Services"
+          title="Bespoke Body Contouring"
+          subtitle="Our Specialized Services"
           align="center"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {mockServices.map((service, index) => (
-            <Card key={index} className="flex flex-col justify-between min-h-[250px]">
+            <Card key={index} className="flex flex-col justify-between min-h-62.5">
               <div>
                 <h3 className="font-serif text-2xl text-brand-text mb-4 font-light">
                   {service.title}
@@ -40,7 +40,7 @@ export default function ServicesPreview() {
                 </p>
               </div>
               <div>
-                <CTAButton href={`#service-${index}`}>Learn More</CTAButton>
+                <CTAButton href="https://wa.me/918383061539">Book Consultation</CTAButton>
               </div>
             </Card>
           ))}

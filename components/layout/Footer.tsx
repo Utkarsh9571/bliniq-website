@@ -13,8 +13,8 @@ export default function Footer() {
               BLINIQ
             </span>
             <p className="text-brand-text-sec text-sm leading-relaxed max-w-xs mt-2">
-              A premium, dark-luxury medical aesthetic clinic delivering state-of-the-art
-              treatments and personalized cosmetic care.
+              Bespoke high-definition laser liposuction and advanced cosmetic surgery. Leading
+              clinic in Delhi NCR.
             </p>
           </div>
 
@@ -28,8 +28,8 @@ export default function Footer() {
                 { label: "About Us", href: "#about" },
                 { label: "Our Services", href: "#services" },
                 { label: "Meet the Doctors", href: "#doctors" },
-                { label: "Patient Testimonials", href: "#testimonials" },
-                { label: "Latest News", href: "#blog" },
+                { label: "Transformations", href: "#gallery" },
+                { label: "Patient Reviews", href: "#testimonials" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -46,17 +46,20 @@ export default function Footer() {
           {/* Contact Details */}
           <div>
             <h4 className="font-serif text-lg text-brand-text font-medium mb-6 tracking-wide">
-              Clinic Location
+              Delhi NCR Clinic
             </h4>
             <p className="text-brand-text-sec text-sm leading-relaxed mb-4">
-              100 Luxury Boulevard, Suite 500
+              Dhara Vardan House, Plot No. 24
               <br />
-              Beverly Hills, CA 90210
+              A-1 Block, Qutab Vihar Phase-1
+              <br />
+              New Delhi - 110071
             </p>
             <p className="text-brand-text-sec text-sm">
-              <span className="text-brand-accent">Phone:</span> (555) 019-2834
+              <span className="text-brand-accent">Phone:</span> +91 8383061539
               <br />
-              <span className="text-brand-accent">Email:</span> info@bliniqclinic.com
+              <span className="text-brand-accent">Email:</span>{" "}
+              bliniqcosmeticsurgery@gmail.com
             </p>
           </div>
 
@@ -67,16 +70,12 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-brand-text-sec">
               <li className="flex justify-between">
-                <span>Mon - Fri:</span>
-                <span>9:00 AM - 7:00 PM</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Saturday:</span>
-                <span>10:00 AM - 5:00 PM</span>
+                <span>Mon - Sat:</span>
+                <span>10:00 AM - 7:00 PM</span>
               </li>
               <li className="flex justify-between text-brand-accent/70">
                 <span>Sunday:</span>
-                <span>Closed</span>
+                <span>By Appointment Only</span>
               </li>
             </ul>
           </div>

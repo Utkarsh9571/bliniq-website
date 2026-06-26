@@ -28,7 +28,7 @@ export default function BlogPreview() {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {posts.map((post, index) => (
-            <Card key={index} className="flex flex-col justify-between min-h-[220px]">
+            <Card key={index} className="flex flex-col justify-between min-h-55">
               <div>
                 <span className="text-brand-accent/60 font-sans text-xs tracking-wider">
                   {post.date}
