@@ -39,7 +39,7 @@ export default function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden select-none touch-none aspect-4/3 border border-brand-border bg-brand-card cursor-ew-resize ${className}`}
+      className={`relative overflow-hidden select-none touch-pan-y aspect-4/3 border border-brand-border bg-brand-card cursor-ew-resize ${className}`}
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
