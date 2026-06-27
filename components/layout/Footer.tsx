@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "../ui/Container";
 
 export default function Footer() {
@@ -82,11 +83,10 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-3 text-xs text-brand-text-sec">
               <li><Link href="/head" className="hover:text-brand-accent transition-colors">Hair Transplant</Link></li>
-              <li><Link href="/prp-therapy" className="hover:text-brand-accent transition-colors">PRP Therapy</Link></li>
-              <li><Link href="/mesotherapy" className="hover:text-brand-accent transition-colors">Mesotherapy</Link></li>
+              <li><Link href="/prp-therapy" className="hover:text-brand-accent transition-colors">PRP Hair Therapy</Link></li>
               <li><Link href="/botox-and-fillers" className="hover:text-brand-accent transition-colors">Botox & Fillers</Link></li>
-              <li><Link href="/chemical-peels" className="hover:text-brand-accent transition-colors">Chemical Peels</Link></li>
               <li><Link href="/laser-hair-removal" className="hover:text-brand-accent transition-colors">Laser Hair Removal</Link></li>
+              <li><Link href="/scar-remodeling" className="hover:text-brand-accent transition-colors">Scar Remodeling</Link></li>
             </ul>
           </div>
 
@@ -111,7 +111,17 @@ export default function Footer() {
 
         {/* Bottom Utility Row */}
         <div className="border-t border-brand-border/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-text-sec/60">
-          <p>&copy; {new Date().getFullYear()} BLINIQ. All rights reserved.</p>
+          <div className="flex items-center gap-3">
+            <div className="relative w-24 h-6 opacity-75 hover:opacity-100 transition-opacity">
+              <Image
+                src="/uploads/2020/07/logo-light.png"
+                alt="BLINIQ Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span>&copy; {new Date().getFullYear()} All rights reserved.</span>
+          </div>
           <div className="flex flex-wrap gap-6 justify-center">
             <Link href="/privacy-policy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms-conditions" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "./Navigation";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
@@ -31,18 +32,18 @@ export default function Header() {
 
   // Auto-toggle call popdown every 5 seconds when header is not hovered
   useEffect(() => {
-    if (isHeaderHovered) {
-      setShowCallPopdown(true);
-      return;
-    }
+    if (isHeaderHovered) return;
 
     // Toggle popdown visibility every 5 seconds automatically when not hovered
     const interval = setInterval(() => {
       setShowCallPopdown((prev) => !prev);
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [isHeaderHovered]);
+
+  // Compute popdown visibility dynamically
+  const isPopdownVisible = showCallPopdown || isHeaderHovered;
 
   // Compute filtered procedures on-the-fly during render
   const filteredProcedures = searchQuery.trim() === ""
@@ -73,9 +74,15 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 shrink-0">
-            <span className="font-serif text-3xl sm:text-4xl tracking-[0.35em] text-brand-text font-light uppercase">
-              BLINIQ
-            </span>
+            <div className="relative w-40 h-10">
+              <Image
+                src="/uploads/2020/07/logo-light.png"
+                alt="BLINIQ"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -97,8 +104,8 @@ export default function Header() {
 
               {/* Popdown container */}
               <div 
-                className={`absolute right-0 top-full mt-2 w-48 bg-[#0B0F19]/95 backdrop-blur-xl border border-brand-border/60 p-4 rounded-xl shadow-2xl transition-all duration-250 z-50 text-right ${
-                  showCallPopdown
+                className={`absolute left-[-76px] top-full mt-2 w-48 bg-[#0B0F19]/95 backdrop-blur-xl border border-brand-border/60 p-4 rounded-xl shadow-2xl transition-all duration-250 z-50 text-center ${
+                  isPopdownVisible
                     ? "opacity-100 translate-y-0 visible"
                     : "opacity-0 translate-y-2 invisible"
                 }`}

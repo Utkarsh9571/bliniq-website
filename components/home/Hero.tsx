@@ -110,7 +110,7 @@ export default function Hero() {
         <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vh] rounded-full bg-radial-to-c from-[#C9A96E]/15 via-transparent to-transparent blur-3xl animate-pulse duration-8000" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vh] rounded-full bg-radial-to-c from-brand-accent/10 via-transparent to-transparent blur-3xl animate-pulse duration-6000" />
         {/* Subtle diagonal gold streak lines */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_45%,rgba(201,169,110,0.03)_50%,transparent_55%)] bg-[size:200%_200%] animate-[goldStreak_20s_linear_infinite]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_45%,rgba(201,169,110,0.03)_50%,transparent_55%)] bg-size-[200%_200%] animate-[goldStreak_20s_linear_infinite]" />
       </div>
 
       {/* Grid aligned inside a standard Container */}
@@ -170,12 +170,12 @@ export default function Hero() {
                     setCurrentSlide(index);
                     setSliderPosition(50);
                   }}
-                  className="flex flex-col items-start gap-1 group focus:outline-none cursor-pointer"
+                  className="flex flex-col items-center gap-1 group focus:outline-none cursor-pointer"
                 >
                   <span className={`font-mono text-xs transition-colors duration-300 ${
                     currentSlide === index ? "text-brand-accent font-semibold" : "text-brand-text-sec/40 group-hover:text-brand-text-sec"
                   }`}>
-                    0x{index + 1}
+                  {index + 1}
                   </span>
                   <div className={`h-0.5 transition-all duration-300 ${
                     currentSlide === index ? "w-8 bg-brand-accent" : "w-4 bg-brand-border/30 group-hover:w-6"
