@@ -127,9 +127,10 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
             <Link
               key={section.title}
               href={section.href || "/"}
-              className="text-brand-text-sec hover:text-brand-accent font-sans text-[11px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 font-semibold"
+              className="relative text-brand-text-sec hover:text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 font-semibold group"
             >
-              {section.title}
+              <span>{section.title}</span>
+              <span className="absolute bottom-1 left-0 w-0 h-[1.5px] bg-brand-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           );
         }
@@ -149,9 +150,10 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
               setActiveCategory(null);
             }}
           >
-            <button className="text-brand-text-sec hover:text-brand-accent font-sans text-[11px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 flex items-center gap-1.5 font-semibold cursor-pointer">
+            <button className="relative text-brand-text-sec hover:text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 flex items-center gap-1.5 font-semibold cursor-pointer group">
               <span>{section.title}</span>
-              <span className="text-[8px] opacity-60">▼</span>
+              <span className="text-[7px] opacity-60 transition-transform duration-200 group-hover:translate-y-0.5">▼</span>
+              <span className="absolute bottom-1 left-0 w-0 h-[1.5px] bg-brand-accent transition-all duration-300 group-hover:w-full" />
             </button>
 
             {/* Dropdown container */}

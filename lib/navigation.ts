@@ -192,15 +192,6 @@ export const CANONICAL_DEPARTMENTS: NavigationSection[] = [
 // Luxury Collapsed Header Menu configuration (6 items maximum)
 export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
   {
-    title: "The Clinic",
-    type: "dropdown",
-    items: [
-      { title: "About Bliniq", slug: "about-us" },
-      { title: "Our Surgeon", slug: "doctors" },
-      { title: "Contact Us", slug: "contact-us" }
-    ]
-  },
-  {
     title: "Body Contouring",
     type: "mega",
     categories: [

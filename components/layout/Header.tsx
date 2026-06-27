@@ -13,6 +13,8 @@ export default function Header() {
   
   // Mobile search state
   const [searchQuery, setSearchQuery] = useState("");
+  const [showCallPopdown, setShowCallPopdown] = useState(false);
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
 
   // Listen to scroll events to compress navbar height and style background
   useEffect(() => {
@@ -26,6 +28,21 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Auto-toggle call popdown every 5 seconds when header is not hovered
+  useEffect(() => {
+    if (isHeaderHovered) {
+      setShowCallPopdown(true);
+      return;
+    }
+
+    // Toggle popdown visibility every 5 seconds automatically when not hovered
+    const interval = setInterval(() => {
+      setShowCallPopdown((prev) => !prev);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isHeaderHovered]);
 
   // Compute filtered procedures on-the-fly during render
   const filteredProcedures = searchQuery.trim() === ""
@@ -49,6 +66,8 @@ export default function Header() {
           ? "bg-[#0B0F19]/95 backdrop-blur-md border-b border-brand-border/60 py-3 shadow-2xl" 
           : "bg-transparent py-5"
       }`}
+      onMouseEnter={() => setIsHeaderHovered(true)}
+      onMouseLeave={() => setIsHeaderHovered(false)}
     >
       <Container>
         <div className="flex items-center justify-between">
@@ -64,16 +83,36 @@ export default function Header() {
 
           {/* Right Action Trigger */}
           <div className="flex items-center gap-6 shrink-0">
-            <div className="hidden lg:flex flex-col text-right">
-              <span className="text-[8px] text-brand-text-sec/40 uppercase tracking-[0.2em] block mb-0.5">
-                Support
-              </span>
-              <a
-                href="tel:+917290062111"
-                className="text-[10px] text-brand-text-sec/60 hover:text-brand-accent transition-colors font-mono font-medium"
+            {/* Call Hover Dropdown */}
+            <div className="relative hidden lg:block">
+              <button 
+                className="p-2.5 rounded-full border border-brand-border/40 hover:border-brand-accent/60 bg-[#0F1524]/40 text-brand-text-sec hover:text-brand-accent transition-all cursor-pointer"
+                aria-label="Call details"
+                onClick={() => setShowCallPopdown(!showCallPopdown)}
               >
-                +91 72900 62111
-              </a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a20.373 20.373 0 0 1-9.373-9.373c-.155-.44-.01-1.928.366-2.21l1.293-.97a1.125 1.125 0 0 0 .417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                </svg>
+              </button>
+
+              {/* Popdown container */}
+              <div 
+                className={`absolute right-0 top-full mt-2 w-48 bg-[#0B0F19]/95 backdrop-blur-xl border border-brand-border/60 p-4 rounded-xl shadow-2xl transition-all duration-250 z-50 text-right ${
+                  showCallPopdown
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 translate-y-2 invisible"
+                }`}
+              >
+                <span className="text-[9px] text-brand-text-sec/60 uppercase tracking-[0.2em] block mb-1">
+                  Call Us Today
+                </span>
+                <a 
+                  href="tel:+917290062111" 
+                  className="text-xs text-brand-accent hover:text-brand-hover font-mono font-semibold transition-colors block"
+                >
+                  +91 72900 62111
+                </a>
+              </div>
             </div>
 
             <Link href="/appointment" className="hidden lg:inline-flex">
