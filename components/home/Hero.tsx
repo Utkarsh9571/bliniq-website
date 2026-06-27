@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "../ui/Button";
+import Container from "../ui/Container";
 
 interface SlideData {
   service: string;
@@ -85,7 +86,6 @@ export default function Hero() {
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    // Check if left mouse button is pressed (1) during move or just drag directly on hover
     if (e.buttons === 1) {
       handleMove(e.clientX);
     }
@@ -113,167 +113,173 @@ export default function Hero() {
         <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_45%,rgba(201,169,110,0.03)_50%,transparent_55%)] bg-[size:200%_200%] animate-[goldStreak_20s_linear_infinite]" />
       </div>
 
-      {/* Full-width container grid */}
-      <div className="w-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10 relative">
-        
-        {/* Left Side: Staggered Content Area (45% width equivalent) */}
-        <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-6 lg:pr-8">
+      {/* Grid aligned inside a standard Container */}
+      <Container className="z-10 relative">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Eyebrow Label */}
-          <span 
-            key={`eyebrow-${currentSlide}`}
-            className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.3em] uppercase block font-semibold animate-[slideDown_0.6s_ease-out_forwards]"
-          >
-            {slide.eyebrow}
-          </span>
-
-          {/* Large Editorial Heading */}
-          <h1 
-            key={`heading-${currentSlide}`}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light text-brand-text leading-[1.1] tracking-wide animate-[fadeIn_0.8s_ease-out_forwards]"
-          >
-            {slide.headingPart1}{" "}
-            <span className="italic text-brand-accent block sm:inline font-light">
-              {slide.headingPart2Highlight}
-            </span>
-          </h1>
-
-          {/* Short Description */}
-          <p 
-            key={`desc-${currentSlide}`}
-            className="text-brand-text-sec font-sans text-sm sm:text-base leading-relaxed max-w-md animate-[slideUp_0.8s_ease-out_forwards]"
-          >
-            {slide.description}
-          </p>
-
-          {/* Call-to-Actions */}
-          <div className="flex flex-wrap gap-4 mt-4 w-full sm:w-auto">
-            <a href="#contact-form" className="grow sm:grow-0">
-              <Button variant="primary" className="w-full sm:w-auto px-8 py-3.5 text-xs uppercase tracking-widest font-semibold">
-                Book Consultation
-              </Button>
-            </a>
-            <a href="#services" className="grow sm:grow-0">
-              <Button variant="outline" className="w-full sm:w-auto px-8 py-3.5 text-xs uppercase tracking-widest font-semibold">
-                Explore Procedures
-              </Button>
-            </a>
-          </div>
-
-          {/* Luxury Slide Indicators: 01 02 03 04 */}
-          <div className="flex items-center gap-6 mt-10">
-            {SLIDES.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentSlide(index);
-                  setSliderPosition(50);
-                }}
-                className="flex flex-col items-start gap-1 group focus:outline-none cursor-pointer"
-              >
-                <span className={`font-mono text-xs transition-colors duration-300 ${
-                  currentSlide === index ? "text-brand-accent font-semibold" : "text-brand-text-sec/40 group-hover:text-brand-text-sec"
-                }`}>
-                  0{index + 1}
-                </span>
-                <div className={`h-0.5 transition-all duration-300 ${
-                  currentSlide === index ? "w-8 bg-brand-accent" : "w-4 bg-brand-border/30 group-hover:w-6"
-                }`} />
-              </button>
-            ))}
-          </div>
-
-        </div>
-
-        {/* Right Side: Massive Before/After Comparison Component (55% width equivalent) */}
-        <div className="lg:col-span-7 flex flex-col items-center justify-center">
-          
-          {/* Glass Luxury Card Styling wrapper */}
-          <div className="w-full bg-[#0F1524]/60 backdrop-blur-md border border-brand-border/60 p-4 md:p-6 shadow-2xl relative">
+          {/* Left Side: Staggered Content Area (45% width equivalent) */}
+          <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-6 lg:pr-8">
             
-            {/* Header label in glass card */}
-            <div className="text-center mb-4 border-b border-brand-border/30 pb-3 flex justify-between items-center px-2">
-              <span className="text-[10px] tracking-widest text-brand-text-sec uppercase font-mono">Case Profile</span>
-              <span className="text-xs tracking-wider text-brand-accent uppercase font-serif font-light">{slide.service}</span>
-            </div>
-
-            {/* Draggable before/after panel */}
-            <div 
-              ref={containerRef}
-              className="relative w-full aspect-4/3 overflow-hidden select-none touch-pan-y cursor-ew-resize border border-brand-border/40"
-              onMouseMove={handleMouseMove}
-              onTouchMove={handleTouchMove}
+            {/* Eyebrow Label */}
+            <span 
+              key={`eyebrow-${currentSlide}`}
+              className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.3em] uppercase block font-semibold animate-[slideDown_0.6s_ease-out_forwards]"
             >
-              {/* After Image (Background) */}
-              <div className="absolute inset-0">
-                <Image
-                  src={slide.afterImage}
-                  alt={`${slide.service} After`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute bottom-4 right-4 bg-[#0B0F19]/90 backdrop-blur-sm border border-brand-border/40 px-3 py-1 text-[10px] text-brand-accent uppercase tracking-widest font-mono z-20">
-                After
-              </div>
+              {slide.eyebrow}
+            </span>
 
-              {/* Before Image (Foreground with Clip Path) */}
-              <div 
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
-                }}
-              >
-                <Image
-                  src={slide.beforeImage}
-                  alt={`${slide.service} Before`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute bottom-4 left-4 bg-[#0B0F19]/90 backdrop-blur-sm border border-brand-border/40 px-3 py-1 text-[10px] text-brand-text-sec uppercase tracking-widest font-mono z-20">
-                Before
-              </div>
+            {/* Large Editorial Heading */}
+            <h1 
+              key={`heading-${currentSlide}`}
+              className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light text-brand-text leading-[1.1] tracking-wide animate-[fadeIn_0.8s_ease-out_forwards]"
+            >
+              {slide.headingPart1}{" "}
+              <span className="italic text-brand-accent block sm:inline font-light">
+                {slide.headingPart2Highlight}
+              </span>
+            </h1>
 
-              {/* Vertical Slider Handle Line */}
-              <div 
-                className="absolute top-0 bottom-0 w-px bg-brand-accent z-30 pointer-events-none"
-                style={{ left: `${sliderPosition}%` }}
-              >
-                <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-accent text-[#0B0F19] flex items-center justify-center border-2 border-brand-bg shadow-2xl scale-110 active:scale-125 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                  </svg>
-                </div>
-              </div>
+            {/* Short Description */}
+            <p 
+              key={`desc-${currentSlide}`}
+              className="text-brand-text-sec font-sans text-sm sm:text-base leading-relaxed max-w-md animate-[slideUp_0.8s_ease-out_forwards]"
+            >
+              {slide.description}
+            </p>
+
+            {/* Call-to-Actions */}
+            <div className="flex flex-wrap gap-4 mt-4 w-full sm:w-auto">
+              <a href="#contact-form" className="grow sm:grow-0">
+                <Button variant="primary" className="w-full sm:w-auto px-8 py-3.5 text-xs uppercase tracking-widest font-semibold">
+                  Book Consultation
+                </Button>
+              </a>
+              <a href="#services" className="grow sm:grow-0">
+                <Button variant="outline" className="w-full sm:w-auto px-8 py-3.5 text-xs uppercase tracking-widest font-semibold">
+                  Explore Procedures
+                </Button>
+              </a>
             </div>
 
-            {/* Dot indicators beneath comparison images */}
-            <div className="flex justify-center items-center gap-2 mt-6">
-              {SLIDES.map((_, idx) => (
+            {/* Luxury Slide Indicators: 01 02 03 04 */}
+            <div className="flex items-center gap-6 mt-10">
+              {SLIDES.map((_, index) => (
                 <button
-                  key={idx}
+                  key={index}
                   onClick={() => {
-                    setCurrentSlide(idx);
+                    setCurrentSlide(index);
                     setSliderPosition(50);
                   }}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    currentSlide === idx ? "w-6 bg-brand-accent" : "bg-brand-text-sec/30 hover:bg-brand-text-sec/60"
-                  }`}
-                  aria-label={`Show transformation slide ${idx + 1}`}
-                />
+                  className="flex flex-col items-start gap-1 group focus:outline-none cursor-pointer"
+                >
+                  <span className={`font-mono text-xs transition-colors duration-300 ${
+                    currentSlide === index ? "text-brand-accent font-semibold" : "text-brand-text-sec/40 group-hover:text-brand-text-sec"
+                  }`}>
+                    0x{index + 1}
+                  </span>
+                  <div className={`h-0.5 transition-all duration-300 ${
+                    currentSlide === index ? "w-8 bg-brand-accent" : "w-4 bg-brand-border/30 group-hover:w-6"
+                  }`} />
+                </button>
               ))}
             </div>
 
           </div>
 
-        </div>
+          {/* Right Side: Massive Before/After Comparison Component (55% width equivalent) */}
+          <div className="lg:col-span-7 flex flex-col items-center justify-center">
+            
+            {/* Glass Luxury Card Styling wrapper */}
+            <div className="w-full bg-[#0F1524]/60 backdrop-blur-md border border-brand-border/60 p-4 md:p-6 shadow-2xl relative">
+              
+              {/* Header label in glass card */}
+              <div className="text-center mb-4 border-b border-brand-border/30 pb-3 flex justify-between items-center px-2">
+                <span className="text-[10px] tracking-widest text-brand-text-sec uppercase font-mono">Case Profile</span>
+                <span className="text-xs tracking-wider text-brand-accent uppercase font-serif font-light">{slide.service}</span>
+              </div>
 
-      </div>
+              {/* Draggable before/after panel */}
+              <div 
+                ref={containerRef}
+                className="relative w-full aspect-4/3 overflow-hidden select-none touch-pan-y cursor-ew-resize border border-brand-border/40"
+                onMouseMove={handleMouseMove}
+                onMouseDown={(e) => handleMove(e.clientX)}
+                onTouchStart={(e) => { if (e.touches.length > 0) handleMove(e.touches[0].clientX); }}
+                onTouchMove={handleTouchMove}
+              >
+                {/* After Image (Background) */}
+                <div className="absolute inset-0 pointer-events-none select-none">
+                  <Image
+                    src={slide.afterImage}
+                    alt={`${slide.service} After`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-contain pointer-events-none select-none"
+                    draggable={false}
+                  />
+                </div>
+                <div className="absolute bottom-4 right-4 bg-[#0B0F19]/90 backdrop-blur-sm border border-brand-border/40 px-3 py-1 text-[10px] text-brand-accent uppercase tracking-widest font-mono z-20 select-none">
+                  After
+                </div>
+
+                {/* Before Image (Foreground with Clip Path) */}
+                <div 
+                  className="absolute inset-0 pointer-events-none select-none"
+                  style={{
+                    clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
+                  }}
+                >
+                  <Image
+                    src={slide.beforeImage}
+                    alt={`${slide.service} Before`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-contain pointer-events-none select-none"
+                    draggable={false}
+                  />
+                </div>
+                <div className="absolute bottom-4 left-4 bg-[#0B0F19]/90 backdrop-blur-sm border border-brand-border/40 px-3 py-1 text-[10px] text-brand-text-sec uppercase tracking-widest font-mono z-20 select-none">
+                  Before
+                </div>
+
+                {/* Vertical Slider Handle Line */}
+                <div 
+                  className="absolute top-0 bottom-0 w-px bg-brand-accent z-30 pointer-events-none"
+                  style={{ left: `${sliderPosition}%` }}
+                >
+                  <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-accent text-[#0B0F19] flex items-center justify-center border-2 border-brand-bg shadow-2xl scale-110 active:scale-125 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dot indicators beneath comparison images */}
+              <div className="flex justify-center items-center gap-2 mt-6">
+                {SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setCurrentSlide(idx);
+                      setSliderPosition(50);
+                    }}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentSlide === idx ? "w-6 bg-brand-accent" : "bg-brand-text-sec/30 hover:bg-brand-text-sec/60"
+                    }`}
+                    aria-label={`Show transformation slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </Container>
 
       {/* Tailwind inline animations injection */}
       <style jsx global>{`
