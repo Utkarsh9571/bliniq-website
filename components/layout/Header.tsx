@@ -25,11 +25,23 @@ export default function Header() {
 
           {/* CTA / Mobile toggle */}
           <div className="flex items-center gap-4">
-            <a href="https://wa.me/918383061539" className="hidden lg:inline-flex">
+            <div className="hidden lg:flex flex-col text-right mr-2">
+              <span className="text-[10px] text-brand-text-sec uppercase tracking-widest">
+                Call Us Today
+              </span>
+              <a
+                href="tel:+917290062111"
+                className="text-xs text-brand-accent hover:text-brand-hover transition-colors font-mono"
+              >
+                +91 72900 62111
+              </a>
+            </div>
+
+            <Link href="/appointment" className="hidden lg:inline-flex">
               <Button variant="outline" className="py-2 px-5 text-[10px]">
-                WhatsApp Consult
+                Book Appointment
               </Button>
-            </a>
+            </Link>
 
             {/* Mobile menu button */}
             <button
@@ -77,16 +89,25 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-x-0 top-20 bg-brand-bg-sec border-b border-brand-border p-8 animate-fade-in z-45">
           <Navigation mobile={true} onLinkClick={() => setMobileMenuOpen(false)} />
-          <div className="mt-8 flex flex-col gap-4">
-            <a href="https://wa.me/918383061539" className="w-full">
+          <div className="mt-8 flex flex-col gap-4 text-center">
+            <span className="text-[10px] text-brand-text-sec uppercase tracking-widest block">
+              Call Us:
+            </span>
+            <a
+              href="tel:+917290062111"
+              className="text-sm text-brand-accent hover:text-brand-hover transition-colors font-mono"
+            >
+              +91 72900 62111
+            </a>
+            <Link href="/appointment" className="w-full">
               <Button
                 variant="primary"
                 className="w-full"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                WhatsApp Consult
+                Book Appointment
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       )}

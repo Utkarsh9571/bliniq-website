@@ -12,11 +12,13 @@ export default function Navigation({
 }: NavigationProps) {
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "#services" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Chief Surgeon", href: "#doctors" },
-    { label: "Reviews", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Services", href: "/services" },
+    { label: "Doctors", href: "/doctors" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "Appointment", href: "/appointment" },
   ];
 
   if (mobile) {

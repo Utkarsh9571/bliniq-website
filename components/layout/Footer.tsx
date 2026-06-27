@@ -13,8 +13,8 @@ export default function Footer() {
               BLINIQ
             </span>
             <p className="text-brand-text-sec text-sm leading-relaxed max-w-xs mt-2">
-              Bespoke high-definition laser liposuction and advanced cosmetic surgery. Leading
-              clinic in Delhi NCR.
+              Advanced aesthetic and reconstructive cosmetic surgery centre in Delhi NCR.
+              Theme migration of original WordPress content.
             </p>
           </div>
 
@@ -25,11 +25,11 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-3">
               {[
-                { label: "About Us", href: "#about" },
-                { label: "Our Services", href: "#services" },
-                { label: "Meet the Doctors", href: "#doctors" },
-                { label: "Transformations", href: "#gallery" },
-                { label: "Patient Reviews", href: "#testimonials" },
+                { label: "About Us", href: "/about-us" },
+                { label: "Our Services", href: "/services" },
+                { label: "Meet the Doctors", href: "/doctors" },
+                { label: "Transformations", href: "/gallery" },
+                { label: "Blog", href: "/blog" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -46,20 +46,18 @@ export default function Footer() {
           {/* Contact Details */}
           <div>
             <h4 className="font-serif text-lg text-brand-text font-medium mb-6 tracking-wide">
-              Delhi NCR Clinic
+              Delhi Clinic Location
             </h4>
             <p className="text-brand-text-sec text-sm leading-relaxed mb-4">
-              Dhara Vardan House, Plot No. 24
+              Qutab Vihar Phase-1, Dwarka Area
               <br />
-              A-1 Block, Qutab Vihar Phase-1
-              <br />
-              New Delhi - 110071
+              New Delhi - 110071, India
             </p>
             <p className="text-brand-text-sec text-sm">
-              <span className="text-brand-accent">Phone:</span> +91 8383061539
+              <span className="text-brand-accent">Phone:</span> +91 72900 62111
               <br />
-              <span className="text-brand-accent">Email:</span>{" "}
-              bliniqcosmeticsurgery@gmail.com
+              <span className="text-brand-accent">Email:</span> Contact email pending
+              migration from existing WordPress source.
             </p>
           </div>
 
@@ -68,22 +66,15 @@ export default function Footer() {
             <h4 className="font-serif text-lg text-brand-text font-medium mb-6 tracking-wide">
               Opening Hours
             </h4>
-            <ul className="flex flex-col gap-2 text-sm text-brand-text-sec">
-              <li className="flex justify-between">
-                <span>Mon - Sat:</span>
-                <span>10:00 AM - 7:00 PM</span>
-              </li>
-              <li className="flex justify-between text-brand-accent/70">
-                <span>Sunday:</span>
-                <span>By Appointment Only</span>
-              </li>
-            </ul>
+            <p className="text-sm text-brand-text-sec leading-relaxed">
+              Operating hours pending migration from existing WordPress database config.
+            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-brand-border/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-text-sec">
-          <p>&copy; {new Date().getFullYear()} BLINIQ Clinic. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} BLINIQ. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#privacy" className="hover:text-brand-accent transition-colors">
               Privacy Policy
