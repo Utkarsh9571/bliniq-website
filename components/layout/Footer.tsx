@@ -14,20 +14,6 @@ export default function Footer() {
   return (
     <footer className="bg-brand-bg-sec border-t border-brand-border py-16 md:py-24 text-brand-text">
       <Container>
-        {/* Accreditation Strip */}
-        <div className="border-b border-brand-border/40 pb-10 mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {accreditation.map((item, i) => (
-              <span 
-                key={i} 
-                className="text-xs uppercase tracking-[0.2em] font-mono text-brand-accent font-semibold"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* 5-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Column 1: Company */}
@@ -114,7 +100,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <div className="relative w-24 h-6 opacity-75 hover:opacity-100 transition-opacity">
               <Image
-                src="/uploads/2020/07/logo-light.png"
+                src="/logo.png"
                 alt="BLINIQ Logo"
                 fill
                 className="object-contain"
