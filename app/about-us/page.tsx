@@ -13,6 +13,10 @@ export default function AboutPage() {
     post_content: "<p>Content pending migration from WordPress.</p>",
   };
 
+  let rawHtml = aboutPage.post_content || "";
+  rawHtml = rawHtml.replace(/https?:\/\/(www\.)?bliniq\.in/g, "");
+  rawHtml = rawHtml.replace(/\/wp-content\/uploads\//g, "/uploads/");
+
   return (
     <>
       <Header />
@@ -25,7 +29,7 @@ export default function AboutPage() {
             <div
               className="prose prose-invert max-w-none space-y-6 text-brand-text-sec text-base leading-relaxed font-sans
                 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-brand-accent [&_h2]:font-light [&_h2]:tracking-wide [&_h2]:mt-8 [&_h2]:mb-4"
-              dangerouslySetInnerHTML={{ __html: aboutPage.post_content }}
+              dangerouslySetInnerHTML={{ __html: rawHtml }}
             />
           </div>
         </Container>

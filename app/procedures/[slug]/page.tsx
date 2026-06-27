@@ -59,6 +59,7 @@ export default async function ProcedureDetailPage({ params }: PageProps) {
   
   let rawHtml = wpPage?.post_content || "";
   rawHtml = rawHtml.replace(/https?:\/\/(www\.)?bliniq\.in/g, "");
+  rawHtml = rawHtml.replace(/\/wp-content\/uploads\//g, "/uploads/");
 
   const defaultFaqs = [
     {
