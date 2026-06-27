@@ -45,7 +45,7 @@ export default function BlogPreview() {
               </div>
 
               {/* Blog Details */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
+              <div className="p-6 flex flex-col justify-between grow">
                 <div>
                   <span className="text-brand-accent/60 text-[10px] tracking-widest font-mono uppercase block mb-3">
                     {post.post_date ? post.post_date.split(" ")[0] : "Date Pending"}

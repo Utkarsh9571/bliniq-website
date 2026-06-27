@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
@@ -37,16 +36,16 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/appointment">
+            <a href="#contact-form">
               <Button variant="primary" className="px-10">
                 Book Consultation
               </Button>
-            </Link>
-            <Link href="/services">
+            </a>
+            <a href="#services">
               <Button variant="outline" className="px-10">
                 Explore Services
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </Container>

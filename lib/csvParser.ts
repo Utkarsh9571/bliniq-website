@@ -1,12 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-export function getCsvData(filename: string): any[] {
-  const filePath = path.join(process.cwd(), filename);
+export function getCsvData(filename: string): Record<string, string>[] {
+  const filePath = path.join(/*turbopackIgnore: true*/ process.cwd(), filename);
   if (!fs.existsSync(filePath)) return [];
+
   const content = fs.readFileSync(filePath, "utf-8");
 
-  const rows: any[] = [];
+  const rows: string[][] = [];
   let row: string[] = [];
   let cell = "";
   let inQuotes = false;
@@ -43,11 +44,11 @@ export function getCsvData(filename: string): any[] {
   }
 
   const headers = rows[0].map((h: string) => h.replace(/^\uFEFF/, "").trim().replace(/"/g, ""));
-  const data: any[] = [];
+  const data: Record<string, string>[] = [];
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
     if (r.length < headers.length) continue;
-    const item: any = {};
+    const item: Record<string, string> = {};
     headers.forEach((h: string, idx: number) => {
       item[h] = r[idx];
     });
@@ -55,3 +56,20 @@ export function getCsvData(filename: string): any[] {
   }
   return data;
 }
+
+export interface PageContent {
+  ID: string;
+  post_title: string;
+  post_name: string;
+  post_content: string;
+}
+
+export function getPageContentBySlug(slug: string): PageContent | undefined {
+  const pages = getCsvData("data-page-content.csv") as unknown as PageContent[];
+  return pages.find((p) => p.post_name === slug);
+}
+
+export function getAllPageContents(): PageContent[] {
+  return getCsvData("data-page-content.csv") as unknown as PageContent[];
+}
+

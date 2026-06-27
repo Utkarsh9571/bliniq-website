@@ -2,13 +2,14 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import StorySection from "@/components/home/StorySection";
-import CategoryGrid from "@/components/home/CategoryGrid";
-import ServicesPreview from "@/components/home/ServicesPreview";
 import DoctorPreview from "@/components/home/DoctorPreview";
+import OriginSection from "@/components/home/OriginSection";
+import ServicesPreview from "@/components/home/ServicesPreview";
 import Gallery from "@/components/home/Gallery";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
-import BlogPreview from "@/components/home/BlogPreview";
+import ContactFormSection from "@/components/home/ContactFormSection";
+import SurgeryVideosSection from "@/components/home/SurgeryVideosSection";
 
 export default function Home() {
   return (
@@ -18,26 +19,29 @@ export default function Home() {
         {/* 1. Cinematic Hero */}
         <Hero />
 
-        {/* 2. Clinic Story */}
-        <StorySection />
-
-        {/* 3. Category Grid */}
-        <CategoryGrid />
-
-        {/* 4. Popular Procedures */}
-        <ServicesPreview />
-
-        {/* 5. Doctor Spotlight */}
+        {/* 2. Doctor Introduction */}
         <DoctorPreview />
 
-        {/* 6. Before & After Gallery */}
+        {/* 3. BLINIQ Origin */}
+        <OriginSection />
+
+        {/* 4. Services Offered */}
+        <ServicesPreview />
+
+        {/* 5. Patient Galleries (Demonstration Sliders) */}
         <Gallery />
 
-        {/* 7. Testimonials */}
+        {/* 6. Why Choose BLINIQ */}
+        <WhyChooseUs />
+
+        {/* 7. Patient Stories / Testimonials */}
         <TestimonialsPreview />
 
-        {/* 8. Latest Articles */}
-        <BlogPreview />
+        {/* 8. Consultation Contact Form */}
+        <ContactFormSection />
+
+        {/* 9. Surgery Video Testimonials */}
+        <SurgeryVideosSection />
       </main>
       <Footer />
     </>

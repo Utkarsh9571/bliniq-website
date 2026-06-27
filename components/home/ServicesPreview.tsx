@@ -3,31 +3,27 @@ import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import CTAButton from "../ui/CTAButton";
-import { getCsvData } from "@/lib/csvParser";
+import { COSMETIC_SERVICES } from "@/lib/services";
 
 export default function ServicesPreview() {
-  const services = getCsvData("data-services.csv").slice(0, 3); // Top 3 departments
-
-  const getServiceImage = (index: number) => {
-    const images = [
-      "/uploads/2023/12/Liposuction-Tummy360.jpeg",
-      "/uploads/2023/12/Gynecomastia-1-724x1024.jpeg",
-      "/uploads/2024/02/Grade-2-for-gynecomastia-treatment.jpg",
-    ];
-    return images[index % images.length];
-  };
+  // Show popular surgeries on the homepage (Gynecomastia, Liposuction, Tummy Tuck)
+  const popularServices = COSMETIC_SERVICES.filter(s => 
+    s.slug === "gynecomastia-surgery-in-delhi" || 
+    s.slug === "liposuction-surgery-in-delhi" || 
+    s.slug === "tummy-tuck"
+  );
 
   return (
     <section id="services" className="py-32 bg-brand-bg-sec text-brand-text border-b border-brand-border/40">
       <Container>
         <SectionTitle
           title="Popular Procedures"
-          subtitle="Clinical Specializations"
+          subtitle="Clinical Specialties"
           align="center"
         />
 
         <div className="flex flex-col gap-24 mt-16">
-          {services.map((svc, index) => {
+          {popularServices.map((svc, index) => {
             const isEven = index % 2 === 0;
             return (
               <div
@@ -41,8 +37,8 @@ export default function ServicesPreview() {
                   }`}
                 >
                   <Image
-                    src={getServiceImage(index)}
-                    alt={svc.post_title}
+                    src={svc.image}
+                    alt={svc.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
@@ -59,16 +55,14 @@ export default function ServicesPreview() {
                     Procedure 0{index + 1}
                   </span>
                   <h3 className="font-serif text-3xl text-brand-text font-light">
-                    {svc.post_title}
+                    {svc.title}
                   </h3>
                   <p className="text-brand-text-sec text-sm leading-relaxed font-sans mb-4">
-                    Medical procedures and treatments mapped to the {svc.post_title}{" "}
-                    department. Detailed guidelines are pending migration from WordPress slug:{" "}
-                    <code className="text-brand-accent">{svc.post_name}</code>.
+                    {svc.description}
                   </p>
                   <div>
-                    <CTAButton href={`/services#${svc.post_name}`}>
-                      View Department Details
+                    <CTAButton href={`/${svc.slug}`}>
+                      View Procedure Details
                     </CTAButton>
                   </div>
                 </div>

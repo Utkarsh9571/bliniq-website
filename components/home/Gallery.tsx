@@ -13,55 +13,38 @@ export default function Gallery() {
           align="center"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          {/* Case 1: Knee Liposuction */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 max-w-5xl mx-auto">
+          {/* Case 1: Liposuction */}
           <div className="flex flex-col gap-4">
             <BeforeAfterSlider
-              beforeImage="/uploads/2021/06/Before-and-after-knee-liposuction-1296x728-slide1-1-1-1024x575.jpg"
-              afterImage="/uploads/2021/06/Before-and-after-knee-liposuction-1296x728-slide1-1-1-1024x575.jpg"
-              className="aspect-3/4"
+              beforeImage="/lipo_before_1782474133850.png"
+              afterImage="/lipo_after_1782474148532.png"
+              className="aspect-4/3 border border-brand-border/60"
             />
-            <div className="text-center md:text-left mt-2">
-              <h3 className="font-serif text-xl text-brand-text font-light">
-                Knee Liposuction
+            <div className="text-center mt-4">
+              <h3 className="font-serif text-2xl text-brand-text font-light">
+                Liposuction Contouring
               </h3>
-              <span className="text-[10px] uppercase tracking-widest text-brand-text-sec font-mono">
-                WordPress Upload Archive
-              </span>
+              <p className="text-xs text-brand-text-sec mt-1.5 font-sans uppercase tracking-widest">
+                Conceptual Demonstration
+              </p>
             </div>
           </div>
 
           {/* Case 2: Gynecomastia Chest Contouring */}
           <div className="flex flex-col gap-4">
             <BeforeAfterSlider
-              beforeImage="/uploads/2023/12/Gynecomastia-1-724x1024.jpeg"
-              afterImage="/uploads/2023/12/Gynecomastia-1-724x1024.jpeg"
-              className="aspect-3/4"
+              beforeImage="/gynecomastia_before_1782474167092.png"
+              afterImage="/gynecomastia_after_1782474181819.png"
+              className="aspect-4/3 border border-brand-border/60"
             />
-            <div className="text-center md:text-left mt-2">
-              <h3 className="font-serif text-xl text-brand-text font-light">
+            <div className="text-center mt-4">
+              <h3 className="font-serif text-2xl text-brand-text font-light">
                 Gynecomastia Reduction
               </h3>
-              <span className="text-[10px] uppercase tracking-widest text-brand-text-sec font-mono">
-                WordPress Upload Archive
-              </span>
-            </div>
-          </div>
-
-          {/* Case 3: Tummy Contouring */}
-          <div className="flex flex-col gap-4">
-            <BeforeAfterSlider
-              beforeImage="/uploads/2023/12/Tummy-Tuck-1-724x1024.jpeg"
-              afterImage="/uploads/2023/12/Tummy-Tuck-1-724x1024.jpeg"
-              className="aspect-3/4"
-            />
-            <div className="text-center md:text-left mt-2">
-              <h3 className="font-serif text-xl text-brand-text font-light">
-                Tummy Tuck / Abdomen Lipo
-              </h3>
-              <span className="text-[10px] uppercase tracking-widest text-brand-text-sec font-mono">
-                WordPress Upload Archive
-              </span>
+              <p className="text-xs text-brand-text-sec mt-1.5 font-sans uppercase tracking-widest">
+                Conceptual Demonstration
+              </p>
             </div>
           </div>
         </div>

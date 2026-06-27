@@ -15,12 +15,11 @@ export default function TestimonialsPreview() {
             &ldquo;
           </span>
           <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-brand-text leading-relaxed tracking-wide mb-8">
-            Experience exceptional cosmetic care tailored to your unique desires in a premium,
-            safe clinical setting.
+            Patient stories and testimonials are being migrated from the existing BLINIQ website.
           </blockquote>
           <div className="h-px w-16 bg-brand-accent/40 mb-6" />
-          <cite className="font-mono text-xs uppercase tracking-widest text-brand-text-sec not-italic">
-            Patient Reviews Pending WordPress Database Connection
+          <cite className="font-mono text-xs uppercase tracking-widest text-brand-text-sec/60 not-italic">
+            Verified Reviews Status
           </cite>
         </div>
       </Container>

@@ -1,54 +1,232 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
+import { HEADER_NAVIGATION_DATA } from "@/lib/navigation";
 
 interface NavigationProps {
   mobile?: boolean;
   onLinkClick?: () => void;
 }
 
-export default function Navigation({
-  mobile = false,
-  onLinkClick,
-}: NavigationProps) {
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Services", href: "/services" },
-    { label: "Doctors", href: "/doctors" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/contact-us" },
-    { label: "Appointment", href: "/appointment" },
-  ];
+export default function Navigation({ mobile = false, onLinkClick }: NavigationProps) {
+  // Desktop hover active index states
+  const [activeSection, setActiveSection] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  // Mobile navigation accordion active states
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSubCategory, setExpandedSubCategory] = useState<string | null>(null);
 
   if (mobile) {
     return (
-      <nav className="flex flex-col gap-6 text-center">
-        {navItems.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            onClick={onLinkClick}
-            className="text-brand-text/80 hover:text-brand-accent font-sans text-sm tracking-[0.2em] uppercase transition-colors duration-300"
-          >
-            {item.label}
-          </Link>
-        ))}
+      <nav className="flex flex-col gap-4 text-left w-full">
+        {HEADER_NAVIGATION_DATA.map((section) => {
+          const isExpanded = expandedSection === section.title;
+
+          if (section.type === "single") {
+            return (
+              <Link
+                key={section.title}
+                href={section.href || "/"}
+                onClick={onLinkClick}
+                className="py-3.5 border-b border-brand-border/30 text-brand-text/90 hover:text-brand-accent font-sans text-sm tracking-[0.2em] uppercase transition-colors"
+              >
+                {section.title}
+              </Link>
+            );
+          }
+
+          return (
+            <div key={section.title} className="border-b border-brand-border/30 py-2">
+              <button
+                onClick={() => setExpandedSection(isExpanded ? null : section.title)}
+                className="w-full flex items-center justify-between py-2 text-brand-text/90 hover:text-brand-accent font-sans text-sm tracking-[0.2em] uppercase transition-colors"
+              >
+                <span>{section.title}</span>
+                <span className={`text-xs transform transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}>
+                  ▼
+                </span>
+              </button>
+
+              {isExpanded && (
+                <div className="pl-4 mt-2 mb-4 space-y-3 animate-fade-in">
+                  {section.categories?.map((cat) => {
+                    const isCatExpanded = expandedSubCategory === cat.title;
+                    return (
+                      <div key={cat.title} className="space-y-2">
+                        {section.categories && section.categories.length > 1 ? (
+                          <>
+                            <button
+                              onClick={() => setExpandedSubCategory(isCatExpanded ? null : cat.title)}
+                              className="w-full flex items-center justify-between py-1.5 text-xs text-brand-accent uppercase tracking-widest font-semibold"
+                            >
+                              <span>{cat.title}</span>
+                              <span className="text-[10px]">{isCatExpanded ? "−" : "+"}</span>
+                            </button>
+                            {isCatExpanded && (
+                              <div className="pl-3 space-y-2.5 pt-1.5 pb-2 border-l border-brand-border/30">
+                                {cat.procedures.map((p) => (
+                                  <Link
+                                    key={p.slug}
+                                    href={`/${p.slug}`}
+                                    onClick={onLinkClick}
+                                    className="block text-xs text-brand-text-sec hover:text-brand-accent transition-colors py-1"
+                                  >
+                                    {p.title}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="space-y-2.5">
+                            {cat.procedures.map((p) => (
+                              <Link
+                                key={p.slug}
+                                href={`/${p.slug}`}
+                                onClick={onLinkClick}
+                                className="block text-xs text-brand-text-sec hover:text-brand-accent transition-colors py-1"
+                              >
+                                {p.title}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+
+                  {section.items?.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/${item.slug}`}
+                      onClick={onLinkClick}
+                      className="block text-xs text-brand-text-sec hover:text-brand-accent transition-colors py-1"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </nav>
     );
   }
 
+  // Desktop Render
   return (
-    <nav className="hidden md:flex items-center gap-8">
-      {navItems.map((item) => (
-        <Link
-          key={item.label}
-          href={item.href}
-          className="text-brand-text-sec hover:text-brand-accent font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-300"
-        >
-          {item.label}
-        </Link>
-      ))}
+    <nav className="hidden xl:flex items-center gap-6 z-50">
+      {HEADER_NAVIGATION_DATA.map((section, idx) => {
+        const isHovered = activeSection === idx;
+
+        if (section.type === "single") {
+          return (
+            <Link
+              key={section.title}
+              href={section.href || "/"}
+              className="text-brand-text-sec hover:text-brand-accent font-sans text-[11px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 font-semibold"
+            >
+              {section.title}
+            </Link>
+          );
+        }
+
+        return (
+          <div
+            key={section.title}
+            className="relative"
+            onMouseEnter={() => {
+              setActiveSection(idx);
+              if (section.categories && section.categories.length > 0) {
+                setActiveCategory(section.categories[0].title);
+              }
+            }}
+            onMouseLeave={() => {
+              setActiveSection(null);
+              setActiveCategory(null);
+            }}
+          >
+            <button className="text-brand-text-sec hover:text-brand-accent font-sans text-[11px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 flex items-center gap-1.5 font-semibold cursor-pointer">
+              <span>{section.title}</span>
+              <span className="text-[8px] opacity-60">▼</span>
+            </button>
+
+            {/* Dropdown container */}
+            <div
+              className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-250 ease-out z-50 ${
+                isHovered
+                  ? "opacity-100 translate-y-0 visible"
+                  : "opacity-0 -translate-y-2 invisible pointer-events-none"
+              }`}
+            >
+              {/* Mega Menu panel */}
+              {section.type === "mega" && (
+                <div className="w-195 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-2xl p-8 shadow-2xl flex gap-8">
+                  {/* Left categories column */}
+                  <div className="w-1/3 border-r border-brand-border/30 pr-6 flex flex-col gap-2">
+                    {section.categories?.map((cat) => (
+                      <button
+                        key={cat.title}
+                        onMouseEnter={() => setActiveCategory(cat.title)}
+                        className={`text-left px-4 py-3 rounded-lg text-xs uppercase tracking-widest transition-all duration-200 cursor-pointer ${
+                          activeCategory === cat.title
+                            ? "bg-brand-accent/10 text-brand-accent font-semibold border-l-2 border-brand-accent pl-3"
+                            : "text-brand-text-sec hover:text-brand-text hover:bg-brand-card/30"
+                        }`}
+                      >
+                        {cat.title}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Right procedures showcase */}
+                  <div className="w-2/3 pl-2">
+                    {section.categories?.map((cat) => {
+                      if (activeCategory !== cat.title) return null;
+                      return (
+                        <div key={cat.title} className="grid grid-cols-2 gap-x-6 gap-y-4 animate-fade-in">
+                          {cat.procedures.map((p) => (
+                            <Link
+                              key={p.slug}
+                              href={`/${p.slug}`}
+                              className="group/item flex flex-col gap-1 hover:bg-brand-accent/5 p-2.5 rounded-lg transition-colors"
+                            >
+                              <span className="text-[12px] text-brand-text font-serif group-hover/item:text-brand-accent transition-colors font-medium">
+                                {p.title}
+                              </span>
+                              <span className="text-[10px] text-brand-text-sec/60 leading-normal line-clamp-1">
+                                Click to view treatment guidelines
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Simple Dropdown list */}
+              {section.type === "dropdown" && (
+                <div className="w-56 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-xl p-4 shadow-2xl flex flex-col gap-2.5">
+                  {section.items?.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/${item.slug}`}
+                      className="text-xs text-brand-text-sec hover:text-brand-accent py-1.5 px-2.5 rounded transition-all hover:bg-brand-accent/5 font-medium"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </nav>
   );
 }
