@@ -4,13 +4,6 @@ import Image from "next/image";
 import Container from "../ui/Container";
 
 export default function Footer() {
-  const accreditation = [
-    "✓ Delhi NCR",
-    "✓ Since 2019",
-    "✓ Thousands of Procedures",
-    "✓ International Patients"
-  ];
-
   return (
     <footer className="bg-brand-bg-sec border-t border-brand-border py-16 md:py-24 text-brand-text">
       <Container>

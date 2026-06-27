@@ -104,7 +104,7 @@ export default function Header() {
 
               {/* Popdown container */}
               <div 
-                className={`absolute left-[-76px] top-full mt-2 w-48 bg-[#0B0F19]/95 backdrop-blur-xl border border-brand-border/60 p-4 rounded-xl shadow-2xl transition-all duration-250 z-50 text-center ${
+                className={`absolute -left-19 top-full mt-2 w-48 bg-[#0B0F19]/95 backdrop-blur-xl border border-brand-border/60 p-4 rounded-xl shadow-2xl transition-all duration-250 z-50 text-center ${
                   isPopdownVisible
                     ? "opacity-100 translate-y-0 visible"
                     : "opacity-0 translate-y-2 invisible"
