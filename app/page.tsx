@@ -5,7 +5,7 @@ import Hero from "@/components/home/Hero";
 import DoctorPreview from "@/components/home/DoctorPreview";
 import OriginSection from "@/components/home/OriginSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
-import Gallery from "@/components/home/Gallery";
+import TransformationsFeed from "@/components/home/TransformationsFeed";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import ContactFormSection from "@/components/home/ContactFormSection";
@@ -28,8 +28,8 @@ export default function Home() {
         {/* 4. Services Offered */}
         <ServicesPreview />
 
-        {/* 5. Patient Galleries (Demonstration Sliders) */}
-        <Gallery />
+        {/* 5. Real Patient Transformations */}
+        <TransformationsFeed />
 
         {/* 6. Why Choose BLINIQ */}
         <WhyChooseUs />

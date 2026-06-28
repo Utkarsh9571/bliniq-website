@@ -23,7 +23,7 @@ const SLIDES: SlideData[] = [
     headingPart1: "Define. Sculpt.",
     headingPart2Highlight: "Transform.",
     headingPart3: "",
-    description: "Advanced cosmetic procedures with precision, care, and artistic excellence.",
+    description: "Advanced Vaser 4D High-Definition Liposuction to target resistant pockets of fat, sculpt natural muscular outlines, and achieve precision body contouring with minimal downtime.",
     beforeImage: "/lipo_before_1782474133850.png",
     afterImage: "/lipo_after_1782474148532.png"
   },
@@ -33,7 +33,7 @@ const SLIDES: SlideData[] = [
     headingPart1: "Restore. Strength.",
     headingPart2Highlight: "Confidence.",
     headingPart3: "",
-    description: "Natural-looking masculine chest sculpting with minimal scarring.",
+    description: "Natural-looking masculine chest correction with advanced glandular excision and lipo contouring. Minimally invasive daycare surgery tailored for athletic contouring.",
     beforeImage: "/gynecomastia_before_1782474167092.png",
     afterImage: "/gynecomastia_after_1782474181819.png"
   },
@@ -43,7 +43,7 @@ const SLIDES: SlideData[] = [
     headingPart1: "Refine. Balance.",
     headingPart2Highlight: "Elevate.",
     headingPart3: "",
-    description: "Subtle, elegant enhancements tailored to your facial identity.",
+    description: "Subtle, elegant nasal reshaping and structural rhinoplasty tailored to your unique facial balance. Reconstructive excellence to elevate symmetry and confidence.",
     beforeImage: "/rhinoplasty_before.png",
     afterImage: "/rhinoplasty_after.png"
   },
@@ -53,7 +53,7 @@ const SLIDES: SlideData[] = [
     headingPart1: "Reclaim. Restore.",
     headingPart2Highlight: "Renew.",
     headingPart3: "",
-    description: "Permanent, natural-looking hair restoration solutions.",
+    description: "High-density permanent hair restoration using micro-FUE graft techniques. Safe, clinical follicular insertion designed to rebuild natural hairlines.",
     beforeImage: "/hair_before.png",
     afterImage: "/hair_after.png"
   }
@@ -147,8 +147,37 @@ export default function Hero() {
               {slide.description}
             </p>
 
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-3 gap-4 border-t border-b border-brand-border/30 py-4 w-full text-center">
+              <div className="flex flex-col items-center">
+                <span className="text-brand-accent text-xs font-mono font-bold">3000+</span>
+                <span className="text-[9px] text-brand-text-sec uppercase tracking-wider mt-1">Procedures</span>
+              </div>
+              <div className="flex flex-col items-center border-x border-brand-border/30">
+                <span className="text-brand-accent text-xs font-mono font-bold">FDA</span>
+                <span className="text-[9px] text-brand-text-sec uppercase tracking-wider mt-1">Approved Tech</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-brand-accent text-xs font-mono font-bold">EMI</span>
+                <span className="text-[9px] text-brand-text-sec uppercase tracking-wider mt-1">No-Cost Option</span>
+              </div>
+            </div>
+
+            {/* Doctor Credentials Snippet */}
+            <div className="w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded">
+              <div className="flex flex-col">
+                <span className="text-xs font-serif text-brand-text font-medium">Dr. Ashwani Kumar</span>
+                <span className="text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Chief Plastic Surgeon</span>
+              </div>
+              <div className="h-6 w-px bg-brand-border/30" />
+              <div className="text-right">
+                <span className="text-[10px] text-brand-accent font-mono block font-semibold">M.Ch Plastic Surgery</span>
+                <span className="text-[9px] text-brand-text-sec/60 block mt-0.5">18+ Years Experience</span>
+              </div>
+            </div>
+
             {/* Call-to-Actions */}
-            <div className="flex flex-wrap gap-4 mt-4 w-full sm:w-auto">
+            <div className="flex flex-wrap gap-4 mt-2 w-full sm:w-auto">
               <a href="#contact-form" className="grow sm:grow-0">
                 <Button variant="primary" className="w-full sm:w-auto px-8 py-3.5 text-xs uppercase tracking-widest font-semibold">
                   Book Consultation

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HEADER_NAVIGATION_DATA } from "@/lib/navigation";
 
 interface NavigationProps {
@@ -12,11 +13,9 @@ interface NavigationProps {
 export default function Navigation({ mobile = false, onLinkClick }: NavigationProps) {
   // Desktop hover active index states
   const [activeSection, setActiveSection] = useState<number | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   // Mobile navigation accordion active states
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const [expandedSubCategory, setExpandedSubCategory] = useState<string | null>(null);
 
   if (mobile) {
     return (
@@ -50,52 +49,26 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
               </button>
 
               {isExpanded && (
-                <div className="pl-4 mt-2 mb-4 space-y-3 animate-fade-in">
-                  {section.categories?.map((cat) => {
-                    const isCatExpanded = expandedSubCategory === cat.title;
-                    return (
-                      <div key={cat.title} className="space-y-2">
-                        {section.categories && section.categories.length > 1 ? (
-                          <>
-                            <button
-                              onClick={() => setExpandedSubCategory(isCatExpanded ? null : cat.title)}
-                              className="w-full flex items-center justify-between py-1.5 text-xs text-brand-accent uppercase tracking-widest font-semibold"
-                            >
-                              <span>{cat.title}</span>
-                              <span className="text-[10px]">{isCatExpanded ? "−" : "+"}</span>
-                            </button>
-                            {isCatExpanded && (
-                              <div className="pl-3 space-y-2.5 pt-1.5 pb-2 border-l border-brand-border/30">
-                                {cat.procedures.map((p) => (
-                                  <Link
-                                    key={p.slug}
-                                    href={`/${p.slug}`}
-                                    onClick={onLinkClick}
-                                    className="block text-xs text-brand-text-sec hover:text-brand-accent transition-colors py-1"
-                                  >
-                                    {p.title}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </>
-                        ) : (
-                          <div className="space-y-2.5">
-                            {cat.procedures.map((p) => (
-                              <Link
-                                key={p.slug}
-                                href={`/${p.slug}`}
-                                onClick={onLinkClick}
-                                className="block text-xs text-brand-text-sec hover:text-brand-accent transition-colors py-1"
-                              >
-                                {p.title}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
+                <div className="pl-4 mt-2 mb-4 space-y-4 animate-fade-in">
+                  {section.categories?.map((cat) => (
+                    <div key={cat.title} className="space-y-2">
+                      <span className="text-[10px] text-brand-accent uppercase tracking-widest font-semibold block">
+                        {cat.title}
+                      </span>
+                      <div className="space-y-2 pl-2 border-l border-brand-border/30">
+                        {cat.procedures.map((p) => (
+                          <Link
+                            key={p.title}
+                            href={`/${p.slug}`}
+                            onClick={onLinkClick}
+                            className="block py-1 text-xs text-brand-text-sec hover:text-brand-accent transition-colors"
+                          >
+                            {p.title}
+                          </Link>
+                        ))}
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
 
                   {section.items?.map((item) => (
                     <Link
@@ -139,16 +112,8 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
           <div
             key={section.title}
             className="relative"
-            onMouseEnter={() => {
-              setActiveSection(idx);
-              if (section.categories && section.categories.length > 0) {
-                setActiveCategory(section.categories[0].title);
-              }
-            }}
-            onMouseLeave={() => {
-              setActiveSection(null);
-              setActiveCategory(null);
-            }}
+            onMouseEnter={() => setActiveSection(idx)}
+            onMouseLeave={() => setActiveSection(null)}
           >
             <button className="relative text-brand-text-sec hover:text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 py-4 flex items-center gap-1.5 font-semibold cursor-pointer group">
               <span>{section.title}</span>
@@ -166,48 +131,44 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
             >
               {/* Mega Menu panel */}
               {section.type === "mega" && (
-                <div className="w-195 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-2xl p-8 shadow-2xl flex gap-8">
-                  {/* Left categories column */}
-                  <div className="w-1/3 border-r border-brand-border/30 pr-6 flex flex-col gap-2">
-                    {section.categories?.map((cat) => (
-                      <button
-                        key={cat.title}
-                        onMouseEnter={() => setActiveCategory(cat.title)}
-                        className={`text-left px-4 py-3 rounded-lg text-xs uppercase tracking-widest transition-all duration-200 cursor-pointer ${
-                          activeCategory === cat.title
-                            ? "bg-brand-accent/10 text-brand-accent font-semibold border-l-2 border-brand-accent pl-3"
-                            : "text-brand-text-sec hover:text-brand-text hover:bg-brand-card/30"
-                        }`}
-                      >
+                <div className="w-195 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-2xl p-6 shadow-2xl flex flex-col gap-4">
+                  {section.categories?.map((cat) => (
+                    <div key={cat.title} className="flex flex-col gap-3">
+                      <span className="text-[9px] text-brand-accent uppercase tracking-widest font-semibold border-b border-brand-border/30 pb-1.5 mb-1 block">
                         {cat.title}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Right procedures showcase */}
-                  <div className="w-2/3 pl-2">
-                    {section.categories?.map((cat) => {
-                      if (activeCategory !== cat.title) return null;
-                      return (
-                        <div key={cat.title} className="grid grid-cols-2 gap-x-6 gap-y-4 animate-fade-in">
-                          {cat.procedures.map((p) => (
-                            <Link
-                              key={p.slug}
-                              href={`/${p.slug}`}
-                              className="group/item flex flex-col gap-1 hover:bg-brand-accent/5 p-2.5 rounded-lg transition-colors"
-                            >
-                              <span className="text-[12px] text-brand-text font-serif group-hover/item:text-brand-accent transition-colors font-medium">
+                      </span>
+                      <div className="grid grid-cols-2 gap-4">
+                        {cat.procedures.map((p) => (
+                          <Link
+                            key={p.title}
+                            href={`/${p.slug}`}
+                            onClick={onLinkClick}
+                            className="group/item flex items-center gap-3 hover:bg-brand-accent/5 p-2 rounded-lg transition-all duration-200 border border-transparent hover:border-brand-border/30"
+                          >
+                            {p.image && (
+                              <div className="relative w-12 h-12 rounded bg-brand-card overflow-hidden shrink-0 border border-brand-border/40">
+                                <Image
+                                  src={p.image}
+                                  alt={p.title}
+                                  fill
+                                  sizes="48px"
+                                  className="object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-300"
+                                />
+                              </div>
+                            )}
+                            <div className="flex flex-col min-w-0">
+                              <span className="text-[11px] text-brand-text font-serif group-hover/item:text-brand-accent transition-colors font-semibold truncate leading-tight">
                                 {p.title}
                               </span>
-                              <span className="text-[10px] text-brand-text-sec/60 leading-normal line-clamp-1">
-                                Click to view treatment guidelines
+                              <span className="text-[9px] text-brand-text-sec/60 leading-normal line-clamp-2 mt-0.5 font-sans">
+                                {p.description || "View treatment guidelines"}
                               </span>
-                            </Link>
-                          ))}
-                        </div>
-                      );
-                    })}
-                  </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
 

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "type": "image",
+    "procedure": "VASER Liposuction",
+    "caption": "Abdominal contouring definition showing 4D muscle shadows. 3-months recovery.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/lipo_after_1782474148532.png"
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "procedure": "Gynecomastia Excision",
+    "caption": "Immediate chest flattening after daycare surgical correction under sedation.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/gynecomastia_after_1782474181819.png"
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "procedure": "Rhinoplasty Surgery",
+    "caption": "Nasal profile alignment. Refined tip projection and dorsal hump correction.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/rhinoplasty_after.png"
+  },
+  {
+    "id": 4,
+    "type": "image",
+    "procedure": "Hair Restoration",
+    "caption": "High-density hairline reconstruction 10-months post-op.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/hair_after.png"
+  },
+  {
+    "id": 5,
+    "type": "image",
+    "procedure": "Abdominoplasty",
+    "caption": "Tummy tuck core muscle repair and loose skin reduction. Full contouring.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/lipo_after_1782474148532.png"
+  },
+  {
+    "id": 6,
+    "type": "video",
+    "procedure": "4D Contouring",
+    "caption": "VASER 4D post-care swelling resolution at 4 weeks.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/gynecomastia_after_1782474181819.png"
+  },
+  {
+    "id": 7,
+    "type": "image",
+    "procedure": "Nasal Symmetry Study",
+    "caption": "Frontal nasal profile alignment demonstrating natural symmetry.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/rhinoplasty_after.png"
+  },
+  {
+    "id": 8,
+    "type": "image",
+    "procedure": "Micro-FUE Hair Transplant",
+    "caption": "Crown hair restoration FUE graft density results.",
+    "instagramUrl": "https://instagram.com/bliniq",
+    "media": "/hair_after.png"
+  }
+]

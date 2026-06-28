@@ -1,60 +1,222 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 
+interface VideoStory {
+  id: string;
+  title: string;
+  category: string;
+  duration: string;
+  desc: string;
+  thumbnail: string;
+}
+
+const VIDEO_STORIES: VideoStory[] = [
+  {
+    id: "S5_plEeCI58",
+    title: "Ankit's Gynecomastia Recovery Journey",
+    category: "Gynecomastia",
+    duration: "4:32",
+    desc: "A detailed account of Ankit's surgery, daycare discharge, and recovery progress over 6 weeks.",
+    thumbnail: "https://img.youtube.com/vi/S5_plEeCI58/hqdefault.jpg"
+  },
+  {
+    id: "G5Y8LqSfk60",
+    title: "High-Definition VASER Liposuction Experience",
+    category: "Liposuction",
+    duration: "5:15",
+    desc: "Patient shares their physical transformation and experience with 4D abdominal carving.",
+    thumbnail: "https://img.youtube.com/vi/G5Y8LqSfk60/hqdefault.jpg"
+  },
+  {
+    id: "eMJn0Iajhpk",
+    title: "Abdominoplasty (Tummy Tuck) Recovery",
+    category: "Tummy Tuck",
+    duration: "6:40",
+    desc: "A post-op recovery walkthrough highlighting muscle wall repair support and skin retraction details.",
+    thumbnail: "https://img.youtube.com/vi/eMJn0Iajhpk/hqdefault.jpg"
+  },
+  {
+    id: "rXLexSCMZ88",
+    title: "Puffy Nipple Gland Excision Review",
+    category: "Male Chest Correction",
+    duration: "3:50",
+    desc: "Verified video review covering the local sedation daycare experience for correction of puffy nipples.",
+    thumbnail: "https://img.youtube.com/vi/rXLexSCMZ88/hqdefault.jpg"
+  },
+  {
+    id: "S5_plEeCI58",
+    title: "Rahul's Chest Reshaping Surgery Story",
+    category: "Gynecomastia",
+    duration: "4:10",
+    desc: "Detailed feedback on surgical results, pain management, and care coordination at the clinic.",
+    thumbnail: "https://img.youtube.com/vi/S5_plEeCI58/sddefault.jpg"
+  },
+  {
+    id: "G5Y8LqSfk60",
+    title: "VASER Body Contouring 3-Month Follow-Up",
+    category: "Liposuction",
+    duration: "3:45",
+    desc: "Transformation progress, swelling resolution timeline, and post-lipo lifestyle tips.",
+    thumbnail: "https://img.youtube.com/vi/G5Y8LqSfk60/sddefault.jpg"
+  }
+];
+
 export default function SurgeryVideosSection() {
-  const videos = [
-    {
-      id: "S5_plEeCI58",
-      title: "Patient Gynecomastia Journey",
-      desc: "Real experience and recovery timeline shared by a patient after gynecomastia surgery."
-    },
-    {
-      id: "G5Y8LqSfk60",
-      title: "Liposuction & Body Contouring Review",
-      desc: "Detailed feedback on surgical results and care coordination at the clinic."
-    },
-    {
-      id: "eMJn0Iajhpk",
-      title: "Tummy Tuck Recovery Story",
-      desc: "Follow-up discussion highlighting post-operative healing and surgeon support."
-    },
-    {
-      id: "rXLexSCMZ88",
-      title: "Puffy Nipple Treatment Outcome",
-      desc: "Patient testimonial outlining satisfaction with scarless clinical excision."
-    }
-  ];
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  // Close modal with Escape key
+  useEffect(() => {
+    if (!activeVideoId) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveVideoId(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeVideoId]);
+
+  const activeVideo = VIDEO_STORIES.find((v) => v.id === activeVideoId);
+  const relatedVideos = VIDEO_STORIES.filter((v) => v.id !== activeVideoId);
 
   return (
-    <section id="surgery-videos" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40">
+    <section id="surgery-videos" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40 relative">
       <Container>
         <SectionTitle
-          title="Patient Video Testimonials"
-          subtitle="Surgery Journeys"
+          title="Surgery Stories"
+          subtitle="Patient Video Testimonials"
           align="center"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 max-w-6xl mx-auto">
-          {videos.map((vid, idx) => (
-            <div key={idx} className="flex flex-col gap-4 bg-brand-bg-sec border border-brand-border p-6 hover:border-brand-accent/50 transition-all duration-350">
-              <div className="relative aspect-video w-full border border-brand-border/60 bg-brand-card">
-                <iframe
-                  src={`https://www.youtube.com/embed/${vid.id}`}
-                  title={vid.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full object-cover"
+        {/* Cinematic Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto">
+          {VIDEO_STORIES.map((vid, idx) => (
+            <div 
+              key={idx}
+              onClick={() => setActiveVideoId(vid.id)}
+              className="bg-brand-bg-sec border border-brand-border/40 p-4 flex flex-col gap-4 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none"
+            >
+              {/* Thumbnail Display with Play Overlay */}
+              <div className="relative aspect-video w-full bg-[#0B0F19] border border-brand-border/30 overflow-hidden">
+                {/* Lazy-loaded static image */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={vid.thumbnail} 
+                  alt={vid.title} 
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
+
+                {/* Duration Badge */}
+                <span className="absolute bottom-2 right-2 bg-[#0B0F19]/80 border border-brand-border/40 text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded text-brand-text-sec">
+                  {vid.duration}
+                </span>
+
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-brand-accent/90 group-hover:bg-brand-accent group-hover:scale-110 flex items-center justify-center text-[#0B0F19] pl-0.5 shadow-lg transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                      <path d="M8 5.14v14l11-7-11-7Z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div className="text-left mt-2">
-                <h4 className="font-serif text-lg text-brand-text font-medium">{vid.title}</h4>
-                <p className="text-xs text-brand-text-sec mt-1.5 leading-relaxed font-sans">{vid.desc}</p>
+
+              {/* Text Metadata */}
+              <div className="text-left space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold">
+                    {vid.category}
+                  </span>
+                </div>
+                <h4 className="font-serif text-sm text-brand-text font-medium group-hover:text-brand-accent transition-colors truncate">
+                  {vid.title}
+                </h4>
+                <p className="text-[11px] text-brand-text-sec leading-relaxed font-sans line-clamp-2">
+                  {vid.desc}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </Container>
+
+      {/* Cinematic Modal Lightbox Player */}
+      {activeVideoId && activeVideo && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-[#0B0F19]/95 backdrop-blur-md p-4 animate-fade-in">
+          {/* Close click-overlay */}
+          <div className="absolute inset-0 cursor-default" onClick={() => setActiveVideoId(null)} />
+
+          <div className="relative max-w-6xl w-full bg-[#0F1524] border border-brand-border/60 p-6 md:p-8 flex flex-col lg:flex-row gap-8 shadow-2xl z-10 animate-[scaleUp_0.3s_ease-out_forwards]">
+            {/* Close Button */}
+            <button 
+              onClick={() => setActiveVideoId(null)}
+              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer"
+              aria-label="Close video player"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Left Column: Embedded YouTube Player (Loaded *only* on interaction) */}
+            <div className="lg:w-2/3 flex flex-col gap-4">
+              <div className="relative aspect-video w-full bg-black border border-brand-border/40">
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
+                  title={activeVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-left">
+                <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono block mb-1">
+                  Currently Playing &bull; {activeVideo.category}
+                </span>
+                <h4 className="font-serif text-xl text-brand-text font-light tracking-wide">
+                  {activeVideo.title}
+                </h4>
+              </div>
+            </div>
+
+            {/* Right Column: Related Videos Playlist */}
+            <div className="lg:w-1/3 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-brand-border/30 pt-4 lg:pt-0 lg:pl-6 max-h-120 overflow-y-auto pr-2">
+              <h5 className="font-serif text-xs text-brand-accent uppercase tracking-widest font-semibold mb-2">
+                Related Testimonials
+              </h5>
+              <div className="flex flex-col gap-4">
+                {relatedVideos.map((item, idx) => (
+                  <div 
+                    key={idx}
+                    onClick={() => setActiveVideoId(item.id)}
+                    className="flex gap-3 bg-[#0B0F19]/40 border border-brand-border/20 p-2 hover:border-brand-accent/40 cursor-pointer transition-colors"
+                  >
+                    <div className="relative w-24 aspect-video bg-[#0B0F19] shrink-0 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img 
+                        src={item.thumbnail} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover" 
+                      />
+                    </div>
+                    <div className="text-left flex flex-col justify-center min-w-0">
+                      <span className="text-[8px] text-brand-accent font-mono uppercase tracking-wider block">
+                        {item.category}
+                      </span>
+                      <span className="text-[11px] text-brand-text font-serif leading-tight font-medium truncate block mt-0.5">
+                        {item.title}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
     </section>
   );
 }

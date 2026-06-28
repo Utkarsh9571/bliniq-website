@@ -198,21 +198,42 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
       {
         title: "High-Definition VASER",
         procedures: [
-          { title: "Liposuction Surgery", slug: "liposuction-surgery-in-delhi" },
-          { title: "Gynecomastia Reduction", slug: "gynecomastia-surgery-in-delhi" },
-          { title: "Puffy Nipple Correction", slug: "puffy-nipple-surgery" },
-          { title: "Tummy Tuck Abdominoplasty", slug: "tummy-tuck" },
-          { title: "Six Pack Creation", slug: "six-pack-abs-creation" }
-        ]
-      },
-      {
-        title: "Target Sculpting",
-        procedures: [
-          { title: "Neck Contouring", slug: "neck" },
-          { title: "Upper Arms Lipo", slug: "upper-arms" },
-          { title: "Flank & Love Handles", slug: "flank-love-handles" },
-          { title: "Thighs & Knees Lipo", slug: "thighs" },
-          { title: "Calves Shaping", slug: "calves" }
+          { 
+            title: "Liposuction", 
+            slug: "liposuction-surgery-in-delhi",
+            description: "Advanced VASER 4D ultrasonic fat emulsification & abdominal carving.",
+            image: "/lipo_after_1782474148532.png"
+          },
+          { 
+            title: "Tummy Tuck", 
+            slug: "tummy-tuck",
+            description: "Abdominoplasty to remove excess skin & restore abdominal muscles.",
+            image: "/lipo_before_1782474133850.png"
+          },
+          { 
+            title: "Arms Lipo", 
+            slug: "upper-arms",
+            description: "Upper arms liposuction & saggy skin reduction.",
+            image: "/hair_before.png"
+          },
+          { 
+            title: "Thighs Shaping", 
+            slug: "thighs",
+            description: "Thighs & knees fat reduction for contoured, balanced leg lines.",
+            image: "/hair_after.png"
+          },
+          { 
+            title: "Back Fat", 
+            slug: "liposuction-surgery-in-delhi",
+            description: "Targeted contouring of posterior fat pockets and bra line rolls.",
+            image: "/lipo_after_1782474148532.png"
+          },
+          { 
+            title: "Love Handles", 
+            slug: "flank-love-handles",
+            description: "Flank liposuction to eliminate stubborn love handles and define waist.",
+            image: "/lipo_after_1782474148532.png"
+          }
         ]
       }
     ]
@@ -222,23 +243,38 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
     type: "mega",
     categories: [
       {
-        title: "Face Aesthetics",
+        title: "Surgical Aesthetics",
         procedures: [
-          { title: "Surgical Face Lift", slug: "face-lift" },
-          { title: "Eyelid Blepharoplasty", slug: "double-eyelid-surgery" },
-          { title: "Rhinoplasty Nose Reshaping", slug: "nose-cosmetic-rhinoplasty" },
-          { title: "Buccal Fat Removal", slug: "buccal-fat-pad-removal" },
-          { title: "Lip & Upper Lip Lift", slug: "lip-reduction" },
-          { title: "Chin & Genioplasty", slug: "chin-implant" }
-        ]
-      },
-      {
-        title: "Breast Procedures",
-        procedures: [
-          { title: "Breast Implant Augmentation", slug: "breast-implant-3" },
-          { title: "Breast Reduction Surgery", slug: "breast-reduction" },
-          { title: "Breast Lift Reshaping", slug: "breast-lift" },
-          { title: "Pectoral Muscular Implants", slug: "pectoral-implants" }
+          { 
+            title: "Rhinoplasty", 
+            slug: "nose-cosmetic-rhinoplasty",
+            description: "Nasal profile refinement and tip structural reshaping.",
+            image: "/rhinoplasty_after.png"
+          },
+          { 
+            title: "Chin Surgery", 
+            slug: "chin-implant",
+            description: "Implants or genioplasty to balance the profile and jawline.",
+            image: "/rhinoplasty_before.png"
+          },
+          { 
+            title: "Breast Reduction", 
+            slug: "breast-reduction",
+            description: "Gland and fat removal to resize breast proportions.",
+            image: "/gynecomastia_before_1782474167092.png"
+          },
+          { 
+            title: "Breast Augmentation", 
+            slug: "breast-implant-3",
+            description: "Premium silicone implants or fat transfer to restore volume.",
+            image: "/gynecomastia_after_1782474181819.png"
+          },
+          { 
+            title: "Facelift", 
+            slug: "face-lift",
+            description: "Surgical lifting of sagging tissues to restore youthful contours.",
+            image: "/rhinoplasty_after.png"
+          }
         ]
       }
     ]
@@ -248,22 +284,38 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
     type: "mega",
     categories: [
       {
-        title: "Hair Restoration",
+        title: "Clinical Therapies",
         procedures: [
-          { title: "Head Hair Transplant", slug: "head" },
-          { title: "Beard & Moustache", slug: "beard" },
-          { title: "PRP Hair Therapy", slug: "prp-therapy" },
-          { title: "Mesotherapy Course", slug: "mesotherapy" }
-        ]
-      },
-      {
-        title: "Medspa Therapies",
-        procedures: [
-          { title: "Botox & Fillers", slug: "botox-and-fillers" },
-          { title: "Chemical Skin Peels", slug: "chemical-peels" },
-          { title: "Laser Hair Removal", slug: "laser-hair-removal" },
-          { title: "Scar Remodeling", slug: "scar-remodeling" },
-          { title: "Mole & Tag Excision", slug: "mole-removal" }
+          { 
+            title: "Hair Transplant", 
+            slug: "head",
+            description: "High-density follicular graft restoration using micro-FUE.",
+            image: "/hair_after.png"
+          },
+          { 
+            title: "PRP Hair Therapy", 
+            slug: "prp-therapy",
+            description: "Platelet-rich plasma therapy to stimulate natural hair growth.",
+            image: "/hair_before.png"
+          },
+          { 
+            title: "Laser Hair Removal", 
+            slug: "laser-hair-removal",
+            description: "Clinical permanent laser reduction for smooth skin.",
+            image: "/hair_after.png"
+          },
+          { 
+            title: "Botox", 
+            slug: "botox-and-fillers",
+            description: "Injectable muscle relaxer to smooth fine lines.",
+            image: "/rhinoplasty_after.png"
+          },
+          { 
+            title: "Fillers", 
+            slug: "botox-and-fillers",
+            description: "Dermal fillers to restore volume to cheeks & lips.",
+            image: "/rhinoplasty_after.png"
+          }
         ]
       }
     ]
