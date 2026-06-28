@@ -10,10 +10,31 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import ContactFormSection from "@/components/home/ContactFormSection";
 import SurgeryVideosSection from "@/components/home/SurgeryVideosSection";
+import { Metadata } from "next";
+import { getPageMetadata, getClinicSchemaJson, getPhysicianSchemaJson } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "BLINIQ | Cosmetic & Plastic Surgery Clinic in Delhi",
+  description: "Premier cosmetic & plastic surgery clinic in Dwarka, Delhi under Dr. Ashwani Kumar. Specializing in VASER 4D Liposuction, Gynecomastia, & Rhinoplasty.",
+  path: ""
+});
 
 export default function Home() {
+  const clinicSchema = getClinicSchemaJson();
+  const physicianSchema = getPhysicianSchemaJson();
+
   return (
     <>
+      {/* Inject JSON-LD Schema scripts */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+      />
+
       <Header />
       <main className="grow">
         {/* 1. Cinematic Hero */}

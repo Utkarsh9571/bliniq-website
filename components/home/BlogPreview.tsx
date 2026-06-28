@@ -10,9 +10,9 @@ export default function BlogPreview() {
 
   const getBlogImage = (index: number) => {
     const images = [
-      "/uploads/2023/12/Liposuction-Tummy360.jpeg",
-      "/uploads/2020/08/Doctor_01.jpg",
-      "/uploads/2024/02/Grade-2-for-gynecomastia-treatment.jpg",
+      "/blog_thumb_1.png",
+      "/blog_thumb_2.png",
+      "/blog_thumb_3.png",
     ];
     return images[index % images.length];
   };

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
@@ -18,6 +18,7 @@ export default function TransformationsFeed() {
   const [feed, setFeed] = useState<TransformationItem[]>([]);
   const [activeItemIndex, setActiveItemIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   // Load feed asynchronously from JSON
   useEffect(() => {
@@ -55,8 +56,24 @@ export default function TransformationsFeed() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeItemIndex, handlePrev, handleNext]);
 
-  // Split into Row 1 (first 4) and Row 2 (remaining items)
-  const row1 = feed.slice(0, Math.ceil(feed.length / 2));
+  // Mobile touch swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diffX = touchStartX.current - e.changedTouches[0].clientX;
+    if (diffX > 60) {
+      handleNext();
+    } else if (diffX < -60) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+  };
+
+  // Split into Row 1 (all items for mobile single row) and Row 2 (remaining items for desktop dual row)
+  const row1 = feed;
   const row2 = feed.slice(Math.ceil(feed.length / 2));
 
   const activeItem = activeItemIndex !== null ? feed[activeItemIndex] : null;
@@ -105,16 +122,17 @@ export default function TransformationsFeed() {
         className="mt-16 flex flex-col gap-6 w-full relative"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
-        {/* Row 1: Leftward Scrolling */}
+        {/* Row 1: Leftward Scrolling (Shows all items) */}
         <div className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex">
           <div className={`feed-container animate-feed-left ${isPaused ? "feed-paused" : ""}`}>
             {row1.map((item) => (
               <TransformationCard 
-                key={item.id} 
+                key={`row1-${item.id}`} 
                 item={item} 
                 onClick={() => {
-                  // Find index in main feed array
                   const originalIndex = feed.findIndex((f) => f.id === item.id);
                   setActiveItemIndex(originalIndex);
                 }} 
@@ -134,12 +152,12 @@ export default function TransformationsFeed() {
           </div>
         </div>
 
-        {/* Row 2: Rightward Scrolling */}
-        <div className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex">
+        {/* Row 2: Rightward Scrolling (Desktop/Tablet only) */}
+        <div className="w-full overflow-x-auto md:overflow-hidden touch-pan-x hidden md:flex">
           <div className={`feed-container animate-feed-right ${isPaused ? "feed-paused" : ""}`}>
             {row2.map((item) => (
               <TransformationCard 
-                key={item.id} 
+                key={`row2-${item.id}`} 
                 item={item} 
                 onClick={() => {
                   const originalIndex = feed.findIndex((f) => f.id === item.id);
@@ -162,17 +180,22 @@ export default function TransformationsFeed() {
         </div>
       </div>
 
-      {/* Lightbox Detail Modal */}
+      {/* Lightbox Detail Modal (Full-screen on Mobile, Cinematic Pop-up on Desktop) */}
       {activeItem && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center bg-[#0B0F19]/95 backdrop-blur-md p-4 animate-fade-in">
+        <div 
+          className="fixed inset-0 z-100 flex items-center justify-center bg-[#0B0F19]/95 backdrop-blur-md md:p-4 animate-fade-in"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Close click-overlay */}
-          <div className="absolute inset-0 cursor-default" onClick={() => setActiveItemIndex(null)} />
+          <div className="absolute inset-0 cursor-default hidden md:block" onClick={() => setActiveItemIndex(null)} />
 
-          <div className="relative max-w-4xl w-full bg-[#0F1524] border border-brand-border/60 p-6 md:p-8 flex flex-col md:flex-row gap-8 shadow-2xl z-10 animate-[scaleUp_0.3s_ease-out_forwards]">
+          <div className="relative w-full h-full md:h-auto md:max-w-4xl bg-[#0F1524] border-0 md:border border-brand-border/60 p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 shadow-2xl z-10 overflow-y-auto md:overflow-visible animate-[scaleUp_0.3s_ease-out_forwards]">
+            
             {/* Close Button */}
             <button 
               onClick={() => setActiveItemIndex(null)}
-              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer z-50 min-h-[44px] flex items-center justify-center"
               aria-label="Close modal"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -181,11 +204,12 @@ export default function TransformationsFeed() {
             </button>
 
             {/* Left Column: Media display */}
-            <div className="md:w-1/2 relative aspect-square bg-[#0B0F19] border border-brand-border/40 flex items-center justify-center overflow-hidden">
+            <div className="w-full md:w-1/2 relative aspect-square bg-[#0B0F19] border border-brand-border/40 flex items-center justify-center overflow-hidden">
               <Image 
                 src={activeItem.media} 
                 alt={activeItem.procedure}
                 fill
+                loading="lazy"
                 className="object-cover"
               />
 
@@ -201,7 +225,7 @@ export default function TransformationsFeed() {
             </div>
 
             {/* Right Column: Metadata details */}
-            <div className="md:w-1/2 flex flex-col justify-between py-2 gap-6">
+            <div className="w-full md:w-1/2 flex flex-col justify-between py-2 gap-6">
               <div className="space-y-4">
                 <div>
                   <span className="text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase font-semibold">
@@ -212,9 +236,13 @@ export default function TransformationsFeed() {
                   </h4>
                 </div>
 
-                <p className="text-brand-text-sec text-xs leading-relaxed font-sans max-h-48 overflow-y-auto pr-2">
+                <p className="text-brand-text-sec text-xs leading-relaxed font-sans max-h-40 md:max-h-48 overflow-y-auto pr-2">
                   {activeItem.caption}
                 </p>
+
+                <div className="text-[10px] text-brand-text-sec/50 font-sans block md:hidden italic pt-2">
+                  💡 Swipe left or right to browse cases
+                </div>
               </div>
 
               <div className="space-y-4">
@@ -222,7 +250,7 @@ export default function TransformationsFeed() {
                   href={activeItem.instagramUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-brand-accent/40 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 w-full sm:w-auto text-center justify-center"
+                  className="inline-flex items-center gap-2 border border-brand-accent/40 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 w-full sm:w-auto text-center justify-center min-h-[44px]"
                 >
                   View on Instagram
                 </a>
@@ -231,15 +259,15 @@ export default function TransformationsFeed() {
                 <div className="flex items-center justify-between border-t border-brand-border/30 pt-4">
                   <button 
                     onClick={handlePrev}
-                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-[44px]"
                   >
-                    ← Previous Case
+                    ← Prev
                   </button>
                   <button 
                     onClick={handleNext}
-                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-[44px]"
                   >
-                    Next Case →
+                    Next →
                   </button>
                 </div>
               </div>
@@ -256,7 +284,7 @@ function TransformationCard({ item, onClick }: { item: TransformationItem; onCli
   return (
     <div 
       onClick={onClick}
-      className="w-70 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 p-4 flex flex-col gap-4 hover:border-brand-accent/60 hover:bg-[#12192A]/80 transition-all duration-300 hover:scale-[1.02] cursor-pointer group select-none"
+      className="w-80 md:w-70 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 p-4 flex flex-col gap-4 hover:border-brand-accent/60 hover:bg-[#12192A]/80 transition-all duration-300 hover:scale-[1.02] cursor-pointer group select-none"
     >
       {/* Thumbnail */}
       <div className="relative aspect-square w-full bg-[#0B0F19] border border-brand-border/20 overflow-hidden">
@@ -264,6 +292,7 @@ function TransformationCard({ item, onClick }: { item: TransformationItem; onCli
           src={item.media} 
           alt={item.procedure}
           fill
+          loading="lazy"
           className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
         />
 
