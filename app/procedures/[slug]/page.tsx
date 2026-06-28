@@ -113,7 +113,7 @@ export default async function ProcedureDetailPage({ params }: PageProps) {
                 
                 {/* Clinical Image or Fallback */}
                 {proc?.image && (
-                  <div className="relative aspect-16/9 w-full bg-brand-bg-sec border border-brand-border/40 overflow-hidden">
+                  <div className="relative aspect-video w-full bg-brand-bg-sec border border-brand-border/40 overflow-hidden">
                     <Image
                       src={proc.image}
                       alt={title}
@@ -274,7 +274,7 @@ export default async function ProcedureDetailPage({ params }: PageProps) {
                         placeholder="Describe your requirements..."
                       />
                     </div>
-                    <Button type="submit" variant="primary" className="w-full mt-2 text-xs py-3.5 uppercase tracking-widest font-semibold min-h-[44px]">
+                    <Button type="submit" variant="primary" className="w-full mt-2 text-xs py-3.5 uppercase tracking-widest font-semibold min-h-11">
                       Book Evaluation
                     </Button>
                   </form>
@@ -304,7 +304,7 @@ export default async function ProcedureDetailPage({ params }: PageProps) {
                         {rel.shortDescription}
                       </p>
                     </div>
-                    <Link href={`/procedures/${rel.slug}`} className="text-xs text-brand-accent tracking-wider uppercase font-semibold hover:underline inline-flex items-center gap-1 min-h-[44px]">
+                    <Link href={`/procedures/${rel.slug}`} className="text-xs text-brand-accent tracking-wider uppercase font-semibold hover:underline inline-flex items-center gap-1 min-h-11">
                       Explore Treatment &rarr;
                     </Link>
                   </div>

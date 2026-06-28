@@ -121,7 +121,7 @@ export default function Hero() {
           <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-4 md:gap-5 lg:gap-6 pr-0 lg:pr-8">
             
             {/* Text content wrapper */}
-            <div className="flex flex-col gap-3 order-1 md:order-none w-full">
+            <div className="flex flex-col gap-3 order-1 md:order-0 w-full">
               {/* Eyebrow Label */}
               <span 
                 key={`eyebrow-${currentSlide}`}
@@ -151,7 +151,7 @@ export default function Hero() {
             </div>
 
             {/* Trust Indicators (2x2 grid on mobile, 3-column on desktop) */}
-            <div className="order-2 md:order-none grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 border-t border-b border-brand-border/30 py-3 w-full text-center">
+            <div className="order-2 md:order-0 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 border-t border-b border-brand-border/30 py-3 w-full text-center">
               <div className="flex flex-col items-center justify-center">
                 <span className="text-brand-accent text-xs font-mono font-bold">3000+</span>
                 <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Procedures</span>
@@ -171,7 +171,7 @@ export default function Hero() {
             </div>
 
             {/* Doctor Credentials Snippet */}
-            <div className="order-3 md:order-none w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded">
+            <div className="order-3 md:order-0 w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded">
               <div className="flex flex-col">
                 <span className="text-xs font-serif text-brand-text font-medium">Dr. Ashwani Kumar</span>
                 <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Chief Surgeon</span>
@@ -184,21 +184,21 @@ export default function Hero() {
             </div>
 
             {/* Call-to-Actions */}
-            <div className="order-4 md:order-none flex flex-row gap-3 w-full sm:w-auto">
+            <div className="order-4 md:order-0 flex flex-row gap-3 w-full sm:w-auto">
               <a href="#contact-form" className="grow sm:grow-0">
-                <Button variant="primary" className="w-full sm:w-auto px-5 py-2.5 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs uppercase tracking-widest font-semibold min-h-[44px]">
+                <Button variant="primary" className="w-full sm:w-auto px-5 py-2.5 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs uppercase tracking-widest font-semibold min-h-11">
                   Book Consult
                 </Button>
               </a>
               <a href="#services" className="grow sm:grow-0">
-                <Button variant="outline" className="w-full sm:w-auto px-5 py-2.5 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs uppercase tracking-widest font-semibold min-h-[44px]">
+                <Button variant="outline" className="w-full sm:w-auto px-5 py-2.5 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs uppercase tracking-widest font-semibold min-h-11">
                   Procedures
                 </Button>
               </a>
             </div>
 
             {/* Luxury Slide Indicators: 01 02 03 04 */}
-            <div className="order-5 md:order-none flex items-center gap-6 mt-4 md:mt-6 lg:mt-8">
+            <div className="order-5 md:order-0 flex items-center gap-6 mt-4 md:mt-6 lg:mt-8">
               {SLIDES.map((_, index) => (
                 <button
                   key={index}
@@ -206,7 +206,7 @@ export default function Hero() {
                     setCurrentSlide(index);
                     setSliderPosition(50);
                   }}
-                  className="flex flex-col items-center gap-1 group focus:outline-none cursor-pointer min-h-[44px] justify-center"
+                  className="flex flex-col items-center gap-1 group focus:outline-none cursor-pointer min-h-11 justify-center"
                   aria-label={`Go to slide ${index + 1}`}
                 >
                   <span className={`font-mono text-xs transition-colors duration-300 ${
@@ -303,7 +303,7 @@ export default function Hero() {
                       setCurrentSlide(idx);
                       setSliderPosition(50);
                     }}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer min-h-[44px] flex items-center justify-center`}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer min-h-11 flex items-center justify-center`}
                     aria-label={`Show transformation slide ${idx + 1}`}
                   >
                     <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx ? "w-5 bg-brand-accent" : "bg-brand-text-sec/30"}`} />

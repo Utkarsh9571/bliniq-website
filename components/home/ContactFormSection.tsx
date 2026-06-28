@@ -76,7 +76,7 @@ export default function ContactFormSection() {
             <div className="space-y-4 pt-6 border-t border-brand-border/30 text-xs font-mono text-brand-text-sec uppercase tracking-widest">
               <p className="flex items-center gap-3">
                 <span className="text-brand-accent text-lg">📞</span>
-                <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors min-h-[44px] flex items-center">
+                <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors min-h-11 flex items-center">
                   Phone: +91 72900 62111
                 </a>
               </p>
@@ -148,7 +148,7 @@ export default function ContactFormSection() {
                 />
               </div>
 
-              <Button variant="primary" className="w-full py-4 text-xs uppercase tracking-widest font-semibold min-h-[44px]">
+              <Button variant="primary" className="w-full py-4 text-xs uppercase tracking-widest font-semibold min-h-11">
                 Submit Consultation Request
               </Button>
             </form>
@@ -160,7 +160,7 @@ export default function ContactFormSection() {
       {showStickyBtn && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#0B0F19]/90 backdrop-blur-md border-t border-brand-border/60 flex md:hidden animate-fade-in shadow-2xl">
           <a href="#contact-form" className="w-full">
-            <Button variant="primary" className="w-full py-3.5 text-xs uppercase tracking-widest font-semibold text-center min-h-[44px] flex items-center justify-center">
+            <Button variant="primary" className="w-full py-3.5 text-xs uppercase tracking-widest font-semibold text-center min-h-11 flex items-center justify-center">
               Book Consultation
             </Button>
           </a>

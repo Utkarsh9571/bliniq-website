@@ -195,7 +195,7 @@ export default function TransformationsFeed() {
             {/* Close Button */}
             <button 
               onClick={() => setActiveItemIndex(null)}
-              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer z-50 min-h-[44px] flex items-center justify-center"
+              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer z-50 min-h-11 flex items-center justify-center"
               aria-label="Close modal"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -250,7 +250,7 @@ export default function TransformationsFeed() {
                   href={activeItem.instagramUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-brand-accent/40 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 w-full sm:w-auto text-center justify-center min-h-[44px]"
+                  className="inline-flex items-center gap-2 border border-brand-accent/40 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 w-full sm:w-auto text-center justify-center min-h-11"
                 >
                   View on Instagram
                 </a>
@@ -259,13 +259,13 @@ export default function TransformationsFeed() {
                 <div className="flex items-center justify-between border-t border-brand-border/30 pt-4">
                   <button 
                     onClick={handlePrev}
-                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-[44px]"
+                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-11"
                   >
                     ← Prev
                   </button>
                   <button 
                     onClick={handleNext}
-                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-[44px]"
+                    className="flex items-center gap-1.5 text-xs text-brand-text-sec/60 hover:text-brand-accent transition-colors cursor-pointer min-h-11"
                   >
                     Next →
                   </button>

@@ -222,7 +222,7 @@ export default function ServicesPreview() {
                       <div className="w-full aspect-4/3 bg-[#0B0F19]/80 border border-brand-border/30 flex flex-col items-center justify-center p-8 text-center">
                         <span className="text-3xl mb-3">✨</span>
                         <span className="text-brand-accent font-serif text-sm block mb-2 font-medium">Text-Only Premium Case</span>
-                        <span className="text-[10px] text-brand-text-sec/60 max-w-[200px] leading-normal font-sans">
+                        <span className="text-[10px] text-brand-text-sec/60 max-w-50 leading-normal font-sans">
                           Image removed to prevent duplicate homepage assets
                         </span>
                       </div>
@@ -289,12 +289,12 @@ export default function ServicesPreview() {
                     <div className="flex flex-wrap gap-4 pt-4">
                       <button 
                         onClick={() => toggleExpand(index)}
-                        className="grow sm:grow-0 border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 cursor-pointer min-h-[44px] flex items-center justify-center"
+                        className="grow sm:grow-0 border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-6 py-2.5 text-[10px] uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 cursor-pointer min-h-11 flex items-center justify-center"
                       >
                         {isOpen ? "Hide Clinical Info" : "View Clinical Info"}
                       </button>
-                      <Link href={`/${svc.slug}`} className="grow sm:grow-0">
-                        <Button variant="primary" className="w-full sm:w-auto px-6 py-3 text-xs uppercase tracking-widest font-semibold min-h-[44px]">
+                      <Link href={`/procedures/${svc.slug}`} className="grow sm:grow-0">
+                        <Button variant="primary" className="w-full sm:w-auto px-6 py-3 text-xs uppercase tracking-widest font-semibold min-h-11">
                           Explore Details
                         </Button>
                       </Link>
@@ -369,11 +369,11 @@ export default function ServicesPreview() {
                         <div className="space-y-4">
                           {svc.faqs.map((faq, i) => (
                             <details key={i} className="group border border-brand-border/30 bg-[#0B0F19]/40 p-3 rounded cursor-pointer [&_summary::-webkit-details-marker]:hidden">
-                              <summary className="flex items-center justify-between font-serif text-xs text-brand-text font-medium select-none min-h-[44px] md:min-h-0">
+                              <summary className="flex items-center justify-between font-serif text-xs text-brand-text font-medium select-none min-h-11 md:min-h-0">
                                 <span>Q: {faq.q}</span>
                                 <span className="text-brand-accent transition-transform duration-200 group-open:rotate-180 text-[10px]">▼</span>
                               </summary>
-                              <p className="text-xs text-brand-text-sec leading-relaxed font-sans pl-3 border-l border-brand-accent/25 mt-2 pt-2 border-t border-brand-border/20">
+                              <p className="text-xs text-brand-text-sec leading-relaxed font-sans pl-3 border-l border-l-brand-accent/25 mt-2 pt-2 border-t border-t-brand-border/20">
                                 {faq.a}
                               </p>
                             </details>

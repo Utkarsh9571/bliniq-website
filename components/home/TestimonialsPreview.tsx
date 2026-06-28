@@ -115,7 +115,7 @@ function TestimonialCard({ item }: { item: Testimonial }) {
               e.stopPropagation();
               setExpanded(!expanded);
             }}
-            className="text-[10px] uppercase tracking-widest text-brand-accent font-mono font-bold mt-1 inline-flex items-center cursor-pointer focus:outline-none min-h-[44px]"
+            className="text-[10px] uppercase tracking-widest text-brand-accent font-mono font-bold mt-1 inline-flex items-center cursor-pointer focus:outline-none min-h-11"
           >
             {expanded ? "Read Less" : "Read More"}
           </button>

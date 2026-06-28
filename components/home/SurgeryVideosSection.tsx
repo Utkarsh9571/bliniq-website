@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
-import { VIDEO_STORIES, VideoStory } from "@/content/videos";
+import { VIDEO_STORIES } from "@/content/videos";
 
 export default function SurgeryVideosSection() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
@@ -95,7 +95,7 @@ export default function SurgeryVideosSection() {
         <div className="flex justify-center mt-10 lg:hidden">
           <button 
             onClick={() => setActiveVideoId(VIDEO_STORIES[0].id)}
-            className="border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-8 py-3 text-xs uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 min-h-[44px] flex items-center justify-center cursor-pointer"
+            className="border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-8 py-3 text-xs uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 min-h-11 flex items-center justify-center cursor-pointer"
           >
             View All Videos
           </button>
@@ -112,7 +112,7 @@ export default function SurgeryVideosSection() {
             {/* Close Button */}
             <button 
               onClick={() => setActiveVideoId(null)}
-              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer min-h-[44px] flex items-center justify-center z-50"
+              className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer min-h-11 flex items-center justify-center z-50"
               aria-label="Close video player"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
