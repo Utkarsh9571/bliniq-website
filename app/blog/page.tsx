@@ -17,7 +17,7 @@ export default function BlogPage() {
         <Container>
           <SectionTitle
             title="Clinical News & Insights"
-            subtitle="WordPress Blog Index"
+            subtitle="Scientific Articles"
             align="center"
           />
 
@@ -32,12 +32,7 @@ export default function BlogPage() {
                     {post.post_title}
                   </h3>
                   <p className="text-brand-text-sec text-xs leading-relaxed mb-6 font-sans">
-                    Article content and media attachments are pending migration from
-                    WordPress slug:{" "}
-                    <code className="text-brand-accent font-mono text-[10px]">
-                      {post.post_name}
-                    </code>
-                    .
+                    Read the detailed clinical journal entry explaining advanced procedural methods, post-operative recovery timelines, and surgical technology updates.
                   </p>
                 </div>
                 <div>

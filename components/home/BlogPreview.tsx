@@ -54,7 +54,7 @@ export default function BlogPreview() {
                     {post.post_title}
                   </h3>
                   <p className="text-brand-text-sec text-xs leading-relaxed mt-4 font-sans line-clamp-2">
-                    Content pending migration from WordPress slug: {post.post_name}
+                    Explore professional insights and clinical guidance regarding advanced aesthetic procedures under Dr. Ashwani Kumar.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-brand-border/30 flex items-center justify-between text-[10px] uppercase tracking-widest font-mono text-brand-accent">
