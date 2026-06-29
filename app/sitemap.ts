@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { PROCEDURES_DATA } from "@/content/procedures";
+import legitimatePages from "@/content/migrated/legitimate-pages.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://bliniq.in";
@@ -26,13 +26,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.8
   }));
 
-  // Dynamic procedures pages
-  const proceduresPages = PROCEDURES_DATA.map((proc) => ({
-    url: `${baseUrl}/procedures/${proc.slug}`,
-    lastModified: new Date().toISOString().split("T")[0],
-    changeFrequency: "weekly" as const,
-    priority: 0.9
-  }));
+  // Dynamic pages from migrated JSON (all flat root-level URLs)
+  const dynamicPages = legitimatePages
+    .filter((p) => p.type === "procedure" || p.type === "seo-page" || p.type === "blog" || p.type === "service" || p.type === "doctor")
+    .map((p) => ({
+      url: `${baseUrl}/${p.slug}`,
+      lastModified: new Date().toISOString().split("T")[0],
+      changeFrequency: "weekly" as const,
+      priority: p.type === "blog" ? 0.7 : 0.9
+    }));
 
-  return [...staticPages, ...proceduresPages];
+  return [...staticPages, ...dynamicPages];
 }

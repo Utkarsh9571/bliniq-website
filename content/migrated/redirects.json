@@ -1,0 +1,34 @@
+[
+  {
+    "source": "/buccal-fat-pad-removal-2",
+    "destination": "/buccal-fat-pad-removal"
+  },
+  {
+    "source": "/chin-implant-2",
+    "destination": "/chin-implant"
+  },
+  {
+    "source": "/dimple-creation-surgery-2",
+    "destination": "/dimple-creation-surgery"
+  },
+  {
+    "source": "/double-eyelid-surgery-2",
+    "destination": "/double-eyelid-surgery"
+  },
+  {
+    "source": "/face-lift-2",
+    "destination": "/face-lift"
+  },
+  {
+    "source": "/fat-injection-2",
+    "destination": "/fat-injection"
+  },
+  {
+    "source": "/fat-injection-3",
+    "destination": "/fat-injection"
+  },
+  {
+    "source": "/tummy-tuck-2",
+    "destination": "/tummy-tuck"
+  }
+]

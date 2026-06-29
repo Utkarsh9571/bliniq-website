@@ -293,7 +293,7 @@ export default function ServicesPreview() {
                       >
                         {isOpen ? "Hide Clinical Info" : "View Clinical Info"}
                       </button>
-                      <Link href={`/procedures/${svc.slug}`} className="grow sm:grow-0">
+                      <Link href={`/${svc.slug}`} className="grow sm:grow-0">
                         <Button variant="primary" className="w-full sm:w-auto px-6 py-3 text-xs uppercase tracking-widest font-semibold min-h-11">
                           Explore Details
                         </Button>

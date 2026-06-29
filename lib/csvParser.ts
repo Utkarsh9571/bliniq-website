@@ -57,6 +57,8 @@ export function getCsvData(filename: string): Record<string, string>[] {
   return data;
 }
 
+import legitimatePages from "@/content/migrated/legitimate-pages.json";
+
 export interface PageContent {
   ID: string;
   post_title: string;
@@ -65,11 +67,22 @@ export interface PageContent {
 }
 
 export function getPageContentBySlug(slug: string): PageContent | undefined {
-  const pages = getCsvData("data-page-content.csv") as unknown as PageContent[];
-  return pages.find((p) => p.post_name === slug);
+  const page = legitimatePages.find((p) => p.slug === slug);
+  if (!page) return undefined;
+  return {
+    ID: String(page.sourceId),
+    post_title: page.title,
+    post_name: page.slug,
+    post_content: page.content
+  };
 }
 
 export function getAllPageContents(): PageContent[] {
-  return getCsvData("data-page-content.csv") as unknown as PageContent[];
+  return legitimatePages.map((page) => ({
+    ID: String(page.sourceId),
+    post_title: page.title,
+    post_name: page.slug,
+    post_content: page.content
+  }));
 }
 
