@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import { homepageImages } from "@/content/homepage-images";
 
 export default function DoctorPreview() {
   const stats = [
@@ -31,15 +32,17 @@ export default function DoctorPreview() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-16 items-start">
           {/* Left Column: Dr. Ashwani Kumar Portrait */}
-          <div className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl">
-            <Image
-              src="/uploads/2024/02/Dr-Ashwini.jpg"
-              alt="Dr. Ashwani Kumar - Founder and Chief Surgeon of BLINIQ"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000"
-              priority
-            />
+          <div className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2">
+            <div className="relative w-full h-full border border-brand-accent/20">
+              <Image
+                src="/uploads/2024/02/Dr-Ashwini.jpg"
+                alt="Dr. Ashwani Kumar - Founder and Chief Surgeon of BLINIQ"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top transition-all duration-1000"
+                priority
+              />
+            </div>
           </div>
 
           {/* Right Column: Bio, Qualifications & Statistics */}
@@ -63,6 +66,10 @@ export default function DoctorPreview() {
                   artistry with anatomical balance. He believes that cosmetic enhancement should optimize, refine, and 
                   harmonize the body&apos;s natural proportions rather than create artificial distortions.
                 </p>
+                <blockquote className="border-l-2 border-brand-accent pl-4 italic text-brand-text-sec text-sm my-6 font-serif leading-relaxed">
+                  "Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision."
+                  <cite className="block text-[10px] uppercase tracking-widest text-brand-accent mt-2 font-mono not-italic">— Dr. Ashwani Kumar</cite>
+                </blockquote>
               </div>
             </div>
 

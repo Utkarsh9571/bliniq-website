@@ -14,7 +14,7 @@ export default function StorySection() {
               alt="Liposuction Tummy360"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              className="object-cover transition-all duration-1000"
             />
           </div>
           <div className="lg:col-span-6 flex flex-col gap-6 max-w-xl">
@@ -42,7 +42,7 @@ export default function StorySection() {
               alt="Medical Consultation"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              className="object-cover transition-all duration-1000"
             />
           </div>
           <div className="lg:col-span-6 lg:order-1 flex flex-col gap-6 max-w-xl ml-auto">

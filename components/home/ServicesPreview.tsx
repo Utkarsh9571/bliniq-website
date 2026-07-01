@@ -69,7 +69,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "Initial contour changes are visible immediately after swelling subsides (2–3 weeks), but high-definition muscle outlines settle fully around 3 to 6 months post-procedure."
       }
     ],
-    image: "/uploads/2023/12/Liposuction-Tummy360.jpeg"
+    image: "/images/home/body-contouring-editorial.webp"
   },
   {
     title: "Gynecomastia Surgery (Male Chest Reduction)",
@@ -151,7 +151,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "Yes, it is safe, but it is highly recommended to complete childbearing before surgery to prevent stretching the repaired abdominal wall muscles."
       }
     ],
-    image: null
+    image: "/images/home/tummy-tuck-before.webp"
   }
 ];
 
@@ -207,7 +207,7 @@ export default function ServicesPreview() {
                 {/* Grid Split Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                   {/* Media / Summary Column */}
-                  <div className="lg:col-span-5 flex flex-col gap-6">
+                  <div className={`lg:col-span-5 flex flex-col gap-6 ${index === 1 ? "lg:order-2" : ""}`}>
                     {hasImage ? (
                       <div className="relative aspect-4/3 w-full border border-brand-border bg-brand-card overflow-hidden">
                         <Image
@@ -215,7 +215,7 @@ export default function ServicesPreview() {
                           alt={svc.title}
                           fill
                           sizes="(max-width: 1024px) 100vw, 40vw"
-                          className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                          className="object-cover transition-all duration-1000"
                         />
                       </div>
                     ) : (
@@ -240,7 +240,7 @@ export default function ServicesPreview() {
                   </div>
 
                   {/* Descriptions, Benefits & Concerns Column */}
-                  <div className="lg:col-span-7 space-y-6">
+                  <div className={`lg:col-span-7 space-y-6 ${index === 1 ? "lg:order-1" : ""}`}>
                     <p className="text-brand-text-sec text-sm leading-relaxed font-sans">
                       {svc.shortDescription}
                     </p>

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
+import { homepageImages } from "@/content/homepage-images";
 
 interface SlideData {
   service: string;
@@ -105,12 +106,36 @@ export default function Hero() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Cinematic animated gold light streaks background */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vh] rounded-full bg-radial-to-c from-[#C9A96E]/15 via-transparent to-transparent blur-3xl animate-pulse duration-8000" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vh] rounded-full bg-radial-to-c from-brand-accent/10 via-transparent to-transparent blur-3xl animate-pulse duration-6000" />
-        {/* Subtle diagonal gold streak lines */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_45%,rgba(201,169,110,0.03)_50%,transparent_55%)] bg-size-[200%_200%] animate-[goldStreak_20s_linear_infinite]" />
+      {/* 1. Luxury Editorial Background Image Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        {/* Desktop Background */}
+        <div className="hidden sm:block absolute inset-0 opacity-20">
+          <Image
+            src={homepageImages.hero.desktop}
+            alt="BLINIQ Luxury Facial Aesthetics BG"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+        {/* Mobile Background */}
+        <div className="block sm:hidden absolute inset-0 opacity-15">
+          <Image
+            src={homepageImages.hero.mobile}
+            alt="BLINIQ Luxury Facial Aesthetics BG"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+        
+        {/* Cinematic animated gold light streaks background */}
+        <div className="absolute inset-0 z-0 opacity-40 bg-gradient-to-b from-[#0B0F19]/80 via-transparent to-[#0B0F19]">
+          <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vh] rounded-full bg-radial-to-c from-[#C9A96E]/15 via-transparent to-transparent blur-3xl animate-pulse duration-8000" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vh] rounded-full bg-radial-to-c from-brand-accent/10 via-transparent to-transparent blur-3xl animate-pulse duration-6000" />
+          {/* Subtle diagonal gold streak lines */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_45%,rgba(201,169,110,0.03)_50%,transparent_55%)] bg-size-[200%_200%] animate-[goldStreak_20s_linear_infinite]" />
+        </div>
       </div>
 
       {/* Grid aligned inside a standard Container */}
@@ -171,7 +196,7 @@ export default function Hero() {
             </div>
 
             {/* Doctor Credentials Snippet */}
-            <div className="order-3 md:order-0 w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded">
+            <div className="order-3 md:order-0 w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded font-sans">
               <div className="flex flex-col">
                 <span className="text-xs font-serif text-brand-text font-medium">Dr. Ashwani Kumar</span>
                 <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Chief Surgeon</span>
@@ -244,7 +269,7 @@ export default function Hero() {
                 onTouchStart={(e) => { if (e.touches.length > 0) handleMove(e.touches[0].clientX); }}
                 onTouchMove={handleTouchMove}
               >
-                {/* After Image (Background) */}
+                {/* After Image (Background) - Full Color */}
                 <div className="absolute inset-0 pointer-events-none select-none">
                   <Image
                     src={slide.afterImage}
@@ -260,7 +285,7 @@ export default function Hero() {
                   After
                 </div>
 
-                {/* Before Image (Foreground with Clip Path) */}
+                {/* Before Image (Foreground with Clip Path) - Full Color */}
                 <div 
                   className="absolute inset-0 pointer-events-none select-none"
                   style={{

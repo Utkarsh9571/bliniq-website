@@ -152,7 +152,7 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
                                   alt={p.title}
                                   fill
                                   sizes="48px"
-                                  className="object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-300"
+                                  className="object-cover group-hover/item:scale-105 transition-all duration-300"
                                 />
                               </div>
                             )}

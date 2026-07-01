@@ -32,20 +32,12 @@ export default function SurgeryVideosSection() {
 
         {/* Cinematic Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto">
-          {VIDEO_STORIES.map((vid, idx) => {
-            // Card responsive visibility:
-            // Cards 1-2: Always visible.
-            // Cards 3-4: Hidden on mobile (idx >= 2), visible on sm & up.
-            // Cards 5-6: Hidden on mobile/tablet (idx >= 4), visible on lg & up.
-            const visibilityClass = 
-              idx >= 4 ? "hidden lg:flex" : 
-              idx >= 2 ? "hidden sm:flex" : "flex";
-
+          {VIDEO_STORIES.slice(0, 6).map((vid, idx) => {
             return (
               <div 
                 key={idx}
                 onClick={() => setActiveVideoId(vid.id)}
-                className={`${visibilityClass} bg-brand-bg-sec border border-brand-border/40 p-4 flex-col gap-4 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none`}
+                className="flex bg-brand-bg-sec border border-brand-border/40 p-4 flex-col gap-4 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none"
               >
                 {/* Thumbnail Display with Play Overlay */}
                 <div className="relative aspect-video w-full bg-[#0B0F19] border border-brand-border/30 overflow-hidden">
@@ -54,7 +46,7 @@ export default function SurgeryVideosSection() {
                     src={vid.thumbnail} 
                     alt={vid.title} 
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                   />
 
                   {/* Duration Badge */}
@@ -91,8 +83,8 @@ export default function SurgeryVideosSection() {
           })}
         </div>
 
-        {/* View All Videos Button (Visible on mobile/tablet only, triggers modal playlist) */}
-        <div className="flex justify-center mt-10 lg:hidden">
+        {/* View All Videos Button (Triggers modal playlist) */}
+        <div className="flex justify-center mt-10">
           <button 
             onClick={() => setActiveVideoId(VIDEO_STORIES[0].id)}
             className="border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-8 py-3 text-xs uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 min-h-11 flex items-center justify-center cursor-pointer"

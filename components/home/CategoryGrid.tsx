@@ -46,7 +46,7 @@ export default function CategoryGrid() {
                 alt={cat.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 25vw"
-                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 brightness-40"
+                className="object-cover group-hover:scale-105 transition-all duration-1000 brightness-40"
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-bg via-brand-bg/40 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">

@@ -3,8 +3,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import DoctorPreview from "@/components/home/DoctorPreview";
+import ConsultationSection from "@/components/home/ConsultationSection";
 import OriginSection from "@/components/home/OriginSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
+import BodyContouringSection from "@/components/home/BodyContouringSection";
 import TransformationsFeed from "@/components/home/TransformationsFeed";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
@@ -43,11 +45,17 @@ export default function Home() {
         {/* 2. Doctor Introduction */}
         <DoctorPreview />
 
+        {/* 2b. Premium Consultation Experience */}
+        <ConsultationSection />
+
         {/* 3. BLINIQ Origin */}
         <OriginSection />
 
         {/* 4. Services Offered */}
         <ServicesPreview />
+
+        {/* 4b. Body Contouring Editorial */}
+        <BodyContouringSection />
 
         {/* 5. Real Patient Transformations */}
         <TransformationsFeed />

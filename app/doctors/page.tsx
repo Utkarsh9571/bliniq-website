@@ -25,7 +25,7 @@ export default function DoctorsPage() {
                   src="/uploads/2024/02/Dr-Ashwini.jpg"
                   alt="Dr. Ashwani Kumar"
                   fill
-                  className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                  className="object-cover object-top transition-all duration-700"
                 />
               </div>
               <div className="flex-1 text-left">
