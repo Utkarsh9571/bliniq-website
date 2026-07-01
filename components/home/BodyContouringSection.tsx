@@ -37,7 +37,7 @@ export default function BodyContouringSection() {
           </div>
 
           {/* Right Column: Large Lifestyle/Body Image */}
-          <div className="lg:col-span-6 relative aspect-16/9 md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
+          <div className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
             <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
               {/* Desktop view */}
               <div className="hidden sm:block absolute inset-0">

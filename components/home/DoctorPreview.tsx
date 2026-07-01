@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
-import { homepageImages } from "@/content/homepage-images";
 
 export default function DoctorPreview() {
   const stats = [
@@ -35,7 +34,7 @@ export default function DoctorPreview() {
           <div className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2">
             <div className="relative w-full h-full border border-brand-accent/20">
               <Image
-                src="/uploads/2024/02/Dr-Ashwini.jpg"
+                src="/doctor.jpeg"
                 alt="Dr. Ashwani Kumar - Founder and Chief Surgeon of BLINIQ"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -67,7 +66,7 @@ export default function DoctorPreview() {
                   harmonize the body&apos;s natural proportions rather than create artificial distortions.
                 </p>
                 <blockquote className="border-l-2 border-brand-accent pl-4 italic text-brand-text-sec text-sm my-6 font-serif leading-relaxed">
-                  "Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision."
+                  &ldquo;Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision.&rdquo;
                   <cite className="block text-[10px] uppercase tracking-widest text-brand-accent mt-2 font-mono not-italic">— Dr. Ashwani Kumar</cite>
                 </blockquote>
               </div>

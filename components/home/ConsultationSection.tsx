@@ -13,7 +13,7 @@ export default function ConsultationSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Large Consultation Image */}
-          <div className="lg:col-span-6 relative aspect-16/9 md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
+          <div className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
             <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
               <Image
                 src={homepageImages.consultation.room01}

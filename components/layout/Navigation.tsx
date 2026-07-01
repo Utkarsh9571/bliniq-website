@@ -91,7 +91,7 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
 
   // Desktop Render
   return (
-    <nav className="hidden xl:flex items-center gap-6 z-50">
+    <nav className="hidden xl:flex items-center gap-6 z-50 relative">
       {HEADER_NAVIGATION_DATA.map((section, idx) => {
         const isHovered = activeSection === idx;
 
@@ -111,7 +111,7 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
         return (
           <div
             key={section.title}
-            className="relative"
+            className={section.type === "mega" ? "static" : "relative"}
             onMouseEnter={() => setActiveSection(idx)}
             onMouseLeave={() => setActiveSection(null)}
           >
@@ -123,7 +123,11 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
 
             {/* Dropdown container */}
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-250 ease-out z-50 ${
+              className={`absolute top-full pt-2 transition-all duration-250 ease-out z-50 ${
+                section.type === "mega" 
+                  ? "left-0 right-0 mx-auto w-195" 
+                  : "left-1/2 -translate-x-1/2 w-56"
+              } ${
                 isHovered
                   ? "opacity-100 translate-y-0 visible"
                   : "opacity-0 -translate-y-2 invisible pointer-events-none"
@@ -131,7 +135,7 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
             >
               {/* Mega Menu panel */}
               {section.type === "mega" && (
-                <div className="w-195 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-2xl p-6 shadow-2xl flex flex-col gap-4">
+                <div className="w-full bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-2xl p-6 shadow-2xl flex flex-col gap-4">
                   {section.categories?.map((cat) => (
                     <div key={cat.title} className="flex flex-col gap-3">
                       <span className="text-[9px] text-brand-accent uppercase tracking-widest font-semibold border-b border-brand-border/30 pb-1.5 mb-1 block">
@@ -174,7 +178,7 @@ export default function Navigation({ mobile = false, onLinkClick }: NavigationPr
 
               {/* Simple Dropdown list */}
               {section.type === "dropdown" && (
-                <div className="w-56 bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-xl p-4 shadow-2xl flex flex-col gap-2.5">
+                <div className="w-full bg-[#0B0F19]/98 backdrop-blur-xl border border-brand-border/60 rounded-xl p-4 shadow-2xl flex flex-col gap-2.5">
                   {section.items?.map((item) => (
                     <Link
                       key={item.slug}

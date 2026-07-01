@@ -74,7 +74,7 @@ export default function Hero() {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
       setSliderPosition(50); // Reset handle position for next slide
-    }, 7000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -130,7 +130,7 @@ export default function Hero() {
         </div>
         
         {/* Cinematic animated gold light streaks background */}
-        <div className="absolute inset-0 z-0 opacity-40 bg-gradient-to-b from-[#0B0F19]/80 via-transparent to-[#0B0F19]">
+        <div className="absolute inset-0 z-0 opacity-40 bg-linear-to-b from-[#0B0F19]/80 via-transparent to-[#0B0F19]">
           <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vh] rounded-full bg-radial-to-c from-[#C9A96E]/15 via-transparent to-transparent blur-3xl animate-pulse duration-8000" />
           <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vh] rounded-full bg-radial-to-c from-brand-accent/10 via-transparent to-transparent blur-3xl animate-pulse duration-6000" />
           {/* Subtle diagonal gold streak lines */}

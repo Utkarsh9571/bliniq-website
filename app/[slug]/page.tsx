@@ -7,7 +7,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 import legitimatePages from "@/content/migrated/legitimate-pages.json";
 import seoPages from "@/content/migrated/seo-pages.json";
 import { getPageMetadata, getBreadcrumbSchemaJson } from "@/lib/seo";
@@ -37,7 +36,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = seoMatch?.metaTitle || pageMatch?.yoast?.metaTitle || pageMatch?.title || "Cosmetic Surgery & Treatments";
   const description = seoMatch?.metaDescription || pageMatch?.yoast?.metaDescription || (pageMatch?.content ? pageMatch.content.replace(/<[^>]*>/g, "").substring(0, 150) + "..." : "Advanced aesthetic solutions at BLINIQ Clinic.");
-  const canonicalUrl = seoMatch?.canonical || pageMatch?.yoast?.canonical || `https://bliniq.in/${slug}`;
 
   return getPageMetadata({
     title: title.includes("|") ? title : `${title} | BLINIQ Delhi`,
@@ -114,7 +112,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
             <Container>
               <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
                 <div className="md:col-span-4">
-                  <div className="relative aspect-[3/4] w-full border border-brand-border bg-brand-card overflow-hidden">
+                  <div className="relative aspect-3/4 w-full border border-brand-border bg-brand-card overflow-hidden">
                     {featuredImage ? (
                       <Image
                         src={featuredImage}
