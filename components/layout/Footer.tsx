@@ -71,9 +71,9 @@ export default function Footer() {
               Contact & Trust
             </h4>
             <p className="text-[11px] text-brand-text-sec leading-relaxed mb-4">
-              📞 +91 72900 62111
+              📞 <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors font-mono">+91 72900 62111</a>
               <br />
-              ✉️ info@bliniq.in
+              ✉️ <a href="mailto:info@bliniq.in" className="hover:text-brand-accent transition-colors">info@bliniq.in</a>
               <br />
               📍 Dwarka Sector-7, New Delhi
               <br />

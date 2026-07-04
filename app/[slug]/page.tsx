@@ -6,10 +6,11 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import legitimatePages from "@/content/migrated/legitimate-pages.json";
 import seoPages from "@/content/migrated/seo-pages.json";
 import { getPageMetadata, getBreadcrumbSchemaJson } from "@/lib/seo";
+import EvaluationForm from "@/components/procedure/EvaluationForm";
+
 
 interface PageProps {
   params: Promise<{
@@ -196,57 +197,16 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                         Consult with Dr. Ashwani Kumar. Get a customized treatment blueprint and price quote.
                       </p>
                       
-                      <form className="space-y-4">
-                        <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-brand-text-sec mb-1.5">Your Name</label>
-                          <input 
-                            type="text" 
-                            required
-                            className="w-full bg-brand-bg border border-brand-border/65 px-4 py-2.5 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none" 
-                            placeholder="Full Name"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-brand-text-sec mb-1.5">Phone Number</label>
-                          <input 
-                            type="tel" 
-                            required
-                            className="w-full bg-brand-bg border border-brand-border/65 px-4 py-2.5 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none" 
-                            placeholder="10-digit mobile"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-brand-text-sec mb-1.5">Email Address</label>
-                          <input 
-                            type="email" 
-                            required
-                            className="w-full bg-brand-bg border border-brand-border/65 px-4 py-2.5 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none" 
-                            placeholder="name@email.com"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-brand-text-sec mb-1.5">Select Procedure</label>
-                          <select 
-                            defaultValue={slug}
-                            className="w-full bg-brand-bg border border-brand-border/65 px-4 py-2.5 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none"
-                          >
-                            <option value={slug}>{title}</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-brand-text-sec mb-1.5">Additional Notes</label>
-                          <textarea 
-                            rows={3}
-                            className="w-full bg-brand-bg border border-brand-border/65 px-4 py-2.5 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none resize-none" 
-                            placeholder="Describe your requirements..."
-                          />
-                        </div>
-                        <Button type="submit" variant="primary" className="w-full mt-2 text-xs py-3.5 uppercase tracking-widest font-semibold min-h-11 flex items-center justify-center">
-                          Book Evaluation
-                        </Button>
-                      </form>
+                      <EvaluationForm procedureTitle={title} procedureSlug={slug} />
+                      
                       <p className="text-[10px] text-center text-brand-text-sec/60 mt-4 leading-relaxed">
-                        🔒 100% confidential. Support: +91 72900 62111
+                        🔒 100% confidential. Support:{" "}
+                        <a 
+                          href="tel:+917290062111" 
+                          className="hover:text-brand-accent transition-colors"
+                        >
+                          +91 72900 62111
+                        </a>
                       </p>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 import { homepageImages } from "@/content/homepage-images";
+import { trackEvent } from "@/lib/analytics";
 
 interface SlideData {
   service: string;
@@ -210,7 +211,11 @@ export default function Hero() {
 
             {/* Call-to-Actions */}
             <div className="order-4 md:order-0 flex flex-row gap-3 w-full sm:w-auto">
-              <a href="#contact-form" className="grow sm:grow-0">
+              <a 
+                href="#contact-form" 
+                className="grow sm:grow-0"
+                onClick={() => trackEvent({ action: "consultation_click", category: "Click Tracking", label: `Hero Slider - ${slide.service}` })}
+              >
                 <Button variant="primary" className="w-full sm:w-auto px-5 py-2.5 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs uppercase tracking-widest font-semibold min-h-11">
                   Book Consult
                 </Button>

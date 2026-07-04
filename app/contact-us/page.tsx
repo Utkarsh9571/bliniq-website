@@ -1,12 +1,67 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import { trackEvent } from "@/lib/analytics";
+import { submitLead } from "@/lib/forms";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    procedure: "General Inquiry",
+    message: "",
+    website: "" // Honeypot field
+  });
+  const [status, setStatus] = useState<{
+    type: "idle" | "loading" | "success" | "error";
+    message: string;
+  }>({ type: "idle", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ type: "loading", message: "Sending your message..." });
+
+    try {
+      const result = await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        procedure: formData.procedure,
+        message: formData.message,
+        website: formData.website,
+        sourcePage: "contact-us"
+      });
+
+      if (result.success) {
+        setStatus({ type: "success", message: result.message || "Your message was sent successfully." });
+        setFormData({ name: "", phone: "", email: "", procedure: "General Inquiry", message: "", website: "" });
+        
+        // Push GTM event
+        trackEvent({
+          action: "form_submit_contact",
+          category: "Lead Acquisition",
+          label: formData.procedure
+        });
+      } else {
+        setStatus({ type: "error", message: result.error || "An error occurred. Please try again." });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus({ type: "error", message: "Failed to send message. Please check your internet connection." });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -37,7 +92,14 @@ export default function ContactPage() {
                   New Delhi - 110075, India
                 </p>
                 <p className="text-brand-text-sec text-sm">
-                  <span className="text-brand-accent">Phone:</span> +91 72900 62111
+                  <span className="text-brand-accent">Phone:</span>{" "}
+                  <a
+                    href="tel:+917290062111"
+                    className="hover:text-brand-accent transition-colors"
+                    onClick={() => trackEvent({ action: "phone_click", category: "Click Tracking", label: "Contact Us Info" })}
+                  >
+                    +91 72900 62111
+                  </a>
                   <br />
                   <span className="text-brand-accent">Email:</span> info@bliniq.in
                 </p>
@@ -50,33 +112,95 @@ export default function ContactPage() {
                 <h4 className="font-serif text-2xl text-brand-text mb-6 font-light">
                   Send a Message
                 </h4>
-                <form className="flex flex-col gap-4 font-sans text-sm">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
-                    required
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
-                    required
-                  />
-                  <textarea
-                    placeholder="Your Message"
-                    rows={5}
-                    className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors resize-none"
-                    required
-                  ></textarea>
-                  <Button variant="primary" type="submit" className="mt-2 min-h-11 flex items-center justify-center">
-                    Submit Message
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 font-sans text-sm">
+                  {/* Honeypot Spam Protection */}
+                  <div className="hidden">
+                    <input
+                      type="text"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your Name"
+                      className="w-full bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Your Phone Number"
+                      className="w-full bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Your Email"
+                      className="w-full bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <select
+                      name="procedure"
+                      value={formData.procedure}
+                      onChange={handleChange}
+                      className="w-full bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors"
+                      required
+                    >
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Billing Question">Billing & Payment</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Other">Other Topic</option>
+                    </select>
+                  </div>
+                  <div>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Your Message"
+                      rows={5}
+                      className="w-full bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-none focus:border-brand-accent transition-colors resize-none"
+                      required
+                    ></textarea>
+                  </div>
+
+                  {status.type !== "idle" && (
+                    <div className={`p-4 text-xs ${
+                      status.type === "loading" ? "border border-brand-border bg-brand-card text-brand-text-sec animate-pulse" :
+                      status.type === "success" ? "border border-green-800/40 bg-green-950/20 text-green-400" :
+                      "border border-red-900/40 bg-red-950/20 text-red-400"
+                    }`}>
+                      {status.message}
+                    </div>
+                  )}
+
+                  <Button 
+                    variant="primary" 
+                    type="submit" 
+                    disabled={status.type === "loading"}
+                    className="mt-2 min-h-11 flex items-center justify-center disabled:opacity-50"
+                  >
+                    {status.type === "loading" ? "Sending..." : "Submit Message"}
                   </Button>
                 </form>
               </Card>
@@ -88,3 +212,4 @@ export default function ContactPage() {
     </>
   );
 }
+

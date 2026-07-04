@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import { homepageImages } from "@/content/homepage-images";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ConsultationSection() {
   return (
@@ -42,7 +43,11 @@ export default function ConsultationSection() {
               </p>
             </div>
             
-            <a href="#contact-form" className="mt-2">
+            <a 
+              href="#contact-form" 
+              className="mt-2"
+              onClick={() => trackEvent({ action: "consultation_click", category: "Click Tracking", label: "Consultation Section" })}
+            >
               <Button variant="primary" className="px-8 py-3.5 text-xs uppercase tracking-widest font-semibold min-h-11">
                 Book Consultation
               </Button>

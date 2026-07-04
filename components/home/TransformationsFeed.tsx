@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Button from "../ui/Button";
+import { trackEvent } from "@/lib/analytics";
 
 interface SocialPost {
   id: number;
@@ -93,6 +94,14 @@ export default function TransformationsFeed() {
   const openModal = (post: SocialPost, rowNum: number) => {
     setActivePost(post);
     setActiveRow(rowNum);
+    
+    // GTM event tracking
+    trackEvent({
+      action: "instagram_post_open",
+      category: "Engagement",
+      label: post.procedure
+    });
+
     if (rowNum === 1) {
       setRow1Paused(true);
     } else if (rowNum === 2) {
@@ -261,6 +270,7 @@ export default function TransformationsFeed() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full"
+                  onClick={() => trackEvent({ action: "instagram_click", category: "Outbound Clicks", label: activePost.procedure })}
                 >
                   <Button variant="primary" className="w-full py-3.5 text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-4 h-4">

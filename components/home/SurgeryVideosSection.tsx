@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import { VIDEO_STORIES } from "@/content/videos";
+import { trackEvent } from "@/lib/analytics";
 
 export default function SurgeryVideosSection() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
@@ -21,6 +22,18 @@ export default function SurgeryVideosSection() {
   const activeVideo = VIDEO_STORIES.find((v) => v.id === activeVideoId);
   const relatedVideos = VIDEO_STORIES.filter((v) => v.id !== activeVideoId);
 
+  const openVideo = (id: string) => {
+    setActiveVideoId(id);
+    const video = VIDEO_STORIES.find((v) => v.id === id);
+    if (video) {
+      trackEvent({
+        action: "video_testimonial_open",
+        category: "Engagement",
+        label: video.title
+      });
+    }
+  };
+
   return (
     <section id="surgery-videos" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40 relative">
       <Container>
@@ -36,7 +49,7 @@ export default function SurgeryVideosSection() {
             return (
               <div 
                 key={idx}
-                onClick={() => setActiveVideoId(vid.id)}
+                onClick={() => openVideo(vid.id)}
                 className="flex bg-brand-bg-sec border border-brand-border/40 p-4 flex-col gap-4 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none"
               >
                 {/* Thumbnail Display with Play Overlay */}
@@ -86,7 +99,7 @@ export default function SurgeryVideosSection() {
         {/* View All Videos Button (Triggers modal playlist) */}
         <div className="flex justify-center mt-10">
           <button 
-            onClick={() => setActiveVideoId(VIDEO_STORIES[0].id)}
+            onClick={() => openVideo(VIDEO_STORIES[0].id)}
             className="border border-brand-accent/50 hover:border-brand-accent bg-brand-accent/5 hover:bg-brand-accent/15 px-8 py-3 text-xs uppercase tracking-widest font-mono font-bold text-brand-accent transition-all duration-300 min-h-11 flex items-center justify-center cursor-pointer"
           >
             View All Videos

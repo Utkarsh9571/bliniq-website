@@ -7,6 +7,7 @@ import Navigation from "./Navigation";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import { getAllProcedures } from "@/lib/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -116,13 +117,18 @@ export default function Header() {
                 <a 
                   href="tel:+917290062111" 
                   className="text-xs text-brand-accent hover:text-brand-hover font-mono font-semibold transition-colors block"
+                  onClick={() => trackEvent({ action: "phone_click", category: "Click Tracking", label: "Header Popdown" })}
                 >
                   +91 72900 62111
                 </a>
               </div>
             </div>
 
-            <Link href="/appointment" className="hidden lg:inline-flex">
+            <Link 
+              href="/appointment" 
+              className="hidden lg:inline-flex"
+              onClick={() => trackEvent({ action: "consultation_click", category: "Click Tracking", label: "Header Button" })}
+            >
               <Button variant="primary" className="py-2.5 px-6 text-[10px] uppercase tracking-widest font-semibold">
                 Book Appointment
               </Button>
@@ -198,13 +204,25 @@ export default function Header() {
           <div className="border-t border-brand-border/40 p-8 bg-[#0F1524]/60 space-y-6">
             <div className="flex justify-between items-center text-xs">
               <span className="text-brand-text-sec uppercase tracking-widest">Support Line</span>
-              <a href="tel:+917290062111" className="text-brand-accent font-mono">+91 72900 62111</a>
+              <a 
+                href="tel:+917290062111" 
+                className="text-brand-accent font-mono"
+                onClick={() => trackEvent({ action: "phone_click", category: "Click Tracking", label: "Header Mobile Drawer" })}
+              >
+                +91 72900 62111
+              </a>
             </div>
-            <Link href="/appointment" className="w-full block">
+            <Link 
+              href="/appointment" 
+              className="w-full block"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                trackEvent({ action: "consultation_click", category: "Click Tracking", label: "Header Mobile Drawer" });
+              }}
+            >
               <Button
                 variant="primary"
                 className="w-full py-3.5 text-xs uppercase tracking-widest font-semibold"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 Book Consultation
               </Button>
