@@ -6,6 +6,18 @@ import { trackEvent } from "@/lib/analytics";
 import { submitLead } from "@/lib/forms";
 import { clinicConfig } from "@/content/clinic-config";
 
+const TIME_SLOTS = [
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 PM",
+  "01:00 PM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
+  "05:00 PM",
+  "06:00 PM"
+];
+
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -171,17 +183,25 @@ export default function AppointmentForm() {
           max={maxDateStr}
           value={formData.date}
           onChange={handleChange}
+          onKeyDown={(e) => e.preventDefault()}
+          onClick={(e) => e.currentTarget.showPicker && e.currentTarget.showPicker()}
           className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-hidden focus:border-brand-accent transition-colors cursor-pointer"
           required
         />
-        <input
-          type="time"
+        <select
           name="time"
           value={formData.time}
           onChange={handleChange}
           className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-hidden focus:border-brand-accent transition-colors cursor-pointer"
           required
-        />
+        >
+          <option value="" disabled>Select Time</option>
+          {TIME_SLOTS.map((slot, idx) => (
+            <option key={idx} value={slot}>
+              {slot}
+            </option>
+          ))}
+        </select>
       </div>
 
       <textarea
