@@ -1,3 +1,5 @@
+import { siteConfig } from "@/content/site-config";
+
 export interface LeadData {
   name: string;
   phone: string;
@@ -16,9 +18,7 @@ export interface LeadSubmitResult {
   error?: string;
 }
 
-// OPTIONAL: For fully static hosting without build environment variables (e.g. Apache, static CDN, etc.),
-// you can hardcode your published Apps Script Web App URL directly here:
-export const HARDCODED_GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9Fp2R17RHPMbq-PPNo-mP-xShXFsRzSf7bC2ltNgjlgjvKdCtlGpoftPGXXd-mqKq/exec";
+
 
 /**
  * Submits a standardized lead payload directly to the Google Apps Script Web App.
@@ -35,7 +35,7 @@ export async function submitLead(data: LeadData): Promise<LeadSubmitResult> {
     };
   }
 
-  const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || HARDCODED_GOOGLE_SCRIPT_URL;
+  const scriptUrl = siteConfig.googleScriptUrl;
 
   // 2. Dev simulation mode
   if (!scriptUrl) {

@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
-import { getCsvData } from "@/lib/csvParser";
+import legitimatePages from "@/content/migrated/legitimate-pages.json";
 
 export default function BlogPreview() {
-  const blogs = getCsvData("data-blogs.csv").slice(0, 3); // Top 3 posts
+  const blogs = legitimatePages.filter((p) => p.type === "blog").slice(0, 3); // Top 3 posts
 
   const getBlogImage = (index: number) => {
     const images = [
@@ -30,14 +30,14 @@ export default function BlogPreview() {
           {blogs.map((post, index) => (
             <Link
               key={index}
-              href={`/blog/${post.post_name}`}
+              href={`/${post.slug}`}
               className="group flex flex-col border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all duration-500"
             >
               {/* Blog Thumbnail */}
               <div className="relative aspect-16/10 w-full overflow-hidden border-b border-brand-border">
                 <Image
                   src={getBlogImage(index)}
-                  alt={post.post_title}
+                  alt={post.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-all duration-1000"
@@ -48,10 +48,10 @@ export default function BlogPreview() {
               <div className="p-6 flex flex-col justify-between grow">
                 <div>
                   <span className="text-brand-accent/60 text-[10px] tracking-widest font-mono uppercase block mb-3">
-                    {post.post_date ? post.post_date.split(" ")[0] : "Date Pending"}
+                    {post.date ? post.date.split(" ")[0] : "Date Pending"}
                   </span>
                   <h3 className="font-serif text-xl text-brand-text group-hover:text-brand-accent transition-colors duration-300 font-light leading-snug line-clamp-2">
-                    {post.post_title}
+                    {post.title}
                   </h3>
                   <p className="text-brand-text-sec text-xs leading-relaxed mt-4 font-sans line-clamp-2">
                     Explore professional insights and clinical guidance regarding advanced aesthetic procedures under Dr. Ashwani Kumar.

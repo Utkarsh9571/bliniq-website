@@ -4,20 +4,26 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { getCsvData } from "@/lib/csvParser";
+import { Metadata } from "next";
+import legitimatePages from "@/content/migrated/legitimate-pages.json";
+import { getPageMetadata } from "@/lib/seo";
 import { homepageImages } from "@/content/homepage-images";
 
+export const metadata: Metadata = getPageMetadata({
+  title: "About Us | BLINIQ Cosmetic & Plastic Surgery Clinic Delhi",
+  description: "Learn about BLINIQ Clinic in Dwarka, Delhi. Guided by Chief Surgeon Dr. Ashwani Kumar, we specialize in high-definition body sculpting, FUE hair transplants, and facial aesthetics.",
+  path: "about-us"
+});
+
 export default function AboutPage() {
-  // Extract About Bliniq content (ID 8631)
-  const pageContent = getCsvData("data-page-content.csv");
-  const aboutPage = pageContent.find((p) => p.ID === "8631") || {
-    post_title: "About Bliniq",
-    post_content: "<p>BLINIQ Cosmetic Surgery Centre is a premier, state-of-the-art aesthetic clinic located in Dwarka, Delhi. Directed by chief board-certified plastic surgeon Dr. Ashwani Kumar, our clinic provides top-tier cosmetic procedures including high-definition VASER liposuction, gynecomastia corrections, abdominoplasty, and FUE hair restorations.</p><h2>Our Vision & Mission</h2><p>At BLINIQ, our mission is to deliver natural-looking aesthetic outcomes through the safest, most advanced FDA-approved technologies available globally. We prioritize patient confidentiality, medical ethics, and personalized post-operative care, ensuring a luxurious and comfortable environment for every patient's transformation journey.</p>",
+  // Extract About Bliniq content (ID 8631 / slug 'about-us')
+  const aboutPage = legitimatePages.find((p) => p.slug === "about-us") || {
+    title: "About Bliniq",
+    content: "<p>BLINIQ Cosmetic Surgery Centre is a premier, state-of-the-art aesthetic clinic located in Dwarka, Delhi. Directed by chief board-certified plastic surgeon Dr. Ashwani Kumar, our clinic provides top-tier cosmetic procedures including high-definition VASER liposuction, gynecomastia corrections, abdominoplasty, and FUE hair restorations.</p><h2>Our Vision & Mission</h2><p>At BLINIQ, our mission is to deliver natural-looking aesthetic outcomes through the safest, most advanced FDA-approved technologies available globally. We prioritize patient confidentiality, medical ethics, and personalized post-operative care, ensuring a luxurious and comfortable environment for every patient's transformation journey.</p>",
   };
 
-  let rawHtml = aboutPage.post_content || "";
+  let rawHtml = aboutPage.content || "";
   rawHtml = rawHtml.replace(/https?:\/\/(www\.)?bliniq\.in/g, "");
-  rawHtml = rawHtml.replace(/\/wp-content\/uploads\//g, "/uploads/");
 
   return (
     <>
@@ -27,7 +33,7 @@ export default function AboutPage() {
         {/* Main Content Section (WP Content) */}
         <section className="pb-16 border-b border-brand-border/40">
           <Container>
-            <SectionTitle title={aboutPage.post_title} subtitle="About Our Clinic" align="center" />
+            <SectionTitle title={aboutPage.title} subtitle="About Our Clinic" align="center" />
             
             <div className="max-w-3xl mx-auto mt-12 bg-brand-bg-sec border border-brand-border p-8 md:p-12 shadow-2xl">
               {/* Render the actual WP HTML content with tailored typographic styling */}
@@ -75,7 +81,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <blockquote className="border-l-2 border-brand-accent pl-4 italic text-brand-text-sec text-sm my-4 font-serif leading-relaxed">
-                  "Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision."
+                  &quot;Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision.&quot;
                 </blockquote>
               </div>
 
