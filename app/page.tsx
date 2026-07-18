@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import DoctorPreview from "@/components/home/DoctorPreview";
+import SignatureTransformations from "@/components/home/SignatureTransformations";
 import ConsultationSection from "@/components/home/ConsultationSection";
 import OriginSection from "@/components/home/OriginSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
@@ -39,6 +40,9 @@ export default function Home() {
 
         {/* 2. Doctor Introduction */}
         <DoctorPreview />
+
+        {/* 2c. Signature Transformations Carousel */}
+        <SignatureTransformations />
 
         {/* 2b. Premium Consultation Experience */}
         <ConsultationSection />

@@ -104,8 +104,6 @@ export default function Hero() {
   return (
     <section 
       className="relative w-full min-h-screen bg-[#0B0F19] text-brand-text flex items-center justify-center overflow-hidden pt-20 pb-10 md:pt-24 md:pb-12 lg:pt-28 lg:pb-16 px-4 md:px-8 lg:px-20 z-10"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       {/* 1. Luxury Editorial Background Image Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
@@ -252,8 +250,11 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Side: Before/After Comparison Component */}
-          <div className="lg:col-span-7 flex flex-col items-center justify-center w-full mt-4 lg:mt-0">
+          <div 
+            className="lg:col-span-7 flex flex-col items-center justify-center w-full mt-4 lg:mt-0"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             
             {/* Glass Luxury Card Styling wrapper */}
             <div className="w-full bg-[#0F1524]/60 backdrop-blur-md border border-brand-border/60 p-3 md:p-6 shadow-2xl relative">
