@@ -130,25 +130,25 @@ export default function SignatureTransformations() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       tabIndex={0}
-      className="py-24 bg-brand-bg border-b border-brand-border/40 overflow-hidden focus:outline-none"
+      className="py-12 md:py-16 bg-brand-bg border-b border-brand-border/40 overflow-hidden focus:outline-none"
       aria-label="Signature Transformations Procedure Showcase"
     >
       <Container>
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <span className="text-brand-accent text-xs font-semibold tracking-[0.25em] uppercase block mb-3 font-sans">
+        <div className="text-center mb-12">
+          <span className="text-brand-accent text-[10px] font-semibold tracking-[0.25em] uppercase block mb-2 font-sans">
             Our Signature Transformations
           </span>
-          <p className="font-serif text-2xl md:text-3xl text-brand-text font-light leading-snug max-w-2xl mx-auto">
+          <p className="font-serif text-xl md:text-2xl text-brand-text font-light leading-snug max-w-2xl mx-auto">
             Discover the procedures that have helped thousands of patients achieve natural, confidence-boosting results under the care of Dr. Ashwani Kumar.
           </p>
         </div>
 
         {/* Carousel composition container */}
-        <div className="relative w-full min-h-125 md:h-145 flex flex-col md:block">
+        <div className="relative w-full min-h-100 lg:h-[460px] flex flex-col lg:block">
           
           {/* 1. Featured Image Gallery (Desktop Right 70%, Mobile Bottom) */}
-          <div className="order-2 md:order-0 relative w-full h-80 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[70%] md:h-full overflow-hidden bg-[#0a0a0c] border border-brand-border/40">
+          <div className="order-2 lg:order-0 relative w-full h-64 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[70%] lg:h-full overflow-hidden bg-[#0a0a0c] border border-brand-border/40">
             {SLIDES.map((slide, index) => {
               const isActive = activeIndex === index;
               return (
@@ -168,14 +168,14 @@ export default function SignatureTransformations() {
                       isActive ? "scale-100" : "scale-[1.03]"
                     }`}
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-brand-bg via-brand-bg/10 to-transparent md:bg-linear-to-r md:from-brand-bg md:via-brand-bg/40 md:to-transparent z-1 pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-bg via-brand-bg/10 to-transparent lg:bg-linear-to-r lg:from-brand-bg lg:via-brand-bg/40 lg:to-transparent z-1 pointer-events-none" />
                 </div>
               );
             })}
 
             {/* Pagination Indicators - Placed bottom-left of the image on desktop */}
             <div 
-              className="absolute bottom-6 left-6 z-20 flex gap-2 md:bottom-8 md:left-8" 
+              className="absolute bottom-4 left-4 z-20 flex gap-2 lg:bottom-6 lg:left-6" 
               role="tablist" 
               aria-label="Showcase slide controls"
             >
@@ -198,30 +198,30 @@ export default function SignatureTransformations() {
             </div>
 
             {/* Circular navigation buttons - Bottom-right of image on desktop */}
-            <div className="absolute bottom-6 right-6 z-20 flex gap-2.5 md:bottom-8 md:right-8">
+            <div className="absolute bottom-4 right-4 z-20 flex gap-2 lg:bottom-6 lg:right-6">
               <button
                 onClick={prevSlide}
                 aria-label="Previous slide"
-                className="w-10 h-10 rounded-full border border-brand-border/60 bg-brand-bg/60 backdrop-blur-sm text-brand-text hover:border-brand-accent hover:text-brand-accent transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none"
+                className="w-8 h-8 rounded-full border border-brand-border/60 bg-brand-bg/60 backdrop-blur-sm text-brand-text hover:border-brand-accent hover:text-brand-accent transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next slide"
-                className="w-10 h-10 rounded-full border border-brand-border/60 bg-brand-bg/60 backdrop-blur-sm text-brand-text hover:border-brand-accent hover:text-brand-accent transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none"
+                className="w-8 h-8 rounded-full border border-brand-border/60 bg-brand-bg/60 backdrop-blur-sm text-brand-text hover:border-brand-accent hover:text-brand-accent transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
           </div>
 
-          {/* 2. Floating Overlapping Glass Card (Desktop Left 40%, Mobile Top) */}
-          <div className="order-1 md:order-0 md:absolute md:left-[5%] md:top-[10%] md:bottom-[10%] md:w-[40%] z-20 bg-brand-card/85 backdrop-blur-md border border-brand-border/40 p-8 md:p-12 flex flex-col justify-center shadow-2xl relative select-none">
+          {/* 2. Floating Overlapping Glass Card (Desktop Left 44%, Mobile Top) */}
+          <div className="order-1 lg:order-0 lg:absolute lg:left-[5%] lg:top-[5%] lg:bottom-[5%] lg:w-[44%] z-20 bg-brand-card/85 backdrop-blur-md border border-brand-border/40 p-6 lg:p-8 flex flex-col justify-center shadow-2xl relative select-none">
             {SLIDES.map((slide, index) => {
               const isActive = activeIndex === index;
               return (
@@ -230,30 +230,30 @@ export default function SignatureTransformations() {
                   className={`transition-all duration-700 ease-out ${
                     isActive 
                       ? "opacity-100 transform translate-y-0 relative pointer-events-auto" 
-                      : "opacity-0 transform translate-y-4 absolute inset-x-8 md:inset-x-12 pointer-events-none"
+                      : "opacity-0 transform translate-y-4 absolute inset-x-6 lg:inset-x-8 pointer-events-none"
                   }`}
                 >
-                  <span className="text-[10px] text-brand-accent font-mono uppercase tracking-[0.2em] block mb-2">
+                  <span className="text-[9px] text-brand-accent font-mono uppercase tracking-[0.2em] block mb-1">
                     Signature Procedure
                   </span>
-                  <h3 className="font-serif text-3xl text-brand-text font-light mb-4 leading-tight">
+                  <h3 className="font-serif text-xl lg:text-2xl text-brand-text font-light mb-3 leading-tight">
                     {slide.title}
                   </h3>
-                  <p className="text-brand-text-sec text-xs leading-relaxed mb-6 font-sans">
+                  <p className="text-brand-text-sec text-[11px] leading-relaxed mb-4 font-sans">
                     {slide.description}
                   </p>
                   
                   {/* Highlights Bullet List */}
-                  <ul className="space-y-2.5 mb-8 font-sans">
+                  <ul className="space-y-1.5 mb-5 font-sans">
                     {slide.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start text-[11px] text-brand-text-sec/90 leading-normal">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-accent/70 mt-1.5 mr-2.5 shrink-0" />
+                      <li key={idx} className="flex items-start text-[10px] lg:text-[11px] text-brand-text-sec/90 leading-normal">
+                        <span className="w-1 h-1 rounded-full bg-brand-accent/70 mt-1.5 mr-2 shrink-0" />
                         {highlight}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <CTAButton href={slide.link}>Explore Procedure</CTAButton>
                   </div>
                 </div>
