@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import legitimatePages from "@/content/migrated/legitimate-pages.json";
 import seoPages from "@/content/migrated/seo-pages.json";
-import { getPageMetadata, getBreadcrumbSchemaJson } from "@/lib/seo";
+import { getPageMetadata, getBreadcrumbSchemaJson, getProcedurePageSchemaJson } from "@/lib/seo";
 import EvaluationForm from "@/components/procedure/EvaluationForm";
 
 
@@ -55,12 +55,22 @@ export default async function DynamicSlugPage({ params }: PageProps) {
 
   const { title, content, type, featuredImage } = page;
 
-  // Breadcrumbs schema
-  const breadcrumbs = [
-    { name: "Home", item: "https://bliniq.in" },
-    { name: type.replace("-", " "), item: `https://bliniq.in/${slug}` }
-  ];
-  const breadcrumbSchema = getBreadcrumbSchemaJson(breadcrumbs);
+  // Find page description for Service schema details
+  const seoMatch = seoPages.find((s) => s.slug === slug);
+  const description = seoMatch?.metaDescription || page?.yoast?.metaDescription || (content ? content.replace(/<[^>]*>/g, "").substring(0, 150) + "..." : "Advanced aesthetic solutions at BLINIQ Clinic.");
+
+  // Connected schema graph generation
+  let schemaData: unknown;
+  if (type === "procedure" || type === "seo-page" || type === "service") {
+    schemaData = getProcedurePageSchemaJson(slug, title, description, content);
+  } else {
+    // Breadcrumbs schema for standard pages
+    const breadcrumbs = [
+      { name: "Home", item: "https://bliniq.in" },
+      { name: type.replace("-", " "), item: `https://bliniq.in/${slug}` }
+    ];
+    schemaData = getBreadcrumbSchemaJson(breadcrumbs);
+  }
 
   return (
     <>
@@ -69,7 +79,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
         {/* Inject JSON-LD Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
 
         {/* Dynamic Layout Rendering based on page type */}

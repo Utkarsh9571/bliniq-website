@@ -75,7 +75,7 @@ export default function Hero() {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
       setSliderPosition(50); // Reset handle position for next slide
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -144,14 +144,14 @@ export default function Hero() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-6 lg:gap-8 items-center max-w-7xl mx-auto">
           
           {/* Left Side: Staggered Content Area */}
-          <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-4 md:gap-5 lg:gap-6 pr-0 lg:pr-8">
+          <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-5 md:gap-6 lg:gap-8 pr-0 lg:pr-8">
             
             {/* Text content wrapper */}
             <div className="flex flex-col gap-3 order-1 md:order-0 w-full">
               {/* Eyebrow Label */}
               <span 
                 key={`eyebrow-${currentSlide}`}
-                className="text-brand-accent font-sans text-[10px] sm:text-xs tracking-[0.3em] uppercase block font-semibold animate-[slideDown_0.6s_ease-out_forwards]"
+                className="text-brand-accent font-sans text-[10px] sm:text-xs tracking-[0.3em] uppercase block font-semibold animate-[slideDown_0.5s_ease-out_forwards]"
               >
                 {slide.eyebrow}
               </span>
@@ -159,7 +159,7 @@ export default function Hero() {
               {/* Large Editorial Heading */}
               <h1 
                 key={`heading-${currentSlide}`}
-                className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-light text-brand-text leading-[1.1] tracking-wide animate-[fadeIn_0.8s_ease-out_forwards]"
+                className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-light text-brand-text leading-[1.1] tracking-wide animate-[fadeIn_0.5s_ease-out_forwards]"
               >
                 {slide.headingPart1}{" "}
                 <span className="italic text-brand-accent block sm:inline font-light">
@@ -170,42 +170,42 @@ export default function Hero() {
               {/* Short Description */}
               <p 
                 key={`desc-${currentSlide}`}
-                className="text-brand-text-sec font-sans text-xs sm:text-sm leading-relaxed max-w-md animate-[slideUp_0.8s_ease-out_forwards]"
+                className="text-brand-text-sec font-sans text-xs sm:text-sm leading-relaxed max-w-md animate-[slideUp_0.5s_ease-out_forwards]"
               >
                 {slide.description}
               </p>
             </div>
 
             {/* Trust Indicators (2x2 grid on mobile, 3-column on desktop) */}
-            <div className="order-2 md:order-0 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 border-t border-b border-brand-border/30 py-3 w-full text-center">
+            <div className="order-2 md:order-0 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 border-y border-brand-border/30 py-4 sm:py-5 w-full text-center">
               <div className="flex flex-col items-center justify-center">
-                <span className="text-brand-accent text-xs font-mono font-bold">3000+</span>
-                <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Procedures</span>
+                <span className="text-brand-accent text-lg sm:text-xl md:text-2xl font-serif font-semibold tracking-wide">3000+</span>
+                <span className="text-[9px] sm:text-[10px] text-brand-text-sec uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mt-1">Procedures</span>
               </div>
-              <div className="flex flex-col items-center justify-center border-l md:border-x border-brand-border/30">
-                <span className="text-brand-accent text-xs font-mono font-bold">FDA</span>
-                <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Approved Tech</span>
+              <div className="flex flex-col items-center justify-center border-l md:border-x border-brand-border/30 px-1">
+                <span className="text-brand-accent text-lg sm:text-xl md:text-2xl font-serif font-semibold tracking-wide">FDA</span>
+                <span className="text-[9px] sm:text-[10px] text-brand-text-sec uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mt-1">Approved Tech</span>
               </div>
-              <div className="flex flex-col items-center justify-center border-r md:border-none md:border-r border-brand-border/30 md:border-transparent">
-                <span className="text-brand-accent text-xs font-mono font-bold">EMI</span>
-                <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">No-Cost Option</span>
+              <div className="flex flex-col items-center justify-center border-r md:border-none border-brand-border/30 md:border-transparent">
+                <span className="text-brand-accent text-lg sm:text-xl md:text-2xl font-serif font-semibold tracking-wide">EMI</span>
+                <span className="text-[9px] sm:text-[10px] text-brand-text-sec uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mt-1">No-Cost Option</span>
               </div>
-              <div className="flex flex-col items-center justify-center md:hidden">
-                <span className="text-brand-accent text-xs font-mono font-bold">100%</span>
-                <span className="text-[8px] text-brand-text-sec uppercase tracking-wider mt-0.5">Confidential</span>
+              <div className="flex flex-col items-center justify-center md:hidden border-l border-brand-border/30">
+                <span className="text-brand-accent text-lg sm:text-xl font-serif font-semibold tracking-wide">100%</span>
+                <span className="text-[9px] text-brand-text-sec uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mt-1">Confidential</span>
               </div>
             </div>
 
             {/* Doctor Credentials Snippet */}
-            <div className="order-3 md:order-0 w-full bg-brand-card/45 border border-brand-border/40 p-3 flex items-center justify-between gap-4 rounded font-sans">
+            <div className="order-3 md:order-0 w-full bg-brand-card/45 border border-brand-border/40 p-4 flex items-center justify-between gap-4 rounded-md font-sans hover:border-brand-accent/25 transition-all duration-300">
               <div className="flex flex-col">
-                <span className="text-xs font-serif text-brand-text font-medium">Dr. Ashwani Kumar</span>
-                <span className="text-[8px] sm:text-[9px] text-brand-text-sec uppercase tracking-wider mt-0.5">Chief Surgeon</span>
+                <span className="text-sm sm:text-base font-serif text-brand-text font-medium tracking-wide">Dr. Ashwani Kumar</span>
+                <span className="text-[9px] sm:text-[10px] text-brand-text-sec uppercase tracking-[0.15em] font-semibold mt-0.5">Chief Surgeon</span>
               </div>
-              <div className="h-6 w-px bg-brand-border/30" />
+              <div className="h-8 w-px bg-brand-border/30" />
               <div className="text-right">
-                <span className="text-[9px] sm:text-[10px] text-brand-accent font-mono block font-semibold">M.Ch Plastic Surgery</span>
-                <span className="text-[8px] sm:text-[9px] text-brand-text-sec/60 block mt-0.5">18+ Yrs Experience</span>
+                <span className="text-[10px] sm:text-xs text-brand-accent font-sans block font-semibold tracking-wider uppercase">M.Ch Plastic Surgery</span>
+                <span className="text-[9px] sm:text-[10px] text-brand-text-sec/80 block mt-0.5">18+ Years Experience</span>
               </div>
             </div>
 
@@ -227,25 +227,24 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Luxury Slide Indicators: 01 02 03 04 */}
-            <div className="order-5 md:order-0 flex items-center gap-6 mt-4 md:mt-6 lg:mt-8">
+            {/* Luxury Slide Indicators: Elegant horizontal lines/bars */}
+            <div className="order-5 md:order-0 flex items-center gap-3 mt-4 md:mt-6 lg:mt-8" role="tablist" aria-label="Hero slider controls">
               {SLIDES.map((_, index) => (
                 <button
                   key={index}
+                  role="tab"
+                  aria-selected={currentSlide === index}
+                  aria-label={`Go to slide ${index + 1}`}
                   onClick={() => {
                     setCurrentSlide(index);
                     setSliderPosition(50);
                   }}
-                  className="flex flex-col items-center gap-1 group focus:outline-none cursor-pointer min-h-11 justify-center"
-                  aria-label={`Go to slide ${index + 1}`}
+                  className="focus:outline-none cursor-pointer min-h-11 flex items-center"
                 >
-                  <span className={`font-mono text-xs transition-colors duration-300 ${
-                    currentSlide === index ? "text-brand-accent font-semibold" : "text-brand-text-sec/40 group-hover:text-brand-text-sec"
-                  }`}>
-                    {index + 1}
-                  </span>
-                  <div className={`h-0.5 transition-all duration-300 ${
-                    currentSlide === index ? "w-8 bg-brand-accent" : "w-4 bg-brand-border/30 group-hover:w-6"
+                  <div className={`h-0.75 rounded-full transition-all duration-500 ease-in-out ${
+                    currentSlide === index 
+                      ? "w-10 sm:w-12 bg-brand-accent" 
+                      : "w-6 sm:w-8 bg-brand-text-sec/20 hover:bg-brand-text-sec/40"
                   }`} />
                 </button>
               ))}
@@ -268,7 +267,8 @@ export default function Hero() {
               {/* Draggable before/after panel */}
               <div 
                 ref={containerRef}
-                className="relative w-full aspect-4/3 overflow-hidden select-none touch-pan-y cursor-ew-resize border border-brand-border/40"
+                key={`slider-container-${currentSlide}`}
+                className="relative w-full aspect-4/3 overflow-hidden select-none touch-pan-y cursor-ew-resize border border-brand-border/40 animate-[imageFadeIn_0.5s_ease-out_forwards]"
                 onMouseMove={handleMouseMove}
                 onMouseDown={(e) => handleMove(e.clientX)}
                 onTouchStart={(e) => { if (e.touches.length > 0) handleMove(e.touches[0].clientX); }}
@@ -357,6 +357,10 @@ export default function Hero() {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes imageFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
         @keyframes slideDown {
           from { opacity: 0; transform: translateY(-15px); }
