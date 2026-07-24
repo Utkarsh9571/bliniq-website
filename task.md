@@ -1,0 +1,34 @@
+# Tasks — Phase 21: Motion System Implementation
+
+- `[x]` Setup & central motion system infrastructure
+  - `[x]` Create `components/ui/ScrollReveal.tsx` with shared `IntersectionObserver` cache & progressive enhancement
+  - `[x]` Update `app/globals.css` with animation helper classes, eases, and button hover states
+- `[x]` Central Button & CTA transitions
+  - `[x]` Update `components/ui/Button.tsx`
+  - `[x]` Update `components/ui/CTAButton.tsx`
+- `[x]` Header & Navigation transitions
+  - `[x]` Update `components/layout/Header.tsx` dropdown/mobile menu transitions
+  - `[x]` Update `components/layout/Navigation.tsx` underline animations and drop-down timings
+- `[x]` Homepage sections implementation
+  - `[x]` Apply reveals in `components/home/DoctorPreview.tsx`
+  - `[x]` Apply reveals in `components/home/OriginSection.tsx`
+  - `[x]` Apply reveals in `components/home/ServicesPreview.tsx`
+  - `[x]` Apply reveals in `components/home/BodyContouringSection.tsx`
+  - `[x]` Apply reveals in `components/home/WhyChooseUs.tsx`
+  - `[x]` Apply reveals in `components/home/TestimonialsPreview.tsx`
+  - `[x]` Apply reveals in `components/home/BlogPreview.tsx`
+  - `[x]` Apply reveals in `components/home/FAQPreview.tsx`
+  - `[x]` Apply reveals in `components/home/ContactFormSection.tsx`
+  - `[x]` Apply reveals in `components/home/SurgeryVideosSection.tsx`
+- `[x]` Internal page templates implementation
+  - `[x]` Apply reveals in `app/[slug]/page.tsx`
+  - `[x]` Apply reveals in `app/about-us/page.tsx`
+  - `[x]` Apply reveals in `app/contact-us/page.tsx`
+  - `[x]` Apply reveals in `app/appointment/page.tsx`
+  - `[x]` Apply reveals in `app/blog/page.tsx`
+  - `[x]` Apply reveals in `app/gallery/page.tsx`
+  - `[x]` Apply reveals in `app/picture-gallery/page.tsx`
+- `[x]` Verification & Documentation
+  - `[x]` Run production build and validation commands
+  - `[x]` Document results in `docs/phase-21-motion-system.md`
+  - `[x]` Create `docs/corner-radius-design-review.md`

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import CTAButton from "@/components/ui/CTAButton";
 
 interface SlideItem {
@@ -134,15 +135,16 @@ export default function SignatureTransformations() {
       aria-label="Signature Transformations Procedure Showcase"
     >
       <Container>
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <span className="text-brand-accent text-[10px] font-semibold tracking-[0.25em] uppercase block mb-2 font-sans">
-            Our Signature Transformations
-          </span>
-          <p className="font-serif text-xl md:text-2xl text-brand-text font-light leading-snug max-w-2xl mx-auto">
-            Discover the procedures that have helped thousands of patients achieve natural, confidence-boosting results under the care of Dr. Ashwani Kumar.
-          </p>
-        </div>
+        <ScrollReveal variant="fade-up">
+          <div className="text-center mb-12">
+            <span className="text-brand-accent text-[10px] font-semibold tracking-[0.25em] uppercase block mb-2 font-sans">
+              Our Signature Transformations
+            </span>
+            <p className="font-serif text-xl md:text-2xl text-brand-text font-light leading-snug max-w-2xl mx-auto">
+              Discover the procedures that have helped thousands of patients achieve natural, confidence-boosting results under the care of Dr. Ashwani Kumar.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Carousel composition container */}
         <div className="relative w-full min-h-100 lg:h-115 flex flex-col lg:block">

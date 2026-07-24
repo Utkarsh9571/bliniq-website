@@ -13,7 +13,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyle =
-    "inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase transition-all duration-300 py-3.5 px-7 text-center select-none font-medium cursor-pointer";
+    "inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] py-3.5 px-7 text-center select-none font-medium cursor-pointer hover:-translate-y-[2px] active:translate-y-0 active:scale-[0.98]";
 
   const variants = {
     primary:

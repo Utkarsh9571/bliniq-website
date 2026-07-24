@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import ScrollReveal from "../ui/ScrollReveal";
 import { homepageImages } from "@/content/homepage-images";
 
 export default function BodyContouringSection() {
@@ -13,7 +14,7 @@ export default function BodyContouringSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Narrative Copy (Alternating Visual Rhythm) */}
-          <div className="lg:col-span-6 flex flex-col items-start gap-6 lg:order-1 order-2">
+          <ScrollReveal variant="fade-right" className="lg:col-span-6 flex flex-col items-start gap-6 lg:order-1 order-2">
             <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.25em] font-mono">
               Body Aesthetics
             </span>
@@ -34,10 +35,10 @@ export default function BodyContouringSection() {
                 Explore Body Treatments
               </Button>
             </a>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Large Lifestyle/Body Image */}
-          <div className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
+          <ScrollReveal variant="image-reveal" delay={150} className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
             <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
               {/* Desktop view */}
               <div className="hidden sm:block absolute inset-0">
@@ -60,7 +61,7 @@ export default function BodyContouringSection() {
                 />
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </Container>

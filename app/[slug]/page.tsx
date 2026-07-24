@@ -10,6 +10,7 @@ import legitimatePages from "@/content/migrated/legitimate-pages.json";
 import seoPages from "@/content/migrated/seo-pages.json";
 import { getPageMetadata, getBreadcrumbSchemaJson, getProcedurePageSchemaJson } from "@/lib/seo";
 import EvaluationForm from "@/components/procedure/EvaluationForm";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 
 interface PageProps {
@@ -88,32 +89,38 @@ export default async function DynamicSlugPage({ params }: PageProps) {
           <article className="py-20 font-sans">
             <Container>
               <div className="max-w-3xl mx-auto">
-                <div className="text-xs uppercase tracking-widest text-brand-text-sec mb-4 flex items-center gap-2">
-                  <Link href="/" className="hover:text-brand-accent transition-colors">Home</Link>
-                  <span>/</span>
-                  <Link href="/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
-                </div>
+                <ScrollReveal variant="fade-up">
+                  <div className="text-xs uppercase tracking-widest text-brand-text-sec mb-4 flex items-center gap-2">
+                    <Link href="/" className="hover:text-brand-accent transition-colors">Home</Link>
+                    <span>/</span>
+                    <Link href="/blog" className="hover:text-brand-accent transition-colors">Blog</Link>
+                  </div>
 
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-brand-text mb-6 leading-tight">
-                  {title}
-                </h1>
+                  <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-brand-text mb-6 leading-tight">
+                    {title}
+                  </h1>
+                </ScrollReveal>
 
                 {featuredImage && (
-                  <div className="relative aspect-video w-full mb-10 border border-brand-border/40 overflow-hidden">
-                    <Image
-                      src={featuredImage}
-                      alt={title}
-                      fill
-                      priority
-                      className="object-cover transition-all duration-700"
-                    />
-                  </div>
+                  <ScrollReveal variant="image-reveal">
+                    <div className="relative aspect-video w-full mb-10 border border-brand-border/40 overflow-hidden">
+                      <Image
+                        src={featuredImage}
+                        alt={title}
+                        fill
+                        priority
+                        className="object-cover transition-all duration-700"
+                      />
+                    </div>
+                  </ScrollReveal>
                 )}
 
-                <div 
-                  className="prose prose-invert max-w-none text-brand-text-sec text-sm sm:text-base leading-relaxed space-y-6"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <ScrollReveal variant="fade-up" delay={150}>
+                  <div 
+                    className="prose prose-invert max-w-none text-brand-text-sec text-sm sm:text-base leading-relaxed space-y-6"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                  />
+                </ScrollReveal>
               </div>
             </Container>
           </article>
@@ -122,7 +129,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
           <section className="py-20 font-sans">
             <Container>
               <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-                <div className="md:col-span-4">
+                <ScrollReveal variant="image-reveal" className="md:col-span-4">
                   <div className="relative aspect-3/4 w-full border border-brand-border bg-brand-card overflow-hidden">
                     {featuredImage ? (
                       <Image
@@ -137,8 +144,8 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                       </div>
                     )}
                   </div>
-                </div>
-                <div className="md:col-span-8 space-y-6">
+                </ScrollReveal>
+                <ScrollReveal variant="fade-up" delay={150} className="md:col-span-8 space-y-6">
                   <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.2em] font-mono">
                     Chief Surgeon
                   </span>
@@ -149,7 +156,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                     className="prose prose-invert text-brand-text-sec text-sm leading-relaxed space-y-4"
                     dangerouslySetInnerHTML={{ __html: content }}
                   />
-                </div>
+                </ScrollReveal>
               </div>
             </Container>
           </section>
@@ -158,18 +165,20 @@ export default async function DynamicSlugPage({ params }: PageProps) {
           <>
             <section className="relative pt-32 pb-20 border-b border-brand-border/40 bg-brand-bg-sec font-sans">
               <Container>
-                <div className="text-xs uppercase tracking-widest text-brand-text-sec mb-4 flex items-center gap-2">
-                  <Link href="/" className="hover:text-brand-accent transition-colors">Home</Link>
-                  <span>/</span>
-                  <span className="text-brand-accent">{title}</span>
-                </div>
-                
-                <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.2em] font-mono">
-                  Clinical Specialty
-                </span>
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-brand-text mt-3 tracking-wide">
-                  {title}
-                </h1>
+                <ScrollReveal variant="fade-up">
+                  <div className="text-xs uppercase tracking-widest text-brand-text-sec mb-4 flex items-center gap-2">
+                    <Link href="/" className="hover:text-brand-accent transition-colors">Home</Link>
+                    <span>/</span>
+                    <span className="text-brand-accent">{title}</span>
+                  </div>
+                  
+                  <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.2em] font-mono">
+                    Clinical Specialty
+                  </span>
+                  <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-brand-text mt-3 tracking-wide">
+                    {title}
+                  </h1>
+                </ScrollReveal>
               </Container>
             </section>
 
@@ -178,7 +187,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                   
                   {/* Left Column: Content Narrative */}
-                  <div className="lg:col-span-8 space-y-12">
+                  <ScrollReveal variant="fade-up" className="lg:col-span-8 space-y-12">
                     {featuredImage && (
                       <div className="relative aspect-video w-full bg-brand-bg-sec border border-brand-border/40 overflow-hidden">
                         <Image
@@ -195,10 +204,10 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                       className="prose prose-invert max-w-none text-brand-text-sec text-sm sm:text-base leading-relaxed space-y-6"
                       dangerouslySetInnerHTML={{ __html: content }}
                     />
-                  </div>
+                  </ScrollReveal>
 
                   {/* Right Column: Dynamic Evaluation Card */}
-                  <div className="lg:col-span-4">
+                  <ScrollReveal variant="fade-up" delay={150} className="lg:col-span-4">
                     <div className="sticky top-28 bg-brand-card border border-brand-border p-6 md:p-8 rounded-none">
                       <h3 className="font-serif text-2xl font-light text-brand-text mb-2">
                         Request Evaluation
@@ -219,7 +228,7 @@ export default async function DynamicSlugPage({ params }: PageProps) {
                         </a>
                       </p>
                     </div>
-                  </div>
+                  </ScrollReveal>
 
                 </div>
               </Container>
@@ -230,13 +239,17 @@ export default async function DynamicSlugPage({ params }: PageProps) {
           <section className="py-20 font-sans">
             <Container>
               <div className="max-w-4xl mx-auto">
-                <h1 className="font-serif text-3xl sm:text-4xl font-light text-brand-text mb-8">
-                  {title}
-                </h1>
-                <div 
-                  className="prose prose-invert max-w-none text-brand-text-sec text-sm leading-relaxed space-y-6"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <ScrollReveal variant="fade-up">
+                  <h1 className="font-serif text-3xl sm:text-4xl font-light text-brand-text mb-8">
+                    {title}
+                  </h1>
+                </ScrollReveal>
+                <ScrollReveal variant="fade-up" delay={150}>
+                  <div 
+                    className="prose prose-invert max-w-none text-brand-text-sec text-sm leading-relaxed space-y-6"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                  />
+                </ScrollReveal>
               </div>
             </Container>
           </section>

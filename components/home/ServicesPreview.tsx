@@ -155,6 +155,8 @@ const ENRICHED_SERVICES: EnrichedService[] = [
   }
 ];
 
+import ScrollReveal from "../ui/ScrollReveal";
+
 export default function ServicesPreview() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -165,11 +167,13 @@ export default function ServicesPreview() {
   return (
     <section id="services" className="py-32 bg-brand-bg-sec text-brand-text border-b border-brand-border/40">
       <Container>
-        <SectionTitle
-          title="Popular Procedures"
-          subtitle="Clinical Specialties"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Popular Procedures"
+            subtitle="Clinical Specialties"
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="flex flex-col gap-28 mt-16">
           {ENRICHED_SERVICES.map((svc, index) => {
@@ -177,12 +181,16 @@ export default function ServicesPreview() {
             const isOpen = expandedIndex === index;
 
             return (
-              <div 
+              <ScrollReveal 
                 key={index}
-                className={`w-full bg-[#0F1524]/65 border border-brand-border/60 p-6 md:p-12 shadow-2xl flex flex-col gap-8 transition-all duration-500 ${
-                  isOpen ? "ring-1 ring-brand-accent/30" : ""
-                }`}
+                variant="fade-up"
+                className="w-full"
               >
+                <div 
+                  className={`w-full bg-[#0F1524]/65 border border-brand-border/60 p-6 md:p-12 shadow-2xl flex flex-col gap-8 transition-all duration-500 ${
+                    isOpen ? "ring-1 ring-brand-accent/30" : ""
+                  }`}
+                >
                 {/* Header Row */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                   <div className="flex flex-col gap-2">
@@ -383,8 +391,8 @@ export default function ServicesPreview() {
                     </div>
                   </div>
                 )}
-
               </div>
+            </ScrollReveal>
             );
           })}
         </div>

@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import legitimatePages from "@/content/migrated/legitimate-pages.json";
 import { getPageMetadata } from "@/lib/seo";
 import { homepageImages } from "@/content/homepage-images";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = getPageMetadata({
   title: "About Us | BLINIQ Cosmetic & Plastic Surgery Clinic Delhi",
@@ -33,16 +34,20 @@ export default function AboutPage() {
         {/* Main Content Section (WP Content) */}
         <section className="pb-16 border-b border-brand-border/40">
           <Container>
-            <SectionTitle title={aboutPage.title} subtitle="About Our Clinic" align="center" />
+            <ScrollReveal variant="fade-up">
+              <SectionTitle title={aboutPage.title} subtitle="About Our Clinic" align="center" />
+            </ScrollReveal>
             
-            <div className="max-w-3xl mx-auto mt-12 bg-brand-bg-sec border border-brand-border p-8 md:p-12 shadow-2xl">
-              {/* Render the actual WP HTML content with tailored typographic styling */}
-              <div
-                className="prose prose-invert max-w-none space-y-6 text-brand-text-sec text-base leading-relaxed
-                  [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-brand-accent [&_h2]:font-light [&_h2]:tracking-wide [&_h2]:mt-8 [&_h2]:mb-4"
-                dangerouslySetInnerHTML={{ __html: rawHtml }}
-              />
-            </div>
+            <ScrollReveal variant="fade-up" delay={150}>
+              <div className="max-w-3xl mx-auto mt-12 bg-brand-bg-sec border border-brand-border p-8 md:p-12 shadow-2xl">
+                {/* Render the actual WP HTML content with tailored typographic styling */}
+                <div
+                  className="prose prose-invert max-w-none space-y-6 text-brand-text-sec text-base leading-relaxed
+                    [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-brand-accent [&_h2]:font-light [&_h2]:tracking-wide [&_h2]:mt-8 [&_h2]:mb-4"
+                  dangerouslySetInnerHTML={{ __html: rawHtml }}
+                />
+              </div>
+            </ScrollReveal>
           </Container>
         </section>
 
@@ -52,7 +57,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Real Surgeon Spotlight Asset */}
-              <div className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
+              <ScrollReveal variant="image-reveal" className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
                 <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
                   <Image
                     src="/uploads/2024/02/Dr-Ashwini.jpg"
@@ -62,10 +67,10 @@ export default function AboutPage() {
                     className="object-cover transition-all duration-1000 scale-100 group-hover:scale-105"
                   />
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Right Column: Surgeon Details */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
+              <ScrollReveal variant="fade-up" delay={150} className="lg:col-span-7 flex flex-col gap-6">
                 <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.25em] font-mono">
                   Meet The Surgeon
                 </span>
@@ -83,7 +88,7 @@ export default function AboutPage() {
                 <blockquote className="border-l-2 border-brand-accent pl-4 italic text-brand-text-sec text-sm my-4 font-serif leading-relaxed">
                   &quot;Aesthetics is not about changing who you are; it is about refining and restoring your natural contours with clinical precision.&quot;
                 </blockquote>
-              </div>
+              </ScrollReveal>
 
             </div>
           </Container>
@@ -95,7 +100,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Experience description */}
-              <div className="lg:col-span-7 flex flex-col gap-6 lg:order-1 order-2">
+              <ScrollReveal variant="fade-up" className="lg:col-span-7 flex flex-col gap-6 lg:order-1 order-2">
                 <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.25em] font-mono">
                   Clinic Culture
                 </span>
@@ -110,10 +115,10 @@ export default function AboutPage() {
                     Every patient receives custom post-operative support, including compression wear fitting, recovery therapy planning, and 24/7 coordinator accessibility.
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Right Column: Real Consultation Room Image */}
-              <div className="lg:col-span-5 relative aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
+              <ScrollReveal variant="image-reveal" delay={150} className="lg:col-span-5 relative aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 lg:order-2 order-1 group">
                 <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
                   <Image
                     src={homepageImages.consultation.room02}
@@ -123,7 +128,7 @@ export default function AboutPage() {
                     className="object-cover transition-all duration-1000 scale-100 group-hover:scale-105"
                   />
                 </div>
-              </div>
+              </ScrollReveal>
 
             </div>
           </Container>

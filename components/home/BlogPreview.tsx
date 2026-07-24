@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 import legitimatePages from "@/content/migrated/legitimate-pages.json";
 
 export default function BlogPreview() {
@@ -20,49 +21,56 @@ export default function BlogPreview() {
   return (
     <section id="blog" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40">
       <Container>
-        <SectionTitle
-          title="Latest Insights"
-          subtitle="From the Clinical Journal"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Latest Insights"
+            subtitle="From the Clinical Journal"
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           {blogs.map((post, index) => (
-            <Link
+            <ScrollReveal
               key={index}
-              href={`/${post.slug}`}
-              className="group flex flex-col border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all duration-500"
+              variant="fade-up"
+              delay={index * 80}
             >
-              {/* Blog Thumbnail */}
-              <div className="relative aspect-16/10 w-full overflow-hidden border-b border-brand-border">
-                <Image
-                  src={getBlogImage(index)}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-all duration-1000"
-                />
-              </div>
+              <Link
+                href={`/${post.slug}`}
+                className="group flex flex-col border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all duration-500 h-full"
+              >
+                {/* Blog Thumbnail */}
+                <div className="relative aspect-16/10 w-full overflow-hidden border-b border-brand-border">
+                  <Image
+                    src={getBlogImage(index)}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-all duration-1000"
+                  />
+                </div>
 
-              {/* Blog Details */}
-              <div className="p-6 flex flex-col justify-between grow">
-                <div>
-                  <span className="text-brand-accent/60 text-[10px] tracking-widest font-mono uppercase block mb-3">
-                    {post.date ? post.date.split(" ")[0] : "Date Pending"}
-                  </span>
-                  <h3 className="font-serif text-xl text-brand-text group-hover:text-brand-accent transition-colors duration-300 font-light leading-snug line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-brand-text-sec text-xs leading-relaxed mt-4 font-sans line-clamp-2">
-                    Explore professional insights and clinical guidance regarding advanced aesthetic procedures under Dr. Ashwani Kumar.
-                  </p>
+                {/* Blog Details */}
+                <div className="p-6 flex flex-col justify-between grow">
+                  <div>
+                    <span className="text-brand-accent/60 text-[10px] tracking-widest font-mono uppercase block mb-3">
+                      {post.date ? post.date.split(" ")[0] : "Date Pending"}
+                    </span>
+                    <h3 className="font-serif text-xl text-brand-text group-hover:text-brand-accent transition-colors duration-300 font-light leading-snug line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-brand-text-sec text-xs leading-relaxed mt-4 font-sans line-clamp-2">
+                      Explore professional insights and clinical guidance regarding advanced aesthetic procedures under Dr. Ashwani Kumar.
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-brand-border/30 flex items-center justify-between text-[10px] uppercase tracking-widest font-mono text-brand-accent">
+                    <span>Read Article</span>
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </div>
                 </div>
-                <div className="mt-6 pt-4 border-t border-brand-border/30 flex items-center justify-between text-[10px] uppercase tracking-widest font-mono text-brand-accent">
-                  <span>Read Article</span>
-                  <span>→</span>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 import { TESTIMONIALS_ROW1, TESTIMONIALS_ROW2, Testimonial } from "@/content/testimonials";
 
 export default function TestimonialsPreview() {
@@ -73,11 +74,13 @@ export default function TestimonialsPreview() {
       `}</style>
 
       <Container className="relative z-10">
-        <SectionTitle
-          title="Patient Experiences"
-          subtitle="Verified Testimonials"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Patient Experiences"
+            subtitle="Verified Testimonials"
+            align="center"
+          />
+        </ScrollReveal>
       </Container>
 
       {/* Marquee Track Wrapper */}

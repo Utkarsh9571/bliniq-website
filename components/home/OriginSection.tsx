@@ -3,6 +3,7 @@
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 
 export default function OriginSection() {
   const safetyStandards = [
@@ -29,15 +30,17 @@ export default function OriginSection() {
   return (
     <section id="origin" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40">
       <Container>
-        <SectionTitle
-          title="The Origin of BLINIQ"
-          subtitle="Clinical Philosophy"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="The Origin of BLINIQ"
+            subtitle="Clinical Philosophy"
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-16 items-start">
           {/* Left Column: Story & Philosophy */}
-          <div className="lg:col-span-6 space-y-8">
+          <ScrollReveal variant="fade-right" className="lg:col-span-6 space-y-8">
             <div>
               <span className="text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase font-semibold block mb-2">
                 Our Story & Vision
@@ -77,17 +80,17 @@ export default function OriginSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Timeline & Achievement counters */}
-          <div className="lg:col-span-6 space-y-10 lg:pl-8">
+          <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-6 space-y-10 lg:pl-8">
             <div>
               <span className="text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase font-semibold block mb-6">
                 Milestones & Timeline
               </span>
               <div className="relative border-l border-brand-border/40 pl-6 space-y-8">
                 {milestones.map((item, i) => (
-                  <div key={i} className="relative animate-fade-in">
+                  <div key={i} className="relative">
                     {/* Bullet marker */}
                     <div className="absolute -left-7.5 top-1.5 w-2 h-2 rounded-full bg-brand-accent border border-brand-bg shadow-lg" />
                     <span className="font-mono text-xs text-brand-accent font-bold block mb-1">
@@ -123,7 +126,7 @@ export default function OriginSection() {
                 </span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </Container>
     </section>

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import ScrollReveal from "../ui/ScrollReveal";
 import { homepageImages } from "@/content/homepage-images";
 import { trackEvent } from "@/lib/analytics";
 
@@ -14,7 +15,7 @@ export default function ConsultationSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Large Consultation Image */}
-          <div className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
+          <ScrollReveal variant="image-reveal" className="lg:col-span-6 relative aspect-video md:aspect-3/2 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
             <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
               <Image
                 src={homepageImages.consultation.room01}
@@ -24,10 +25,10 @@ export default function ConsultationSection() {
                 className="object-cover transition-all duration-1000 scale-100 group-hover:scale-105"
               />
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Narrative Copy */}
-          <div className="lg:col-span-6 flex flex-col items-start gap-6">
+          <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-6 flex flex-col items-start gap-6">
             <span className="text-brand-accent text-xs font-semibold uppercase tracking-[0.25em] font-mono">
               Your Journey
             </span>
@@ -52,7 +53,7 @@ export default function ConsultationSection() {
                 Book Consultation
               </Button>
             </a>
-          </div>
+          </ScrollReveal>
 
         </div>
       </Container>

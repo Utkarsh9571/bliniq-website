@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function DoctorsPage() {
   return (
@@ -12,14 +13,17 @@ export default function DoctorsPage() {
       <Header />
       <main className="grow py-32 bg-brand-bg text-brand-text">
         <Container>
-          <SectionTitle
-            title="Our Surgeon"
-            subtitle="Clinical Excellence"
-            align="center"
-          />
+          <ScrollReveal variant="fade-up">
+            <SectionTitle
+              title="Our Surgeon"
+              subtitle="Clinical Excellence"
+              align="center"
+            />
+          </ScrollReveal>
 
-          <div className="max-w-3xl mx-auto mt-16">
-            <Card className="flex flex-col md:flex-row gap-8 items-center md:items-start p-8">
+          <ScrollReveal variant="fade-up" delay={150}>
+            <div className="max-w-3xl mx-auto mt-16">
+              <Card className="flex flex-col md:flex-row gap-8 items-center md:items-start p-8">
               <div className="relative w-48 h-60 shrink-0 border border-brand-border overflow-hidden bg-brand-bg-sec">
                 <Image
                   src="/uploads/2024/02/Dr-Ashwini.jpg"
@@ -62,6 +66,7 @@ export default function DoctorsPage() {
               </div>
             </Card>
           </div>
+        </ScrollReveal>
         </Container>
       </main>
       <Footer />

@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Card from "../ui/Card";
+import ScrollReveal from "../ui/ScrollReveal";
 
 export default function WhyChooseUs() {
   const items = [
@@ -64,25 +65,33 @@ export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40">
       <Container>
-        <SectionTitle
-          title="Why Choose BLINIQ?"
-          subtitle="Our Core Edge"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Why Choose BLINIQ?"
+            subtitle="Our Core Edge"
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {items.map((item, idx) => (
-            <Card key={idx} className="flex flex-col items-start p-8 bg-brand-bg-sec border border-brand-border/50 hover:border-brand-accent/50 transition-all duration-350">
-              <div className="p-3 bg-brand-bg text-brand-accent border border-brand-border/60 mb-6">
-                {item.icon}
-              </div>
-              <h4 className="font-serif text-xl text-brand-text mb-3 font-medium">
-                {item.title}
-              </h4>
-              <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed font-sans">
-                {item.desc}
-              </p>
-            </Card>
+            <ScrollReveal
+              key={idx}
+              variant="fade-up"
+              delay={Math.min(idx * 80, 400)}
+            >
+              <Card className="flex flex-col items-start p-8 bg-brand-bg-sec border border-brand-border/50 hover:border-brand-accent/50 transition-all duration-350 h-full">
+                <div className="p-3 bg-brand-bg text-brand-accent border border-brand-border/60 mb-6">
+                  {item.icon}
+                </div>
+                <h4 className="font-serif text-xl text-brand-text mb-3 font-medium">
+                  {item.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed font-sans">
+                  {item.desc}
+                </p>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

@@ -9,6 +9,7 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { trackEvent } from "@/lib/analytics";
 import { submitLead } from "@/lib/forms";
 
@@ -69,11 +70,13 @@ export default function ContactPage() {
       <Header />
       <main className="grow py-20 bg-brand-bg text-brand-text">
         <Container>
-          <SectionTitle title="Contact Us" subtitle="Get In Touch" align="center" />
+          <ScrollReveal variant="fade-up">
+            <SectionTitle title="Contact Us" subtitle="Get In Touch" align="center" />
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
             {/* Left Column: Map and Details */}
-            <div className="lg:col-span-6 flex flex-col gap-8">
+            <ScrollReveal variant="fade-right" className="lg:col-span-6 flex flex-col gap-8">
               {/* Verified Map Location */}
               <div className="w-full h-80 border border-brand-border bg-brand-card overflow-hidden">
                 <iframe
@@ -112,10 +115,10 @@ ashwani.kumar@bliniq.in
                   </Link>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Column: Contact Form */}
-            <div className="lg:col-span-6">
+            <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-6">
               <Card hoverable={false}>
                 <h4 className="font-serif text-2xl text-brand-text mb-6 font-light">
                   Send a Message
@@ -212,7 +215,7 @@ ashwani.kumar@bliniq.in
                   </Button>
                 </form>
               </Card>
-            </div>
+            </ScrollReveal>
           </div>
         </Container>
       </main>

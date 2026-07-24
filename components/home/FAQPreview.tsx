@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 
 const CLINIC_FAQS = [
   {
@@ -25,24 +26,28 @@ export default function FAQPreview() {
   return (
     <section id="faq" className="py-32 bg-brand-bg-sec border-b border-brand-border/40">
       <Container>
-        <SectionTitle title="Frequently Asked Questions" subtitle="FAQ" align="center" />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle title="Frequently Asked Questions" subtitle="FAQ" align="center" />
+        </ScrollReveal>
         
-        <div className="mt-16 max-w-3xl mx-auto space-y-4">
-          {CLINIC_FAQS.map((faq, i) => (
-            <details 
-              key={i} 
-              className="group border border-brand-border/35 bg-[#0F1524]/65 p-5 rounded cursor-pointer [&_summary::-webkit-details-marker]:hidden"
-            >
-              <summary className="flex items-center justify-between font-serif text-sm sm:text-base text-brand-text font-medium select-none min-h-11">
-                <span>{faq.q}</span>
-                <span className="text-brand-accent transition-transform duration-200 group-open:rotate-180 text-xs">▼</span>
-              </summary>
-              <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed font-sans pl-3 border-l border-l-brand-accent/25 mt-3 pt-3 border-t border-t-brand-border/20">
-                {faq.a}
-              </p>
-            </details>
-          ))}
-        </div>
+        <ScrollReveal variant="fade-up" delay={150}>
+          <div className="mt-16 max-w-3xl mx-auto space-y-4">
+            {CLINIC_FAQS.map((faq, i) => (
+              <details 
+                key={i} 
+                className="group border border-brand-border/35 bg-[#0F1524]/65 p-5 rounded cursor-pointer [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary className="flex items-center justify-between font-serif text-sm sm:text-base text-brand-text font-medium select-none min-h-11">
+                  <span>{faq.q}</span>
+                  <span className="text-brand-accent transition-transform duration-200 group-open:rotate-180 text-xs">▼</span>
+                </summary>
+                <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed font-sans pl-3 border-l border-l-brand-accent/25 mt-3 pt-3 border-t border-t-brand-border/20">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

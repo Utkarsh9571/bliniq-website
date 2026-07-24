@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 
 export default function DoctorPreview() {
   const stats = [
@@ -23,15 +24,17 @@ export default function DoctorPreview() {
   return (
     <section id="doctor" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40">
       <Container>
-        <SectionTitle
-          title="Chief Surgeon Spotlight"
-          subtitle="Clinical Leadership"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Chief Surgeon Spotlight"
+            subtitle="Clinical Leadership"
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-16 items-start">
           {/* Left Column: Dr. Ashwani Kumar Portrait */}
-          <div className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2">
+          <ScrollReveal variant="image-reveal" className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2">
             <div className="relative w-full h-full border border-brand-accent/20">
               <Image
                 src="/doctor.jpeg"
@@ -42,10 +45,10 @@ export default function DoctorPreview() {
                 priority
               />
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Bio, Qualifications & Statistics */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
+          <ScrollReveal variant="fade-up" delay={150} className="lg:col-span-7 flex flex-col gap-8">
             <div>
               <span className="text-brand-accent font-sans text-[10px] tracking-[0.25em] uppercase font-semibold">
                 Founder & Chief Plastic Surgeon
@@ -118,9 +121,9 @@ export default function DoctorPreview() {
                   </div>
                 ))}
               </div>
-            </div>
-
           </div>
+
+          </ScrollReveal>
         </div>
       </Container>
     </section>

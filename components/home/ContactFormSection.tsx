@@ -6,6 +6,7 @@ import Button from "../ui/Button";
 import { COSMETIC_SERVICES } from "@/lib/services";
 import { trackEvent } from "@/lib/analytics";
 import { submitLead } from "@/lib/forms";
+import ScrollReveal from "../ui/ScrollReveal";
 
 export default function ContactFormSection() {
   const [showStickyBtn, setShowStickyBtn] = useState(false);
@@ -80,10 +81,13 @@ export default function ContactFormSection() {
 
   return (
     <section id="contact-form" className="py-32 bg-brand-bg-sec text-brand-text border-b border-brand-border/40 relative">
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,169,110,0.025)_0%,transparent_85%)] pointer-events-none" />
+
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center max-w-6xl mx-auto">
           {/* Info Side */}
-          <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
+          <ScrollReveal variant="fade-right" className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
             <span className="text-brand-accent font-sans text-xs tracking-[0.3em] uppercase block font-semibold">
               Get In Touch
             </span>
@@ -145,10 +149,10 @@ export default function ContactFormSection() {
                 <span>Hours: 9:00 AM – 9:00 PM</span>
               </p>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Form Side */}
-          <div className="lg:col-span-7 bg-brand-bg border border-brand-border p-6 sm:p-8 md:p-12 w-full max-w-xl mx-auto lg:max-w-none">
+          <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-7 bg-brand-bg border border-brand-border p-6 sm:p-8 md:p-12 w-full max-w-xl mx-auto lg:max-w-none">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Honeypot Spam Protection */}
               <div className="hidden">
@@ -250,7 +254,7 @@ export default function ContactFormSection() {
                 {status.type === "loading" ? "Submitting..." : "Submit Consultation Request"}
               </Button>
             </form>
-          </div>
+          </ScrollReveal>
         </div>
       </Container>
 

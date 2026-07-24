@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 import { VIDEO_STORIES } from "@/content/videos";
 import { trackEvent } from "@/lib/analytics";
 
@@ -37,14 +38,17 @@ export default function SurgeryVideosSection() {
   return (
     <section id="surgery-videos" className="py-32 bg-brand-bg text-brand-text border-b border-brand-border/40 relative">
       <Container>
-        <SectionTitle
-          title="Surgery Stories"
-          subtitle="Patient Video Testimonials"
-          align="center"
-        />
+        <ScrollReveal variant="fade-up">
+          <SectionTitle
+            title="Surgery Stories"
+            subtitle="Patient Video Testimonials"
+            align="center"
+          />
+        </ScrollReveal>
 
         {/* Cinematic Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto">
+        <ScrollReveal variant="fade-up" delay={150}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto">
           {VIDEO_STORIES.slice(0, 6).map((vid, idx) => {
             return (
               <div 
@@ -95,6 +99,7 @@ export default function SurgeryVideosSection() {
             );
           })}
         </div>
+      </ScrollReveal>
 
         {/* View All Videos Button (Triggers modal playlist) */}
         <div className="flex justify-center mt-10">

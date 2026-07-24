@@ -6,31 +6,37 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import AppointmentForm from "@/components/appointment/AppointmentForm";
 
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
 export default function AppointmentPage() {
   return (
     <>
       <Header />
       <main className="grow py-20 bg-brand-bg text-brand-text">
         <Container>
-          <SectionTitle
-            title="Book an Appointment"
-            subtitle="WordPress Booking System"
-            align="center"
-          />
+          <ScrollReveal variant="fade-up">
+            <SectionTitle
+              title="Book an Appointment"
+              subtitle="WordPress Booking System"
+              align="center"
+            />
+          </ScrollReveal>
 
-          <div className="max-w-2xl mx-auto mt-12">
-            <Card hoverable={false}>
-              <h4 className="font-serif text-2xl text-brand-text mb-2 font-light">
-                Request a Consultation
-              </h4>
-              <p className="text-brand-text-sec text-sm leading-relaxed mb-8 font-sans">
-                Please select your desired clinical department and doctor below. Our staff
-                will contact you shortly to confirm your booking.
-              </p>
+          <ScrollReveal variant="fade-up" delay={150}>
+            <div className="max-w-2xl mx-auto mt-12">
+              <Card hoverable={false}>
+                <h4 className="font-serif text-2xl text-brand-text mb-2 font-light">
+                  Request a Consultation
+                </h4>
+                <p className="text-brand-text-sec text-sm leading-relaxed mb-8 font-sans">
+                  Please select your desired clinical department and doctor below. Our staff
+                  will contact you shortly to confirm your booking.
+                </p>
 
-              <AppointmentForm />
-            </Card>
-          </div>
+                <AppointmentForm />
+              </Card>
+            </div>
+          </ScrollReveal>
         </Container>
       </main>
       <Footer />
