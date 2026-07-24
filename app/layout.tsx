@@ -3,6 +3,7 @@ import { Inter, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import AnalyticsProvider from "@/components/layout/AnalyticsProvider";
+import FloatingContact from "@/components/layout/FloatingContact";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -89,6 +90,7 @@ export default function RootLayout({
         )}
         <AnalyticsProvider />
         {children}
+        <FloatingContact />
       </body>
     </html>
   );
