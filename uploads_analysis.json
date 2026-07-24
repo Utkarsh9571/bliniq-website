@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "totalPhysicalFiles": 3412,
+    "totalPhysicalSize": 310504434,
+    "referencedPhysicalCount": 230,
+    "referencedPhysicalSize": 25221285,
+    "unreferencedPhysicalCount": 3182,
+    "unreferencedPhysicalSize": 285283149,
+    "missingReferencedCount": 4
+  },
+  "top10Largest": [
+    {
+      "relPath": "/uploads/cms-demo/cms-attachment-tmp.zip",
+      "size": 6371799
+    },
+    {
+      "relPath": "/uploads/2021/06/31.jpg",
+      "size": 4018280
+    },
+    {
+      "relPath": "/uploads/2023/12/ircle.png",
+      "size": 2493336
+    },
+    {
+      "relPath": "/uploads/2021/06/24.jpg",
+      "size": 2468242
+    },
+    {
+      "relPath": "/uploads/2021/06/28.jpg",
+      "size": 2402806
+    },
+    {
+      "relPath": "/uploads/2021/06/43.jpg",
+      "size": 2371508
+    },
+    {
+      "relPath": "/uploads/2021/06/51.jpg",
+      "size": 2325309
+    },
+    {
+      "relPath": "/uploads/2021/06/52.jpg",
+      "size": 2233454
+    },
+    {
+      "relPath": "/uploads/2021/06/40.jpg",
+      "size": 2154086
+    },
+    {
+      "relPath": "/uploads/2021/06/41.jpg",
+      "size": 2145601
+    }
+  ],
+  "missingReferenced": [
+    "/uploads/2021/06/12-3-906x1024.png",
+    "/uploads/2021/06/12-3-266x300.png",
+    "/uploads/2021/06/12-3-768x868.png",
+    "/uploads/2021/06/12-3.png"
+  ],
+  "unreferencedPhysicalSample": [
+    "/uploads/2019/08/01-100x88.png",
+    "/uploads/2019/08/01-150x88.png",
+    "/uploads/2019/08/01.png",
+    "/uploads/2019/08/02-100x88.png",
+    "/uploads/2019/08/02-150x88.png",
+    "/uploads/2019/08/02.png",
+    "/uploads/2019/08/03-100x88.png",
+    "/uploads/2019/08/03-150x88.png",
+    "/uploads/2019/08/03.png",
+    "/uploads/2019/08/04-100x88.png",
+    "/uploads/2019/08/04-150x88.png",
+    "/uploads/2019/08/04.png",
+    "/uploads/2019/08/06-100x88.png",
+    "/uploads/2019/08/06-150x88.png",
+    "/uploads/2019/08/06.png",
+    "/uploads/2019/08/08-100x88.png",
+    "/uploads/2019/08/08-150x88.png",
+    "/uploads/2019/08/08.png",
+    "/uploads/2019/08/09-100x88.png",
+    "/uploads/2019/08/09-150x88.png",
+    "/uploads/2019/08/09.png",
+    "/uploads/2019/09/author-03-100x100.jpg",
+    "/uploads/2019/09/author-03.jpg",
+    "/uploads/2019/09/author1-100x100.jpg",
+    "/uploads/2019/09/author1-150x150.jpg",
+    "/uploads/2019/09/author1-300x300.jpg",
+    "/uploads/2019/09/author1.jpg",
+    "/uploads/2019/09/marker.png",
+    "/uploads/2019/10/sales-01.png",
+    "/uploads/2020/03/footer_face-100x100.jpg",
+    "/uploads/2020/03/footer_face.jpg",
+    "/uploads/2020/07/logo-dark-100x100.png",
+    "/uploads/2020/07/logo-dark-150x100.png",
+    "/uploads/2020/07/logo-dark-300x100.png",
+    "/uploads/2020/07/logo-dark.png",
+    "/uploads/2020/07/logo-light-100x100.png",
+    "/uploads/2020/07/logo-light-150x100.png",
+    "/uploads/2020/07/logo-light-300x100.png",
+    "/uploads/2020/07/logo-light.png",
+    "/uploads/2020/07/med_image1-100x100.jpg",
+    "/uploads/2020/07/med_image1-150x150.jpg",
+    "/uploads/2020/07/med_image1-300x300.jpg",
+    "/uploads/2020/07/med_image1-370x270.jpg",
+    "/uploads/2020/07/med_image1-600x438.jpg",
+    "/uploads/2020/07/med_image1-768x568.jpg",
+    "/uploads/2020/07/med_image1.jpg",
+    "/uploads/2020/07/med_image2-100x100.jpg",
+    "/uploads/2020/07/med_image2-150x150.jpg",
+    "/uploads/2020/07/med_image2-300x300.jpg",
+    "/uploads/2020/07/med_image2-370x270.jpg"
+  ]
+}

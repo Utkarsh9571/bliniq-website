@@ -103,7 +103,8 @@ export default function ContactPage() {
                     +91 72900 62111
                   </a>
                   <br />
-                  <span className="text-brand-accent">Email:</span> info@bliniq.in
+                  <span className="text-brand-accent">Email:</span> 
+ashwani.kumar@bliniq.in
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">

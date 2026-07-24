@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:production": "next build && node scripts/build-media-manifest.js && node scripts/prune-media.js",
+    "validate:deployment": "node scripts/validate-static-deployment.js",
     "start": "next start",
     "lint": "eslint"
   },

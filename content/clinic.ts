@@ -34,7 +34,7 @@ export const CLINIC_DATA: ClinicData = {
   },
   phone: "+917290062111",
   phoneFormatted: "+91 72900 62111",
-  email: "info@bliniq.in",
+  email: "ashwani.kumar@bliniq.in", 
   openingHours: ["Mo-Su 09:00-21:00"],
   geo: {
     latitude: "28.5921",
