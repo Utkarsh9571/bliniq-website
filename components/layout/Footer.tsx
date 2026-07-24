@@ -70,15 +70,23 @@ export default function Footer() {
             <h4 className="font-serif text-sm uppercase tracking-widest text-brand-accent mb-6 font-semibold">
               Contact & Trust
             </h4>
-            <p className="text-[11px] text-brand-text-sec leading-relaxed mb-4">
-              📞 <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors font-mono">+91 72900 62111</a>
-              <br />
-              ✉️ <a href="mailto:info@bliniq.in" className="hover:text-brand-accent transition-colors">info@bliniq.in</a>
+            <div className="text-[11px] text-brand-text-sec leading-relaxed mb-4">
+              <p className="text-brand-text-sec text-sm">
+                <span className="text-brand-accent">Phone:</span>{" "}
+                <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors">+91 72900 62111</a>
+                <br />
+                <span className="text-brand-accent">Email:</span> info@bliniq.in
+              </p>
+              <div className="flex items-center gap-2 mt-4">
+                <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                  <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+                </Link>
+              </div>
               <br />
               📍 Dwarka Sector-7, New Delhi
               <br />
               ⏰ Mon-Sun: 9:00 AM - 9:00 PM
-            </p>
+            </div>
             <ul className="flex flex-col gap-2 text-[10px] text-brand-accent font-mono uppercase tracking-wider">
               <li>✓ Medical Certifications</li>
               <li>✓ Patient Safety Rights</li>
@@ -100,12 +108,15 @@ export default function Footer() {
             </div>
             <span>&copy; {new Date().getFullYear()} All rights reserved.</span>
           </div>
-          <div className="flex flex-wrap gap-6 justify-center">
+          <div className="flex flex-wrap gap-6 justify-center items-center">
             <Link href="/privacy-policy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms-conditions" className="hover:text-brand-accent transition-colors">Terms & Conditions</Link>
             <Link href="/cookie-policy" className="hover:text-brand-accent transition-colors">Cookie Policy</Link>
             <Link href="/accessibility" className="hover:text-brand-accent transition-colors">Accessibility</Link>
             <Link href="/sitemap" className="hover:text-brand-accent transition-colors">Sitemap</Link>
+            <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+              <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+            </Link>
           </div>
         </div>
       </Container>

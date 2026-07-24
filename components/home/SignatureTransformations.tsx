@@ -145,7 +145,7 @@ export default function SignatureTransformations() {
         </div>
 
         {/* Carousel composition container */}
-        <div className="relative w-full min-h-100 lg:h-[460px] flex flex-col lg:block">
+        <div className="relative w-full min-h-100 lg:h-115 flex flex-col lg:block">
           
           {/* 1. Featured Image Gallery (Desktop Right 70%, Mobile Bottom) */}
           <div className="order-2 lg:order-0 relative w-full h-64 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[70%] lg:h-full overflow-hidden bg-[#0a0a0c] border border-brand-border/40">

@@ -130,6 +130,21 @@ export default function AboutPage() {
         </section>
 
       </main>
+      <section className="py-12 border-t border-brand-border/40 bg-brand-bg-sec text-center">
+        <Container>
+          <h3 className="font-serif text-xl text-brand-text mb-3 font-light">Follow Us on Instagram</h3>
+          <p className="text-xs text-brand-text-sec mb-6">Stay updated with our latest transformation results & clinic updates.</p>
+          <a
+            href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-card border border-brand-border hover:border-brand-accent transition-colors text-xs text-brand-text rounded-full"
+          >
+            <Image src="/icons/instagram.svg" alt="Instagram" width={20} height={20} className="object-contain" />
+            <span>@ashwanikumar.bliniq</span>
+          </a>
+        </Container>
+      </section>
       <Footer />
     </>
   );

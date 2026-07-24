@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
@@ -103,6 +105,11 @@ export default function ContactPage() {
                   <br />
                   <span className="text-brand-accent">Email:</span> info@bliniq.in
                 </p>
+                <div className="flex items-center gap-2 mt-4">
+                  <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                    <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+                  </Link>
+                </div>
               </div>
             </div>
 
