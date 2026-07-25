@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/layout/Header";
@@ -26,6 +26,27 @@ export default function ContactPage() {
     type: "idle" | "loading" | "success" | "error";
     message: string;
   }>({ type: "idle", message: "" });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name") || "";
+      const phone = params.get("phone") || "";
+      const email = params.get("email") || "";
+      
+      if (name || phone || email) {
+        const frame = requestAnimationFrame(() => {
+          setFormData(prev => ({
+            ...prev,
+            name: name || prev.name,
+            phone: phone || prev.phone,
+            email: email || prev.email
+          }));
+        });
+        return () => cancelAnimationFrame(frame);
+      }
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -106,8 +127,8 @@ export default function ContactPage() {
                     +91 72900 62111
                   </a>
                   <br />
-                  <span className="text-brand-accent">Email:</span> 
-ashwani.kumar@bliniq.in
+                  <span className="text-brand-accent">Email:</span> {" "}
+ ashwani.kumar@bliniq.in
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">

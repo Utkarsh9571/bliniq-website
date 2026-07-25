@@ -75,7 +75,7 @@ export default function Footer() {
                 <span className="text-brand-accent">Phone:</span>{" "}
                 <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors">+91 72900 62111</a>
                 <br />
-                <span className="text-brand-accent">Email:</span> 
+                <span className="text-brand-accent">Email:</span> {" "}
 ashwani.kumar@bliniq.in
               </p>
               <div className="flex items-center gap-2 mt-4">
