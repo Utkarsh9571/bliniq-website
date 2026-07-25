@@ -25,10 +25,10 @@ export default function AppointmentForm() {
     phone: "",
     department: clinicConfig.procedures[0],
     doctor: clinicConfig.doctors[0],
-    date: "",
+    age: "",
     time: "",
     message: "",
-    website: "" // Honeypot field
+    website: "" // Honeypot field 
   });
 
   const [status, setStatus] = useState<{
@@ -36,13 +36,7 @@ export default function AppointmentForm() {
     message: string;
   }>({ type: "idle", message: "" });
 
-  // Calculate min/max dates for calendar picker
-  const today = new Date();
-  const minDateStr = today.toISOString().split("T")[0];
-  
-  const maxDate = new Date();
-  maxDate.setMonth(maxDate.getMonth() + 6);
-  const maxDateStr = maxDate.toISOString().split("T")[0];
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -58,7 +52,7 @@ export default function AppointmentForm() {
         email: formData.email,
         phone: formData.phone,
         procedure: `Clinic: ${formData.department} | Practitioner: ${formData.doctor}`,
-        preferredDate: `${formData.date} at ${formData.time}`,
+        preferredDate: `Age: ${formData.age} | Time: ${formData.time}`,
         message: formData.message,
         website: formData.website,
         sourcePage: "appointment"
@@ -72,7 +66,7 @@ export default function AppointmentForm() {
           phone: "",
           department: clinicConfig.procedures[0],
           doctor: clinicConfig.doctors[0],
-          date: "",
+          age: "",
           time: "",
           message: "",
           website: ""
@@ -177,15 +171,14 @@ export default function AppointmentForm() {
           required
         />
         <input
-          type="date"
-          name="date"
-          min={minDateStr}
-          max={maxDateStr}
-          value={formData.date}
+          type="number"
+          name="age"
+          min="1"
+          max="120"
+          value={formData.age}
           onChange={handleChange}
-          onKeyDown={(e) => e.preventDefault()}
-          onClick={(e) => e.currentTarget.showPicker && e.currentTarget.showPicker()}
-          className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-hidden focus:border-brand-accent transition-colors cursor-pointer"
+          placeholder="Age"
+          className="bg-brand-bg border border-brand-border py-3 px-4 text-brand-text focus:outline-hidden focus:border-brand-accent transition-colors"
           required
         />
         <select

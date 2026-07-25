@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-import { COSMETIC_SERVICES } from "@/lib/services";
+import { clinicConfig } from "@/content/clinic-config";
 import { trackEvent } from "@/lib/analytics";
 import { submitLead } from "@/lib/forms";
 import ScrollReveal from "../ui/ScrollReveal";
@@ -216,8 +216,8 @@ export default function ContactFormSection() {
                     className="w-full bg-brand-bg-sec border border-brand-border/60 px-4 py-3 text-xs text-brand-text focus:outline-none focus:border-brand-accent transition-colors rounded-none"
                   >
                     <option value="">Select Treatment</option>
-                    {COSMETIC_SERVICES.map((s, i) => (
-                      <option key={i} value={s.title}>{s.title}</option>
+                    {clinicConfig.procedures.map((proc, i) => (
+                      <option key={i} value={proc}>{proc}</option>
                     ))}
                   </select>
                 </div>

@@ -17,7 +17,6 @@ export default function AppointmentPage() {
           <ScrollReveal variant="fade-up">
             <SectionTitle
               title="Book an Appointment"
-              subtitle="WordPress Booking System"
               align="center"
             />
           </ScrollReveal>
