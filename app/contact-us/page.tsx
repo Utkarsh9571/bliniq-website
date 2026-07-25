@@ -132,7 +132,7 @@ export default function ContactPage() {
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                    <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+                    <Image src="/images/scrollers/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
                   </Link>
                 </div>
               </div>

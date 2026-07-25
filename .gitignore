@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# ── Dependencies ────────────────────────────────────────────────────────────────
 /node_modules
 /.pnp
 .pnp.*
@@ -10,33 +10,48 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# ── Next.js ─────────────────────────────────────────────────────────────────────
 /.next/
 /out/
-
-# production
 /build
 
-# misc
-.DS_Store
-*.pem
+# ── TypeScript ──────────────────────────────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
 
-# debug
+# ── Environment & Secrets ───────────────────────────────────────────────────────
+.env*
+
+# ── Vercel ──────────────────────────────────────────────────────────────────────
+.vercel
+
+# ── Testing & Coverage ──────────────────────────────────────────────────────────
+/coverage
+
+# ── Debug Logs ──────────────────────────────────────────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
+# ── OS & Editor Clutter ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.pem
+.vscode/
+.idea/
+*.suo
+*.user
 
-# vercel
-.vercel
+# ── Dev / Scratch Files ─────────────────────────────────────────────────────────
+# Temporary scripts and audit tools generated during development
+/scratch/
+public/gallery-inspector.html
+public/gallery-audit.html
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
+# ── Patient Media Quarantine ─────────────────────────────────────────────────────
+# Raw unprocessed originals — never commit to version control
+/media-review/
+/new images/

@@ -110,7 +110,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "No. Once the gland is completely excised surgically, it cannot regenerate. Results are permanent unless triggered by heavy steroid usage or massive weight gain."
       }
     ],
-    image: "/uploads/2023/12/Gynecomastia-1.jpeg"
+    image: "/images/home/Gynecomastia-1.jpeg"
   },
   {
     title: "Abdominoplasty (Tummy Tuck)",

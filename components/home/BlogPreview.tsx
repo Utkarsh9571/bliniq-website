@@ -11,9 +11,9 @@ export default function BlogPreview() {
 
   const getBlogImage = (index: number) => {
     const images = [
-      "/blog_thumb_1.png",
-      "/blog_thumb_2.png",
-      "/blog_thumb_3.png",
+      "/images/home/blog_thumb_1.webp",
+      "/images/home/blog_thumb_2.webp",
+      "/images/home/blog_thumb_3.webp",
     ];
     return images[index % images.length];
   };

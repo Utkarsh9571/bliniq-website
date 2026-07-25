@@ -77,7 +77,7 @@ export default function Header() {
           <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 shrink-0">
             <div className="relative w-40 h-10">
               <Image
-                src="/logo.png"
+                src="/images/seo/logo.png"
                 alt="BLINIQ"
                 fill
                 className="object-contain"

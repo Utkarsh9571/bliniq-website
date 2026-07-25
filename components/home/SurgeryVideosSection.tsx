@@ -6,6 +6,7 @@ import SectionTitle from "../ui/SectionTitle";
 import ScrollReveal from "../ui/ScrollReveal";
 import { VIDEO_STORIES } from "@/content/videos";
 import { trackEvent } from "@/lib/analytics";
+import AutoplayVideoCard from "../ui/AutoplayVideoCard";
 
 export default function SurgeryVideosSection() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
@@ -49,56 +50,14 @@ export default function SurgeryVideosSection() {
         {/* Cinematic Responsive Grid */}
         <ScrollReveal variant="fade-up" delay={150}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto">
-          {VIDEO_STORIES.slice(0, 6).map((vid, idx) => {
-            return (
-              <div 
+            {VIDEO_STORIES.slice(0, 6).map((vid, idx) => (
+              <AutoplayVideoCard
                 key={idx}
+                vid={vid}
                 onClick={() => openVideo(vid.id)}
-                className="flex bg-brand-bg-sec border border-brand-border/40 p-4 flex-col gap-4 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none"
-              >
-                {/* Thumbnail Display with Play Overlay */}
-                <div className="relative aspect-video w-full bg-[#0B0F19] border border-brand-border/30 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={vid.thumbnail} 
-                    alt={vid.title} 
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-                  />
-
-                  {/* Duration Badge */}
-                  <span className="absolute bottom-2 right-2 bg-[#0B0F19]/80 border border-brand-border/40 text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded text-brand-text-sec">
-                    {vid.duration}
-                  </span>
-
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                    <div className="w-10 h-10 rounded-full bg-brand-accent/90 group-hover:bg-brand-accent group-hover:scale-110 flex items-center justify-center text-[#0B0F19] pl-0.5 shadow-lg transition-all duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                        <path d="M8 5.14v14l11-7-11-7Z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Text Metadata */}
-                <div className="text-left space-y-2">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold">
-                      {vid.category}
-                    </span>
-                  </div>
-                  <h4 className="font-serif text-sm text-brand-text font-medium group-hover:text-brand-accent transition-colors truncate">
-                    {vid.title}
-                  </h4>
-                  <p className="text-[11px] text-brand-text-sec leading-relaxed font-sans line-clamp-2">
-                    {vid.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              />
+            ))}
+          </div>
       </ScrollReveal>
 
         {/* View All Videos Button (Triggers modal playlist) */}

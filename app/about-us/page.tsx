@@ -60,7 +60,7 @@ export default function AboutPage() {
               <ScrollReveal variant="image-reveal" className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
                 <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
                   <Image
-                    src="/uploads/2024/02/Dr-Ashwini.jpg"
+                    src="/images/doctors/Dr-Ashwini.jpg"
                     alt="Dr. Ashwani Kumar Chief Surgeon"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
@@ -145,7 +145,7 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-card border border-brand-border hover:border-brand-accent transition-colors text-xs text-brand-text rounded-full"
           >
-            <Image src="/icons/instagram.svg" alt="Instagram" width={20} height={20} className="object-contain" />
+            <Image src="/images/scrollers/instagram.svg" alt="Instagram" width={20} height={20} className="object-contain" />
             <span>@ashwanikumar.bliniq</span>
           </a>
         </Container>

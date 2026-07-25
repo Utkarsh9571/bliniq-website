@@ -5,81 +5,67 @@ import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Button from "../ui/Button";
+import PatientCaseModal from "../gallery/PatientCaseModal";
+import { GALLERY_CASES, GalleryCase } from "@/content/gallery";
 import { trackEvent } from "@/lib/analytics";
 
 interface SocialPost {
   id: number;
-  type: string;
-  procedure: string;
+  feedType: "instagram" | "case";
+  caseId?: string; // Linked to GalleryCase.caseId
   caption: string;
-  instagramUrl: string;
-  media: string;
+  // Instagram specific fields:
+  mediaType?: "image" | "video";
+  media?: string;
+  url?: string;
+  procedure?: string;
 }
 
-const POSTS: SocialPost[] = [
+const ROW1_POSTS: SocialPost[] = [
   {
-    "id": 1,
-    "type": "image",
-    "procedure": "VASER Liposuction",
-    "caption": "Abdominal contouring definition showing 4D muscle shadows. 3-months recovery.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/lipo_marquee.png"
+    "id": 104,
+    "feedType": "case",
+    "caseId": "breast-lift-case-1",
+    "caption": "Post-pregnancy surgical lift and restoring natural contour volume."
   },
   {
-    "id": 2,
-    "type": "video",
-    "procedure": "Gynecomastia Excision",
-    "caption": "Immediate chest flattening after daycare surgical correction under sedation.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/gyne_marquee.png"
+    "id": 105,
+    "feedType": "case",
+    "caseId": "blepharoplasty-case-1",
+    "caption": "Upper and lower eyelid rejuvenation, eliminating heavy skin folds."
   },
   {
-    "id": 3,
-    "type": "image",
-    "procedure": "Rhinoplasty Surgery",
-    "caption": "Nasal profile alignment. Refined tip projection and dorsal hump correction.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/rhino_marquee.png"
+    "id": 107,
+    "feedType": "case",
+    "caseId": "butt-augmentation-case-1",
+    "caption": "Clinical contouring study displaying enhanced shape and projection."
+  }
+];
+
+const ROW2_POSTS: SocialPost[] = [
+  {
+    "id": 203,
+    "feedType": "case",
+    "caseId": "lip-reduction-case-1",
+    "caption": "Volume reduction and structural refinement of lower lip. Balanced profile."
   },
   {
-    "id": 4,
-    "type": "image",
-    "procedure": "Hair Restoration",
-    "caption": "High-density hairline reconstruction 10-months post-op.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/hair_marquee.png"
+    "id": 205,
+    "feedType": "case",
+    "caseId": "axillary-breast-excision-case-1",
+    "caption": "Excision of accessory underarm breast tissue. Safe daycare correction."
   },
   {
-    "id": 5,
-    "type": "image",
-    "procedure": "Abdominoplasty",
-    "caption": "Tummy tuck core muscle repair and loose skin reduction. Full contouring.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/lipo_marquee.png"
+    "id": 206,
+    "feedType": "case",
+    "caseId": "breast-implants-mtf-case-1",
+    "caption": "Feminization breast implants augmentation. Proportional result."
   },
   {
-    "id": 6,
-    "type": "video",
-    "procedure": "4D Contouring",
-    "caption": "VASER 4D post-care swelling resolution at 4 weeks.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/gyne_marquee.png"
-  },
-  {
-    "id": 7,
-    "type": "image",
-    "procedure": "Nasal Symmetry Study",
-    "caption": "Frontal nasal profile alignment demonstrating natural symmetry.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/rhino_marquee.png"
-  },
-  {
-    "id": 8,
-    "type": "image",
-    "procedure": "Micro-FUE Hair Transplant",
-    "caption": "Crown hair restoration FUE graft density results.",
-    "instagramUrl": "https://instagram.com/bliniq",
-    "media": "/hair_marquee.png"
+    "id": 208,
+    "feedType": "case",
+    "caseId": "gynecomastia-correction-case-23",
+    "caption": "Daycare surgical correction of grade 2 gynecomastia. Symmetrical chest contour."
   }
 ];
 
@@ -88,18 +74,18 @@ export default function TransformationsFeed() {
   const [row2Paused, setRow2Paused] = useState(false);
 
   // Modal State
-  const [activePost, setActivePost] = useState<SocialPost | null>(null);
+  const [activeCase, setActiveCase] = useState<GalleryCase | null>(null);
+  const [activeInstaPost, setActiveInstaPost] = useState<SocialPost | null>(null);
   const [activeRow, setActiveRow] = useState<number | null>(null);
 
-  const openModal = (post: SocialPost, rowNum: number) => {
-    setActivePost(post);
+  const openInstaModal = (post: SocialPost, rowNum: number) => {
+    setActiveInstaPost(post);
     setActiveRow(rowNum);
     
-    // GTM event tracking
     trackEvent({
       action: "instagram_post_open",
       category: "Engagement",
-      label: post.procedure
+      label: post.procedure || "Instagram"
     });
 
     if (rowNum === 1) {
@@ -109,17 +95,54 @@ export default function TransformationsFeed() {
     }
   };
 
-  const closeModal = () => {
+  const openCaseModal = (resolvedCase: GalleryCase, rowNum: number) => {
+    setActiveCase(resolvedCase);
+    setActiveRow(rowNum);
+
+    trackEvent({
+      action: "local_case_open",
+      category: "Engagement",
+      label: resolvedCase.title
+    });
+
+    if (rowNum === 1) {
+      setRow1Paused(true);
+    } else if (rowNum === 2) {
+      setRow2Paused(true);
+    }
+  };
+
+  const closeInstaModal = () => {
     if (activeRow === 1) {
       setRow1Paused(false);
     } else if (activeRow === 2) {
       setRow2Paused(false);
     }
-    setActivePost(null);
+    setActiveInstaPost(null);
     setActiveRow(null);
   };
 
-  const rowItems = POSTS;
+  const closeCaseModal = () => {
+    if (activeRow === 1) {
+      setRow1Paused(false);
+    } else if (activeRow === 2) {
+      setRow2Paused(false);
+    }
+    setActiveCase(null);
+    setActiveRow(null);
+  };
+
+  const getPaddedItems = (items: SocialPost[]) => {
+    let padded = [...items];
+    // Pad array so there are at least 10 items in the marquee loop, preventing viewport gaps
+    while (padded.length > 0 && padded.length < 12) {
+      padded = [...padded, ...items];
+    }
+    return padded;
+  };
+
+  const row1Items = getPaddedItems(ROW1_POSTS);
+  const row2Items = getPaddedItems(ROW2_POSTS);
 
   return (
     <section id="transformations" className="py-24 sm:py-32 bg-[#0B0F19] text-brand-text border-b border-brand-border/40 overflow-hidden relative font-sans">
@@ -142,17 +165,17 @@ export default function TransformationsFeed() {
           gap: 1.5rem;
         }
         .animate-transform-left {
-          animation: marqueeLeftFast 45s linear infinite;
+          animation: marqueeLeftFast 90s linear infinite;
         }
         .animate-transform-right {
-          animation: marqueeRightFast 45s linear infinite;
+          animation: marqueeRightFast 90s linear infinite;
         }
         @media (max-width: 768px) {
           .animate-transform-left {
-            animation-duration: 60s;
+            animation-duration: 120s;
           }
           .animate-transform-right {
-            animation-duration: 60s;
+            animation-duration: 120s;
           }
         }
         .paused-state {
@@ -175,56 +198,52 @@ export default function TransformationsFeed() {
         <div 
           className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
           onMouseEnter={() => setRow1Paused(true)}
-          onMouseLeave={() => { if (!activePost || activeRow !== 1) setRow1Paused(false); }}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase && activeRow === 1) setRow1Paused(false); }}
           onTouchStart={() => setRow1Paused(true)}
-          onTouchEnd={() => { if (!activePost || activeRow !== 1) setRow1Paused(false); }}
+          onTouchEnd={() => { if (!activeInstaPost && !activeCase && activeRow === 1) setRow1Paused(false); }}
         >
-          <div className={`transform-marquee-container animate-transform-left ${row1Paused ? "paused-state" : ""}`}>
-            {rowItems.map((post) => (
-              <div key={post.id} onClick={() => openModal(post, 1)}>
-                <SocialCard post={post} />
-              </div>
-            ))}
-            {rowItems.map((post) => (
-              <div key={`dup1-${post.id}`} onClick={() => openModal(post, 1)}>
-                <SocialCard post={post} />
-              </div>
-            ))}
-          </div>
+          {row1Items.length > 0 && (
+            <div className={`transform-marquee-container animate-transform-left ${row1Paused ? "paused-state" : ""}`}>
+              {row1Items.map((post, idx) => (
+                <MarqueeCard key={`${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+              {row1Items.map((post, idx) => (
+                <MarqueeCard key={`dup1-${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Row 2: Right direction */}
         <div 
           className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
           onMouseEnter={() => setRow2Paused(true)}
-          onMouseLeave={() => { if (!activePost || activeRow !== 2) setRow2Paused(false); }}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase && activeRow === 2) setRow2Paused(false); }}
           onTouchStart={() => setRow2Paused(true)}
-          onTouchEnd={() => { if (!activePost || activeRow !== 2) setRow2Paused(false); }}
+          onTouchEnd={() => { if (!activeInstaPost && !activeCase && activeRow === 2) setRow2Paused(false); }}
         >
-          <div className={`transform-marquee-container animate-transform-right ${row2Paused ? "paused-state" : ""}`}>
-            {rowItems.map((post) => (
-              <div key={post.id} onClick={() => openModal(post, 2)}>
-                <SocialCard post={post} />
-              </div>
-            ))}
-            {rowItems.map((post) => (
-              <div key={`dup2-${post.id}`} onClick={() => openModal(post, 2)}>
-                <SocialCard post={post} />
-              </div>
-            ))}
-          </div>
+          {row2Items.length > 0 && (
+            <div className={`transform-marquee-container animate-transform-right ${row2Paused ? "paused-state" : ""}`}>
+              {row2Items.map((post, idx) => (
+                <MarqueeCard key={`${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+              {row2Items.map((post, idx) => (
+                <MarqueeCard key={`dup2-${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Instagram Post Detail Modal Lightbox */}
-      {activePost && (
+      {activeInstaPost && (
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-[#0B0F19]/95 backdrop-blur-md p-4 animate-fade-in">
-          <div className="absolute inset-0 cursor-default" onClick={closeModal} />
+          <div className="absolute inset-0 cursor-default" onClick={closeInstaModal} />
           
           <div className="relative max-w-4xl w-full bg-[#0F1524] border border-brand-border/60 p-6 md:p-8 flex flex-col md:flex-row gap-6 sm:gap-8 shadow-2xl z-10 rounded text-left max-h-[90vh] overflow-y-auto">
             {/* Close Button */}
             <button 
-              onClick={closeModal}
+              onClick={closeInstaModal}
               className="absolute top-4 right-4 text-brand-text-sec/60 hover:text-brand-accent p-2 transition-colors cursor-pointer min-h-11 flex items-center justify-center z-50"
               aria-label="Close modal"
             >
@@ -236,13 +255,13 @@ export default function TransformationsFeed() {
             {/* Left Column: Post Media */}
             <div className="md:w-1/2 relative aspect-square bg-[#0B0F19] border border-brand-border/40 overflow-hidden shrink-0">
               <Image
-                src={activePost.media}
-                alt={activePost.procedure}
+                src={activeInstaPost.media || ""}
+                alt={activeInstaPost.procedure || "Instagram highlight"}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
-              {activePost.type === "video" && (
+              {activeInstaPost.mediaType === "video" && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                   <div className="w-12 h-12 rounded-full bg-brand-accent/90 flex items-center justify-center text-[#0B0F19]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6 pl-0.5">
@@ -257,20 +276,20 @@ export default function TransformationsFeed() {
             <div className="md:w-1/2 flex flex-col justify-between py-2">
               <div className="space-y-4">
                 <span className="text-brand-accent text-xs font-mono uppercase tracking-[0.2em] font-semibold block">
-                  {activePost.procedure} &bull; {activePost.type.toUpperCase()}
+                  {activeInstaPost.procedure} &bull; SOCIAL FEED
                 </span>
                 <p className="text-brand-text text-sm sm:text-base leading-relaxed font-sans">
-                  {activePost.caption}
+                  {activeInstaPost.caption}
                 </p>
               </div>
 
               <div className="pt-6 border-t border-brand-border/30 mt-6 flex flex-col gap-4">
                 <a 
-                  href={activePost.instagramUrl} 
+                  href={activeInstaPost.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full"
-                  onClick={() => trackEvent({ action: "instagram_click", category: "Outbound Clicks", label: activePost.procedure })}
+                  onClick={() => trackEvent({ action: "instagram_click", category: "Outbound Clicks", label: activeInstaPost.procedure || "Instagram" })}
                 >
                   <Button variant="primary" className="w-full py-3.5 text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-4 h-4">
@@ -284,24 +303,84 @@ export default function TransformationsFeed() {
           </div>
         </div>
       )}
+
+      {/* Shared Reusable Modal for Patient Cases */}
+      <PatientCaseModal
+        isOpen={activeCase !== null}
+        activeCase={activeCase}
+        onClose={closeCaseModal}
+      />
     </section>
   );
 }
 
-function SocialCard({ post }: { post: SocialPost }) {
+function MarqueeCard({
+  post,
+  rowNum,
+  onOpenInsta,
+  onOpenCase
+}: {
+  post: SocialPost;
+  rowNum: number;
+  onOpenInsta: (post: SocialPost, rowNum: number) => void;
+  onOpenCase: (resolvedCase: GalleryCase, rowNum: number) => void;
+}) {
+  if (post.feedType === "case") {
+    // Resolve patient case details from content/gallery.ts
+    const resolvedCase = GALLERY_CASES.find(c => c.caseId === post.caseId);
+    if (!resolvedCase) return null;
+
+    return (
+      <div 
+        onClick={() => onOpenCase(resolvedCase, rowNum)}
+        className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-pointer select-none group"
+      >
+        {/* Cover Thumbnail — Complete uncropped image */}
+        <div className="relative aspect-square w-full bg-[#0B0F19] overflow-hidden border-b border-brand-border/30 flex items-center justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={resolvedCase.coverImage}
+            alt={resolvedCase.title}
+            className="w-full h-full object-contain group-hover:scale-101 transition-transform duration-700 block"
+            loading="lazy"
+          />
+          
+          {/* Case indicator badge */}
+          <span className="absolute top-2 right-2 bg-brand-bg/95 border border-brand-border px-2 py-0.5 text-[8px] font-mono tracking-wider uppercase text-brand-accent z-10">
+            {resolvedCase.images.length} Photos
+          </span>
+        </div>
+
+        {/* Info */}
+        <div className="p-5 text-left space-y-2">
+          <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold block">
+            {resolvedCase.category} &bull; Case File
+          </span>
+          <p className="text-brand-text-sec text-[11px] leading-relaxed font-sans line-clamp-2">
+            {post.caption}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Instagram Card
   return (
-    <div className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-pointer select-none group">
+    <div 
+      onClick={() => onOpenInsta(post, rowNum)}
+      className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-pointer select-none group"
+    >
       {/* Thumbnail */}
       <div className="relative aspect-square w-full bg-[#0B0F19] overflow-hidden border-b border-brand-border/30">
         <Image
-          src={post.media}
-          alt={post.procedure}
+          src={post.media || ""}
+          alt={post.procedure || "Instagram highlight"}
           fill
           className="object-cover group-hover:scale-103 transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, 25vw"
         />
         {/* Play Icon overlay for video */}
-        {post.type === "video" && (
+        {post.mediaType === "video" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/30 transition-colors">
             <div className="w-10 h-10 rounded-full bg-brand-accent/90 group-hover:bg-brand-accent group-hover:scale-110 flex items-center justify-center text-[#0B0F19] pl-0.5 shadow-lg transition-all duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">

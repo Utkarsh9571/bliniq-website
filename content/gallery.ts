@@ -1,293 +1,496 @@
 export interface GalleryCase {
+  caseId: string;
   title: string;
   category: string;
-  src: string;
+  coverImage: string;
+  images: string[];
 }
 
 export const GALLERY_CASES: GalleryCase[] = [
+  // ── Gynecomastia ────────────────────────────────────────────────────────────
   {
-    "title": "VASER 4D Body Contouring — Case 1",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-1.webp"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 1",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-2.webp"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 1",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-3.webp"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 2",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-4.webp"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 2",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-5.webp"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 2",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-6.webp"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 3",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-7.webp"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 3",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-8.webp"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-3",
     "title": "Gynecomastia Correction — Case 3",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-9.webp"
+    "coverImage": "/images/gallery/Gallery-9.webp",
+    "images": [
+      "/images/gallery/Gallery-9.webp"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 4",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-10.webp"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 4",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-11.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-4",
     "title": "Gynecomastia Correction — Case 4",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-12.jpeg"
+    "coverImage": "/images/gallery/Gallery-13.jpeg",
+    "images": [
+      "/images/gallery/Gallery-13.jpeg"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 5",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-13.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 5",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-14.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-5",
     "title": "Gynecomastia Correction — Case 5",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-15.jpeg"
+    "coverImage": "/images/gallery/Gallery-20.jpeg",
+    "images": [
+      "/images/gallery/Gallery-20.jpeg"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 6",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-16.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 6",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-17.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-6",
     "title": "Gynecomastia Correction — Case 6",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-18.jpeg"
+    "coverImage": "/images/gallery/Gallery-21.jpeg",
+    "images": [
+      "/images/gallery/Gallery-21.jpeg"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 7",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-19.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 7",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-20.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-7",
     "title": "Gynecomastia Correction — Case 7",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-21.jpeg"
+    "coverImage": "/images/gallery/Gallery-23.jpeg",
+    "images": [
+      "/images/gallery/Gallery-23.jpeg"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 8",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-22.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 8",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-23.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-8",
     "title": "Gynecomastia Correction — Case 8",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-24.jpeg"
+    "coverImage": "/images/gallery/Gallery-25.jpeg",
+    "images": [
+      "/images/gallery/Gallery-25.jpeg"
+    ]
   },
   {
-    "title": "VASER 4D Body Contouring — Case 9",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-25.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 9",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-26.jpeg"
-  },
-  {
+    "caseId": "gynecomastia-correction-case-9",
     "title": "Gynecomastia Correction — Case 9",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-27.jpeg"
+    "coverImage": "/images/gallery/Gallery-28.jpeg",
+    "images": [
+      "/images/gallery/Gallery-28.jpeg"
+    ]
   },
+  // ── Tummy Tuck ──────────────────────────────────────────────────────────────
   {
-    "title": "VASER 4D Body Contouring — Case 10",
-    "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-28.jpeg"
-  },
-  {
-    "title": "Abdominoplasty Restoration — Case 10",
+    "caseId": "tummy-tuck-case-1",
+    "title": "Tummy Tuck — Case 1",
     "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-29.jpeg"
+    "coverImage": "/images/gallery/Gallery-6.jpeg",
+    "images": [
+      "/images/gallery/Gallery-6.jpeg"
+    ]
   },
+  // ── Liposuction ─────────────────────────────────────────────────────────────
   {
-    "title": "Gynecomastia Correction — Case 10",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-30.jpeg"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 11",
+    "caseId": "liposuction-arms-case-1",
+    "title": "Arms Liposuction — Case 1",
     "category": "Liposuction",
-    "src": "/uploads/2023/10/Gallery-31.jpeg"
+    "coverImage": "/images/gallery/Gallery-1.jpeg",
+    "images": [
+      "/images/gallery/Gallery-1.jpeg"
+    ]
   },
   {
-    "title": "Abdominoplasty Restoration — Case 11",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/10/Gallery-32.jpeg"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 11",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/10/Gallery-33.jpeg"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 12",
+    "caseId": "liposuction-back-case-1",
+    "title": "Back Liposuction — Case 1",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Gallery-1.jpeg"
+    "coverImage": "/images/gallery/Gallery-5.jpeg",
+    "images": [
+      "/images/gallery/Gallery-5.jpeg"
+    ]
   },
   {
-    "title": "Abdominoplasty Restoration — Case 12",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/12/Gallery-2.jpeg"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 12",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gallery-3.jpeg"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 13",
+    "caseId": "liposuction-double-chin-case-1",
+    "title": "Double Chin Reduction — Case 1",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Gallery-4.jpeg"
+    "coverImage": "/images/gallery/Gallery-9.jpeg",
+    "images": [
+      "/images/gallery/Gallery-9.jpeg"
+    ]
   },
   {
-    "title": "Abdominoplasty Restoration — Case 13",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/12/Gallery-5.jpeg"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 13",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gallery-6.jpeg"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 14",
+    "caseId": "liposuction-double-chin-case-2",
+    "title": "Double Chin Reduction — Case 2",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Gallery-7.jpeg"
+    "coverImage": "/images/gallery/Gallery-10.jpeg",
+    "images": [
+      "/images/gallery/Gallery-10.jpeg"
+    ]
   },
   {
-    "title": "Abdominoplasty Restoration — Case 14",
-    "category": "Tummy Tuck",
-    "src": "/uploads/2023/12/Gallery-8.jpeg"
-  },
-  {
-    "title": "Gynecomastia Correction — Case 14",
-    "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gallery-9.jpeg"
-  },
-  {
-    "title": "VASER 4D Body Contouring — Case 15",
+    "caseId": "liposuction-buccal-fat-case-1",
+    "title": "Buccal Fat Pad Removal — Case 1",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Gallery-10.jpeg"
+    "coverImage": "/images/gallery/Gallery-14.jpeg",
+    "images": [
+      "/images/gallery/Gallery-14.jpeg"
+    ]
   },
   {
+    "caseId": "liposuction-abs-case-1",
+    "title": "6-Pack Abs Creation — Case 1",
+    "category": "Liposuction",
+    "coverImage": "/images/gallery/Gallery-33.jpeg",
+    "images": [
+      "/images/gallery/Gallery-33.jpeg"
+    ]
+  },
+  // ── Hair Transplant ──────────────────────────────────────────────────────────
+  {
+    "caseId": "hair-transplant-legacy-case-1",
+    "title": "Hair Transplant — Legacy Case 1",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/Gallery-22.jpeg",
+    "images": [
+      "/images/gallery/Gallery-22.jpeg"
+    ]
+  },
+  {
+    "caseId": "hair-transplant-legacy-case-2",
+    "title": "Hair Transplant — Legacy Case 2",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/Gallery-24.jpeg",
+    "images": [
+      "/images/gallery/Gallery-24.jpeg"
+    ]
+  },
+  {
+    "caseId": "hair-transplant-legacy-case-3",
+    "title": "Hair Transplant — Legacy Case 3",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/Gallery-32.jpeg",
+    "images": [
+      "/images/gallery/Gallery-32.jpeg"
+    ]
+  },
+  // ── Breast Implants ──────────────────────────────────────────────────────────
+  {
+    "caseId": "breast-implants-legacy-case-1",
+    "title": "Breast Implants — Legacy Case 1",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/Gallery-3.jpeg",
+    "images": [
+      "/images/gallery/Gallery-3.jpeg"
+    ]
+  },
+  {
+    "caseId": "breast-implants-legacy-case-2",
+    "title": "Breast Implants — Legacy Case 2",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/Gallery-11.jpeg",
+    "images": [
+      "/images/gallery/Gallery-11.jpeg"
+    ]
+  },
+  {
+    "caseId": "breast-implants-legacy-case-3",
+    "title": "Breast Implants — Legacy Case 3",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/Gallery-12.jpeg",
+    "images": [
+      "/images/gallery/Gallery-12.jpeg"
+    ]
+  },
+  // ── Breast Lift ──────────────────────────────────────────────────────────────
+  {
+    "caseId": "breast-lift-legacy-case-1",
+    "title": "Breast Lift with Implants — Legacy Case 1",
+    "category": "Breast Lift",
+    "coverImage": "/images/gallery/Gallery-8.jpeg",
+    "images": [
+      "/images/gallery/Gallery-8.jpeg"
+    ]
+  },
+  {
+    "caseId": "breast-lift-legacy-case-2",
+    "title": "Breast Lift with Implants — Legacy Case 2",
+    "category": "Breast Lift",
+    "coverImage": "/images/gallery/Gallery-17.jpeg",
+    "images": [
+      "/images/gallery/Gallery-17.jpeg"
+    ]
+  },
+  // ── Butt Augmentation ────────────────────────────────────────────────────────
+  {
+    "caseId": "butt-augmentation-legacy-case-1",
+    "title": "Butt Augmentation — Legacy Case 1",
+    "category": "Butt Augmentation",
+    "coverImage": "/images/gallery/Gallery-4.jpeg",
+    "images": [
+      "/images/gallery/Gallery-4.jpeg"
+    ]
+  },
+  {
+    "caseId": "butt-augmentation-legacy-case-2",
+    "title": "BBL — Legacy Case 2",
+    "category": "Butt Augmentation",
+    "coverImage": "/images/gallery/Gallery-15.jpeg",
+    "images": [
+      "/images/gallery/Gallery-15.jpeg"
+    ]
+  },
+  {
+    "caseId": "butt-augmentation-legacy-case-3",
+    "title": "BBL — Legacy Case 3",
+    "category": "Butt Augmentation",
+    "coverImage": "/images/gallery/Gallery-31.jpeg",
+    "images": [
+      "/images/gallery/Gallery-31.jpeg"
+    ]
+  },
+  {
+    "caseId": "gynecomastia-correction-case-15",
     "title": "Gynecomastia Correction — Case 15",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-1.jpeg"
+    "coverImage": "/images/home/Gynecomastia-1.jpeg",
+    "images": [
+      "/images/home/Gynecomastia-1.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-16",
     "title": "Gynecomastia Correction — Case 16",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-2.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-2.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-2.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-17",
     "title": "Gynecomastia Correction — Case 17",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-3.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-3.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-3.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-18",
     "title": "Gynecomastia Correction — Case 18",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-4.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-4.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-4.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-19",
     "title": "Gynecomastia Correction — Case 19",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-5.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-5.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-5.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-20",
     "title": "Gynecomastia Correction — Case 20",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-6.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-6.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-6.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-21",
     "title": "Gynecomastia Correction — Case 21",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-7.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-7.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-7.jpeg"
+    ]
   },
   {
+    "caseId": "gynecomastia-correction-case-22",
     "title": "Gynecomastia Correction — Case 22",
     "category": "Gynecomastia",
-    "src": "/uploads/2023/12/Gynecomastia-Scarless.jpeg"
+    "coverImage": "/images/pages/Gynecomastia-Scarless.jpeg",
+    "images": [
+      "/images/pages/Gynecomastia-Scarless.jpeg"
+    ]
   },
   {
+    "caseId": "vaser-4d-body-contouring-case-16",
     "title": "VASER 4D Body Contouring — Case 16",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Liposuction-Tummy360.jpeg"
+    "coverImage": "/images/home/Liposuction-Tummy360.jpeg",
+    "images": [
+      "/images/home/Liposuction-Tummy360.jpeg"
+    ]
   },
   {
+    "caseId": "vaser-4d-body-contouring-case-17",
     "title": "VASER 4D Body Contouring — Case 17",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Thigh-Liposuction.jpeg"
+    "coverImage": "/images/pages/Thigh-Liposuction.jpeg",
+    "images": [
+      "/images/pages/Thigh-Liposuction.jpeg"
+    ]
   },
   {
+    "caseId": "vaser-4d-body-contouring-case-18",
     "title": "VASER 4D Body Contouring — Case 18",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Arms-Liposuction.jpeg"
+    "coverImage": "/images/pages/Arms-Liposuction.jpeg",
+    "images": [
+      "/images/pages/Arms-Liposuction.jpeg"
+    ]
   },
   {
+    "caseId": "abdominoplasty-restoration-case-15",
     "title": "Abdominoplasty Restoration — Case 15",
     "category": "Tummy Tuck",
-    "src": "/uploads/2023/12/Tummy-Tuck-1.jpeg"
+    "coverImage": "/images/pages/Tummy-Tuck-1.jpeg",
+    "images": [
+      "/images/pages/Tummy-Tuck-1.jpeg"
+    ]
   },
   {
+    "caseId": "vaser-4d-body-contouring-case-19",
     "title": "VASER 4D Body Contouring — Case 19",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Back-Liposuction.jpeg"
+    "coverImage": "/images/pages/Back-Liposuction.jpeg",
+    "images": [
+      "/images/pages/Back-Liposuction.jpeg"
+    ]
   },
   {
+    "caseId": "vaser-4d-body-contouring-case-20",
     "title": "VASER 4D Body Contouring — Case 20",
     "category": "Liposuction",
-    "src": "/uploads/2023/12/Arm-Liposuction.jpeg"
+    "coverImage": "/images/pages/Arm-Liposuction.jpeg",
+    "images": [
+      "/images/pages/Arm-Liposuction.jpeg"
+    ]
+  },
+  {
+    "caseId": "axillary-breast-excision-case-1",
+    "title": "Axillary Breast Excision — Case 1",
+    "category": "Axillary Breast Excision",
+    "coverImage": "/images/gallery/axillary-breast/case-01/axillary-breast-case-01-01.webp",
+    "images": [
+      "/images/gallery/axillary-breast/case-01/axillary-breast-case-01-01.webp",
+      "/images/gallery/axillary-breast/case-01/axillary-breast-case-01-02.webp"
+    ]
+  },
+  {
+    "caseId": "breast-implants-mtf-case-1",
+    "title": "Breast Implants (MTF) — Case 1",
+    "category": "Breast Implants (MTF)",
+    "coverImage": "/images/gallery/breast-implants-mtf/case-01/breast-implants-mtf-case-01-01.webp",
+    "images": [
+      "/images/gallery/breast-implants-mtf/case-01/breast-implants-mtf-case-01-01.webp",
+      "/images/gallery/breast-implants-mtf/case-01/breast-implants-mtf-case-01-02.webp"
+    ]
+  },
+  {
+    "caseId": "breast-lift-case-1",
+    "title": "Breast Lift — Case 1",
+    "category": "Breast Lift",
+    "coverImage": "/images/gallery/breast-lift/case-01/breast-lift-case-01-01.webp",
+    "images": [
+      "/images/gallery/breast-lift/case-01/breast-lift-case-01-01.webp",
+      "/images/gallery/breast-lift/case-01/breast-lift-case-01-02.webp",
+      "/images/gallery/breast-lift/case-01/breast-lift-case-01-03.webp",
+      "/images/gallery/breast-lift/case-01/breast-lift-case-01-04.webp"
+    ]
+  },
+  {
+    "caseId": "butt-augmentation-case-1",
+    "title": "Butt Augmentation — Case 1",
+    "category": "Butt Augmentation",
+    "coverImage": "/images/gallery/butt-augmentation/case-01/butt-augmentation-case-01-01.webp",
+    "images": [
+      "/images/gallery/butt-augmentation/case-01/butt-augmentation-case-01-01.webp",
+      "/images/gallery/butt-augmentation/case-01/butt-augmentation-case-01-02.webp",
+      "/images/gallery/butt-augmentation/case-01/butt-augmentation-case-01-03.webp",
+      "/images/gallery/butt-augmentation/case-01/butt-augmentation-case-01-04.webp"
+    ]
+  },
+  {
+    "caseId": "hair-transplant-case-1",
+    "title": "Hair Transplant — Case 1",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-01.webp",
+    "images": [
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-01.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-02.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-03.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-04.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-05.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-06.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-07.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-08.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-09.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-10.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-11.webp",
+      "/images/gallery/hair-transplant/case-01/hair-transplant-case-01-12.webp"
+    ]
+  },
+  {
+    "caseId": "hair-transplant-case-2",
+    "title": "Hair Transplant — Case 2",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-01.webp",
+    "images": [
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-01.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-02.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-03.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-04.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-05.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-06.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-07.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-08.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-09.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-10.webp",
+      "/images/gallery/hair-transplant/case-02/hair-transplant-case-02-11.webp"
+    ]
+  },
+  {
+    "caseId": "hair-transplant-case-3",
+    "title": "Hair Transplant — Case 3",
+    "category": "Hair Transplant",
+    "coverImage": "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-01.webp",
+    "images": [
+      "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-01.webp",
+      "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-02.webp",
+      "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-03.webp",
+      "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-04.webp",
+      "/images/gallery/hair-transplant/case-03/hair-transplant-case-03-05.webp"
+    ]
+  },
+  {
+    "caseId": "blepharoplasty-case-1",
+    "title": "Blepharoplasty — Case 1",
+    "category": "Blepharoplasty",
+    "coverImage": "/images/gallery/blepharoplasty/case-01/blepharoplasty-case-01-01.webp",
+    "images": [
+      "/images/gallery/blepharoplasty/case-01/blepharoplasty-case-01-01.webp",
+      "/images/gallery/blepharoplasty/case-01/blepharoplasty-case-01-02.webp",
+      "/images/gallery/blepharoplasty/case-01/blepharoplasty-case-01-03.webp"
+    ]
+  },
+  {
+    "caseId": "lip-reduction-case-1",
+    "title": "Lip Reduction — Case 1",
+    "category": "Lip Reduction",
+    "coverImage": "/images/gallery/lip-reduction/case-01/lip-reduction-case-01-01.webp",
+    "images": [
+      "/images/gallery/lip-reduction/case-01/lip-reduction-case-01-01.webp",
+      "/images/gallery/lip-reduction/case-01/lip-reduction-case-01-02.webp"
+    ]
+  },
+  {
+    "caseId": "gynecomastia-correction-case-23",
+    "title": "Gynecomastia Correction — Case 23",
+    "category": "Gynecomastia",
+    "coverImage": "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-01.webp",
+    "images": [
+      "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-01.webp",
+      "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-02.webp",
+      "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-03.webp"
+    ]
   }
 ];

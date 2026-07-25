@@ -26,8 +26,8 @@ const SLIDES: SlideData[] = [
     headingPart2Highlight: "Transform.",
     headingPart3: "",
     description: "Advanced Vaser 4D High-Definition Liposuction to target resistant pockets of fat, sculpt natural muscular outlines, and achieve precision body contouring.",
-    beforeImage: "/lipo_before_1782474133850.png",
-    afterImage: "/lipo_after_1782474148532.png"
+    beforeImage: "/images/home/lipo_before_1782474133850.webp",
+    afterImage: "/images/home/lipo_after_1782474148532.webp"
   },
   {
     service: "Gynecomastia Surgery",
@@ -36,8 +36,8 @@ const SLIDES: SlideData[] = [
     headingPart2Highlight: "Confidence.",
     headingPart3: "",
     description: "Natural-looking masculine chest correction with advanced glandular excision and lipo contouring. Minimally invasive daycare surgery tailored for athletic contouring.",
-    beforeImage: "/gynecomastia_before_1782474167092.png",
-    afterImage: "/gynecomastia_after_1782474181819.png"
+    beforeImage: "/images/home/gynecomastia_before_1782474167092.webp",
+    afterImage: "/images/home/gynecomastia_after_1782474181819.webp"
   },
   {
     service: "Rhinoplasty",
@@ -46,8 +46,8 @@ const SLIDES: SlideData[] = [
     headingPart2Highlight: "Elevate.",
     headingPart3: "",
     description: "Subtle, elegant nasal reshaping and structural rhinoplasty tailored to your unique facial balance. Reconstructive excellence to elevate symmetry.",
-    beforeImage: "/rhinoplasty_before.png",
-    afterImage: "/rhinoplasty_after.png"
+    beforeImage: "/images/home/rhinoplasty_before.webp",
+    afterImage: "/images/home/rhinoplasty_after.webp"
   },
   {
     service: "Hair Transplant",
@@ -56,8 +56,8 @@ const SLIDES: SlideData[] = [
     headingPart2Highlight: "Renew.",
     headingPart3: "",
     description: "High-density permanent hair restoration using micro-FUE graft techniques. Safe, clinical follicular insertion designed to rebuild natural hairlines.",
-    beforeImage: "/hair_before.png",
-    afterImage: "/hair_after.png"
+    beforeImage: "/images/home/hair_before.webp",
+    afterImage: "/images/home/hair_after.webp"
   }
 ];
 

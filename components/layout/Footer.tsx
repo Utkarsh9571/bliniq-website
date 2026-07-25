@@ -80,7 +80,7 @@ ashwani.kumar@bliniq.in
               </p>
               <div className="flex items-center gap-2 mt-4">
                 <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                  <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+                  <Image src="/images/scrollers/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
                 </Link>
               </div>
               <br />
@@ -101,7 +101,7 @@ ashwani.kumar@bliniq.in
           <div className="flex items-center gap-3">
             <div className="relative w-24 h-6 opacity-75 hover:opacity-100 transition-opacity">
               <Image
-                src="/logo.png"
+                src="/images/seo/logo.png"
                 alt="BLINIQ Logo"
                 fill
                 className="object-contain"
@@ -116,7 +116,7 @@ ashwani.kumar@bliniq.in
             <Link href="/accessibility" className="hover:text-brand-accent transition-colors">Accessibility</Link>
             <Link href="/sitemap" className="hover:text-brand-accent transition-colors">Sitemap</Link>
             <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
+              <Image src="/images/scrollers/instagram.svg" alt="Instagram" width={24} height={24} className="object-contain" />
             </Link>
           </div>
         </div>

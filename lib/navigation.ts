@@ -202,37 +202,37 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
             title: "Liposuction", 
             slug: "liposuction-surgery-in-delhi",
             description: "Advanced VASER 4D ultrasonic fat emulsification & abdominal carving.",
-            image: "/lipo_after_1782474148532.png"
+            image: "/images/home/lipo_after_1782474148532.webp"
           },
           { 
             title: "Tummy Tuck", 
             slug: "tummy-tuck",
             description: "Abdominoplasty to remove excess skin & restore abdominal muscles.",
-            image: "/lipo_before_1782474133850.png"
+            image: "/images/home/lipo_before_1782474133850.webp"
           },
           { 
             title: "Arms Lipo", 
             slug: "upper-arms",
             description: "Upper arms liposuction & saggy skin reduction.",
-            image: "/hair_before.png"
+            image: "/images/home/hair_before.webp"
           },
           { 
             title: "Thighs Shaping", 
             slug: "thighs",
             description: "Thighs & knees fat reduction for contoured, balanced leg lines.",
-            image: "/hair_after.png"
+            image: "/images/home/hair_after.webp"
           },
           { 
             title: "Back Fat", 
             slug: "liposuction-surgery-in-delhi",
             description: "Targeted contouring of posterior fat pockets and bra line rolls.",
-            image: "/lipo_after_1782474148532.png"
+            image: "/images/home/lipo_after_1782474148532.webp"
           },
           { 
             title: "Love Handles", 
             slug: "flank-love-handles",
             description: "Flank liposuction to eliminate stubborn love handles and define waist.",
-            image: "/lipo_after_1782474148532.png"
+            image: "/images/home/lipo_after_1782474148532.webp"
           }
         ]
       }
@@ -249,31 +249,31 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
             title: "Rhinoplasty", 
             slug: "nose-cosmetic-rhinoplasty",
             description: "Nasal profile refinement and tip structural reshaping.",
-            image: "/rhinoplasty_after.png"
+            image: "/images/home/rhinoplasty_after.webp"
           },
           { 
             title: "Chin Surgery", 
             slug: "chin-implant",
             description: "Implants or genioplasty to balance the profile and jawline.",
-            image: "/rhinoplasty_before.png"
+            image: "/images/home/rhinoplasty_before.webp"
           },
           { 
             title: "Breast Reduction", 
             slug: "breast-reduction",
             description: "Gland and fat removal to resize breast proportions.",
-            image: "/gynecomastia_before_1782474167092.png"
+            image: "/images/home/gynecomastia_before_1782474167092.webp"
           },
           { 
             title: "Breast Augmentation", 
             slug: "breast-implant-3",
             description: "Premium silicone implants or fat transfer to restore volume.",
-            image: "/gynecomastia_after_1782474181819.png"
+            image: "/images/home/gynecomastia_after_1782474181819.webp"
           },
           { 
             title: "Facelift", 
             slug: "face-lift",
             description: "Surgical lifting of sagging tissues to restore youthful contours.",
-            image: "/rhinoplasty_after.png"
+            image: "/images/home/rhinoplasty_after.webp"
           }
         ]
       }
@@ -290,31 +290,31 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
             title: "Hair Transplant", 
             slug: "head",
             description: "High-density follicular graft restoration using micro-FUE.",
-            image: "/hair_after.png"
+            image: "/images/home/hair_after.webp"
           },
           { 
             title: "PRP Hair Therapy", 
             slug: "prp-therapy",
             description: "Platelet-rich plasma therapy to stimulate natural hair growth.",
-            image: "/hair_before.png"
+            image: "/images/home/hair_before.webp"
           },
           { 
             title: "Laser Hair Removal", 
             slug: "laser-hair-removal",
             description: "Clinical permanent laser reduction for smooth skin.",
-            image: "/hair_after.png"
+            image: "/images/home/hair_after.webp"
           },
           { 
             title: "Botox", 
             slug: "botox-and-fillers",
             description: "Injectable muscle relaxer to smooth fine lines.",
-            image: "/rhinoplasty_after.png"
+            image: "/images/home/rhinoplasty_after.webp"
           },
           { 
             title: "Fillers", 
             slug: "botox-and-fillers",
             description: "Dermal fillers to restore volume to cheeks & lips.",
-            image: "/rhinoplasty_after.png"
+            image: "/images/home/rhinoplasty_after.webp"
           }
         ]
       }

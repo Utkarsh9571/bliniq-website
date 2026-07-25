@@ -10,7 +10,7 @@ export default function StorySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6 relative aspect-4/3 w-full border border-brand-border bg-brand-card">
             <Image
-              src="/uploads/2023/12/Liposuction-Tummy360.jpeg"
+              src="/images/home/Liposuction-Tummy360.jpeg"
               alt="Liposuction Tummy360"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -38,7 +38,7 @@ export default function StorySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6 lg:order-2 relative aspect-4/3 w-full border border-brand-border bg-brand-card">
             <Image
-              src="/uploads/2020/08/Doctor_01.jpg"
+              src="/images/home/Doctor_01.jpg"
               alt="Medical Consultation"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

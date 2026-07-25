@@ -8,6 +8,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { VIDEO_STORIES, VideoStory } from "@/content/videos";
+import AutoplayVideoCard from "@/components/ui/AutoplayVideoCard";
 
 const CATEGORIES = ["All", "Gynecomastia", "Liposuction", "Tummy Tuck", "Body Sculpting", "Facial Aesthetics", "Clinical Testimonial"];
 
@@ -65,50 +66,10 @@ export default function GalleryPage() {
                 variant="fade-up"
                 delay={Math.min(idx * 80, 400)}
               >
-                <div 
+                <AutoplayVideoCard
+                  vid={vid}
                   onClick={() => setActiveVideoId(vid.id)}
-                  className="flex flex-col p-4 bg-brand-bg-sec border border-brand-border/40 hover:border-brand-accent/50 hover:bg-[#0F1524]/65 transition-all duration-300 group cursor-pointer shadow-xl select-none h-full"
-                >
-                  {/* Thumbnail Display with Play Overlay */}
-                  <div className="relative aspect-video w-full bg-[#0B0F19] border border-brand-border/30 overflow-hidden mb-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={vid.thumbnail} 
-                      alt={vid.title} 
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-                    />
-
-                    {/* Duration Badge */}
-                    <span className="absolute bottom-2 right-2 bg-[#0B0F19]/80 border border-brand-border/40 text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded text-brand-text-sec">
-                      {vid.duration}
-                    </span>
-
-                    {/* Play Button Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                      <div className="w-10 h-10 rounded-full bg-brand-accent/90 group-hover:bg-brand-accent group-hover:scale-110 flex items-center justify-center text-[#0B0F19] pl-0.5 shadow-lg transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                          <path d="M8 5.14v14l11-7-11-7Z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Text Metadata */}
-                  <div className="text-left space-y-2 grow flex flex-col justify-between">
-                    <div>
-                      <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold">
-                        {vid.category}
-                      </span>
-                      <h4 className="font-serif text-base text-brand-text font-medium group-hover:text-brand-accent transition-colors mt-1 line-clamp-2">
-                        {vid.title}
-                      </h4>
-                    </div>
-                    <p className="text-[11px] text-brand-text-sec leading-relaxed font-sans line-clamp-2 mt-2">
-                      {vid.desc}
-                    </p>
-                  </div>
-                </div>
+                />
               </ScrollReveal>
             ))}
           </div>

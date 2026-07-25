@@ -23,7 +23,7 @@ const SLIDES: SlideItem[] = [
       "Ultrasonic fat emulsification sparing blood vessels",
       "Stimulates natural skin tightening post-op"
     ],
-    image: "/lipo_after_1782474148532.png",
+    image: "/images/home/lipo_after_1782474148532.webp",
     link: "/liposuction-surgery-in-delhi"
   },
   {
@@ -34,7 +34,7 @@ const SLIDES: SlideItem[] = [
       "Virtually invisible incisions along the areola border",
       "Restores a flat, firm, and masculine chest contour"
     ],
-    image: "/gynecomastia_after_1782474181819.png",
+    image: "/images/home/gynecomastia_after_1782474181819.webp",
     link: "/gynecomastia-surgery-in-delhi"
   },
   {
@@ -45,7 +45,7 @@ const SLIDES: SlideItem[] = [
       "Refines structural bridge contours and tip angles",
       "Minimally invasive closed and open approaches"
     ],
-    image: "/rhinoplasty_after.png",
+    image: "/images/home/rhinoplasty_after.webp",
     link: "/nose-cosmetic-rhinoplasty"
   },
   {
@@ -56,7 +56,7 @@ const SLIDES: SlideItem[] = [
       "Natural growth angle mapping for realistic results",
       "Rapid donor healing and high graft viability"
     ],
-    image: "/hair_after.png",
+    image: "/images/home/hair_after.webp",
     link: "/what-is-hair-transplant"
   }
 ];

@@ -8,25 +8,25 @@ export default function CategoryGrid() {
     {
       title: "Face",
       desc: "Cosmetic facial procedures, rhinoplasty & lifts",
-      img: "/uploads/2020/08/Doctor_01.jpg",
+      img: "/images/home/Doctor_01.jpg",
       href: "/services#face",
     },
     {
       title: "Body",
       desc: "Liposuction, tummy tucks & body contouring",
-      img: "/uploads/2023/12/Liposuction-Tummy360.jpeg",
+      img: "/images/home/Liposuction-Tummy360.jpeg",
       href: "/services#body",
     },
     {
       title: "Hair",
       desc: "PRP therapy, transplants & restoration",
-      img: "/uploads/2024/02/Grade-2-for-gynecomastia-treatment.jpg",
+      img: "/images/home/Grade-2-for-gynecomastia-treatment.jpg",
       href: "/services#hair",
     },
     {
       title: "Non-Surgical",
       desc: "Injectables, Botox & chemical skin peels",
-      img: "/uploads/2020/08/Doctor_01.jpg",
+      img: "/images/home/Doctor_01.jpg",
       href: "/services#non-surgical",
     },
   ];
