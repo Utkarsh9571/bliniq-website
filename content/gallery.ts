@@ -492,5 +492,231 @@ export const GALLERY_CASES: GalleryCase[] = [
       "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-02.webp",
       "/images/gallery/gynecomastia/case-01/gynecomastia-case-01-03.webp"
     ]
+  },
+  {
+    "caseId": "buccal-fat-removal-case-01",
+    "title": "Buccal Fat Pad Removal — Case 1",
+    "category": "Buccal Fat Pad Removal",
+    "coverImage": "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-01.webp",
+    "images": [
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-01.webp",
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-02.webp",
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-03.webp",
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-04.webp",
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-05.webp",
+      "/images/gallery/buccal-fat-removal/case-01/buccal-fat-removal-case-01-06.webp"
+    ]
+  },
+  {
+    "caseId": "gynecomastia-case-02",
+    "title": "Gynecomastia — Case 2",
+    "category": "Gynecomastia",
+    "coverImage": "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-01.webp",
+    "images": [
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-01.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-02.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-03.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-04.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-05.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-06.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-07.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-08.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-09.webp",
+      "/images/gallery/gynecomastia/case-02/gynecomastia-case-02-10.webp"
+    ]
+  },
+  {
+    "caseId": "gynecomastia-case-03",
+    "title": "Gynecomastia — Case 3",
+    "category": "Gynecomastia",
+    "coverImage": "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-01.webp",
+    "images": [
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-01.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-02.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-03.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-04.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-05.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-06.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-07.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-08.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-09.webp",
+      "/images/gallery/gynecomastia/case-03/gynecomastia-case-03-10.webp"
+    ]
+  },
+  {
+    "caseId": "rhinoplasty-case-01",
+    "title": "Rhinoplasty — Case 1",
+    "category": "Rhinoplasty",
+    "coverImage": "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-01.webp",
+    "images": [
+      "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-01.webp",
+      "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-02.webp",
+      "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-03.webp",
+      "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-04.webp",
+      "/images/gallery/rhinoplasty/case-01/rhinoplasty-case-01-05.webp"
+    ]
+  },
+  {
+    "caseId": "rhinoplasty-case-02",
+    "title": "Rhinoplasty — Case 2",
+    "category": "Rhinoplasty",
+    "coverImage": "/images/gallery/rhinoplasty/case-02/rhinoplasty-case-02-01.webp",
+    "images": [
+      "/images/gallery/rhinoplasty/case-02/rhinoplasty-case-02-01.webp",
+      "/images/gallery/rhinoplasty/case-02/rhinoplasty-case-02-02.webp",
+      "/images/gallery/rhinoplasty/case-02/rhinoplasty-case-02-03.webp"
+    ]
+  },
+  {
+    "caseId": "breast-implants-case-01",
+    "title": "Breast Implants — Case 1",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/breast-implants/case-01/breast-implants-case-01-01.webp",
+    "images": [
+      "/images/gallery/breast-implants/case-01/breast-implants-case-01-01.webp",
+      "/images/gallery/breast-implants/case-01/breast-implants-case-01-02.webp",
+      "/images/gallery/breast-implants/case-01/breast-implants-case-01-03.webp",
+      "/images/gallery/breast-implants/case-01/breast-implants-case-01-04.webp",
+      "/images/gallery/breast-implants/case-01/breast-implants-case-01-05.webp"
+    ]
+  },
+  {
+    "caseId": "breast-implants-case-02",
+    "title": "Breast Implants — Case 2",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/breast-implants/case-02/breast-implants-case-02-01.webp",
+    "images": [
+      "/images/gallery/breast-implants/case-02/breast-implants-case-02-01.webp",
+      "/images/gallery/breast-implants/case-02/breast-implants-case-02-02.webp",
+      "/images/gallery/breast-implants/case-02/breast-implants-case-02-03.webp",
+      "/images/gallery/breast-implants/case-02/breast-implants-case-02-04.webp",
+      "/images/gallery/breast-implants/case-02/breast-implants-case-02-05.webp"
+    ]
+  },
+  {
+    "caseId": "breast-implants-case-03",
+    "title": "Breast Implants — Case 3",
+    "category": "Breast Implants",
+    "coverImage": "/images/gallery/breast-implants/case-03/breast-implants-case-03-01.webp",
+    "images": [
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-01.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-02.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-03.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-04.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-05.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-06.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-07.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-08.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-09.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-10.webp",
+      "/images/gallery/breast-implants/case-03/breast-implants-case-03-11.webp"
+    ]
+  },
+  {
+    "caseId": "breast-reduction-case-01",
+    "title": "Breast Reduction — Case 1",
+    "category": "Breast Reduction",
+    "coverImage": "/images/gallery/breast-reduction/case-01/breast-reduction-case-01-01.webp",
+    "images": [
+      "/images/gallery/breast-reduction/case-01/breast-reduction-case-01-01.webp",
+      "/images/gallery/breast-reduction/case-01/breast-reduction-case-01-02.webp"
+    ]
+  },
+  {
+    "caseId": "butt-augmentation-case-02",
+    "title": "Butt Augmentation — Case 2",
+    "category": "Butt Augmentation",
+    "coverImage": "/images/gallery/butt-augmentation/case-02/butt-augmentation-case-02-01.webp",
+    "images": [
+      "/images/gallery/butt-augmentation/case-02/butt-augmentation-case-02-01.webp",
+      "/images/gallery/butt-augmentation/case-02/butt-augmentation-case-02-02.webp",
+      "/images/gallery/butt-augmentation/case-02/butt-augmentation-case-02-03.webp"
+    ]
+  },
+  {
+    "caseId": "facial-fat-injection-case-01",
+    "title": "Facial Fat Injection — Case 1",
+    "category": "Facial Fat Injection",
+    "coverImage": "/images/gallery/facial-fat-injection/case-01/facial-fat-injection-case-01-01.webp",
+    "images": [
+      "/images/gallery/facial-fat-injection/case-01/facial-fat-injection-case-01-01.webp",
+      "/images/gallery/facial-fat-injection/case-01/facial-fat-injection-case-01-02.webp",
+      "/images/gallery/facial-fat-injection/case-01/facial-fat-injection-case-01-03.webp"
+    ]
+  },
+  {
+    "caseId": "liposuction-case-01",
+    "title": "Liposuction — Case 1",
+    "category": "Liposuction",
+    "coverImage": "/images/gallery/liposuction/case-01/liposuction-case-01-01.webp",
+    "images": [
+      "/images/gallery/liposuction/case-01/liposuction-case-01-01.webp",
+      "/images/gallery/liposuction/case-01/liposuction-case-01-02.webp",
+      "/images/gallery/liposuction/case-01/liposuction-case-01-03.webp"
+    ]
+  },
+  {
+    "caseId": "neck-lift-case-01",
+    "title": "Neck Lift — Case 1",
+    "category": "Neck Lift",
+    "coverImage": "/images/gallery/neck-lift/case-01/neck-lift-case-01-01.webp",
+    "images": [
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-01.webp",
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-02.webp",
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-03.webp",
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-04.webp",
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-05.webp",
+      "/images/gallery/neck-lift/case-01/neck-lift-case-01-06.webp"
+    ]
+  },
+  {
+    "caseId": "neck-lift-case-02",
+    "title": "Neck Lift — Case 2",
+    "category": "Neck Lift",
+    "coverImage": "/images/gallery/neck-lift/case-02/neck-lift-case-02-01.webp",
+    "images": [
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-01.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-02.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-03.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-04.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-05.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-06.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-07.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-08.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-09.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-10.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-11.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-12.webp",
+      "/images/gallery/neck-lift/case-02/neck-lift-case-02-13.webp"
+    ]
+  },
+  {
+    "caseId": "sex-change-mtf-case-01",
+    "title": "Sex Change (Male to Female) — Case 1",
+    "category": "Sex Change (Male to Female)",
+    "coverImage": "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-01.webp",
+    "images": [
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-01.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-02.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-03.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-04.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-05.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-06.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-07.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-08.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-09.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-10.webp",
+      "/images/gallery/sex-change-mtf/case-01/sex-change-mtf-case-01-11.webp"
+    ]
+  },
+  {
+    "caseId": "scar-revision-case-01",
+    "title": "Scar Revision — Case 1",
+    "category": "Scar Revision",
+    "coverImage": "/images/gallery/scar-revision/case-01/scar-revision-case-01-01.webp",
+    "images": [
+      "/images/gallery/scar-revision/case-01/scar-revision-case-01-01.webp",
+      "/images/gallery/scar-revision/case-01/scar-revision-case-01-02.webp"
+    ]
   }
 ];

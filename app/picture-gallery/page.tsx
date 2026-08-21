@@ -46,6 +46,7 @@ export default function PictureGalleryPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
+                  suppressHydrationWarning={true}
                   className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all duration-300 border min-h-11 cursor-pointer ${
                     selectedCategory === cat
                       ? "bg-brand-accent border-brand-accent text-[#0B0F19] font-bold"
@@ -88,11 +89,14 @@ export default function PictureGalleryPage() {
                         )}
                       </div>
                       <div className="px-1 text-left">
-                        <span className="text-[10px] tracking-widest text-brand-accent uppercase block font-semibold mb-1">
+                        <span 
+                          suppressHydrationWarning={true}
+                          className="text-[10px] tracking-widest text-brand-accent uppercase block font-semibold mb-1"
+                        >
                           {c.category}
                         </span>
                         <h4 className="font-serif text-base text-brand-text font-medium flex items-center justify-between">
-                          <span>{c.title}</span>
+                          <span suppressHydrationWarning={true}>{c.title}</span>
                           {c.images.length > 1 && (
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

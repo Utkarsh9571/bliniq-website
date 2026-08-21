@@ -90,9 +90,9 @@ export default function TestimonialsPreview() {
         <div 
           className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
           onMouseEnter={() => setRow1Paused(true)}
-          onMouseLeave={() => { if (!activeTestimonial || activeRow !== 1) setRow1Paused(false); }}
+          onMouseLeave={() => { if (!activeTestimonial) setRow1Paused(false); }}
           onTouchStart={() => setRow1Paused(true)}
-          onTouchEnd={() => { if (!activeTestimonial || activeRow !== 1) setRow1Paused(false); }}
+          onTouchEnd={() => { if (!activeTestimonial) setRow1Paused(false); }}
         >
           <div className={`marquee-container animate-marquee-left ${row1Paused ? "paused" : ""}`}>
             {TESTIMONIALS_ROW1.map((item) => (
@@ -110,11 +110,11 @@ export default function TestimonialsPreview() {
 
         {/* Row 2: Rightward Scrolling */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x hidden md:flex"
           onMouseEnter={() => setRow2Paused(true)}
-          onMouseLeave={() => { if (!activeTestimonial || activeRow !== 2) setRow2Paused(false); }}
+          onMouseLeave={() => { if (!activeTestimonial) setRow2Paused(false); }}
           onTouchStart={() => setRow2Paused(true)}
-          onTouchEnd={() => { if (!activeTestimonial || activeRow !== 2) setRow2Paused(false); }}
+          onTouchEnd={() => { if (!activeTestimonial) setRow2Paused(false); }}
         >
           <div className={`marquee-container animate-marquee-right ${row2Paused ? "paused" : ""}`}>
             {TESTIMONIALS_ROW2.map((item) => (

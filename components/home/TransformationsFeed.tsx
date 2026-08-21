@@ -39,6 +39,12 @@ const ROW1_POSTS: SocialPost[] = [
     "feedType": "case",
     "caseId": "butt-augmentation-case-1",
     "caption": "Clinical contouring study displaying enhanced shape and projection."
+  },
+  {
+    "id": 108,
+    "feedType": "case",
+    "caseId": "rhinoplasty-case-01",
+    "caption": "Rhinoplasty structural reconstruction, refining bridge projection & tip support."
   }
 ];
 
@@ -66,6 +72,18 @@ const ROW2_POSTS: SocialPost[] = [
     "feedType": "case",
     "caseId": "gynecomastia-correction-case-23",
     "caption": "Daycare surgical correction of grade 2 gynecomastia. Symmetrical chest contour."
+  },
+  {
+    "id": 209,
+    "feedType": "case",
+    "caseId": "buccal-fat-removal-case-01",
+    "caption": "Buccal fat pad excision resulting in structural cheek hollow definition."
+  },
+  {
+    "id": 210,
+    "feedType": "case",
+    "caseId": "neck-lift-case-01",
+    "caption": "Submentoplasty and neck lift correction. Defined jawline profile."
   }
 ];
 
@@ -198,9 +216,9 @@ export default function TransformationsFeed() {
         <div 
           className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
           onMouseEnter={() => setRow1Paused(true)}
-          onMouseLeave={() => { if (!activeInstaPost && !activeCase && activeRow === 1) setRow1Paused(false); }}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase) setRow1Paused(false); }}
           onTouchStart={() => setRow1Paused(true)}
-          onTouchEnd={() => { if (!activeInstaPost && !activeCase && activeRow === 1) setRow1Paused(false); }}
+          onTouchEnd={() => { if (!activeInstaPost && !activeCase) setRow1Paused(false); }}
         >
           {row1Items.length > 0 && (
             <div className={`transform-marquee-container animate-transform-left ${row1Paused ? "paused-state" : ""}`}>
@@ -216,11 +234,11 @@ export default function TransformationsFeed() {
 
         {/* Row 2: Right direction */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x hidden md:flex"
           onMouseEnter={() => setRow2Paused(true)}
-          onMouseLeave={() => { if (!activeInstaPost && !activeCase && activeRow === 2) setRow2Paused(false); }}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase) setRow2Paused(false); }}
           onTouchStart={() => setRow2Paused(true)}
-          onTouchEnd={() => { if (!activeInstaPost && !activeCase && activeRow === 2) setRow2Paused(false); }}
+          onTouchEnd={() => { if (!activeInstaPost && !activeCase) setRow2Paused(false); }}
         >
           {row2Items.length > 0 && (
             <div className={`transform-marquee-container animate-transform-right ${row2Paused ? "paused-state" : ""}`}>
