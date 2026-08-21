@@ -31,6 +31,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   // Auto-toggle call popdown every 5 seconds when header is not hovered
   useEffect(() => {
     if (isHeaderHovered) return;
@@ -62,9 +74,10 @@ export default function Header() {
   };
 
   return (
-    <header 
-      className={`fixed top-0 z-50 w-full transition-all duration-350 ${
-        scrolled 
+    <>
+      <header 
+        className={`fixed top-0 z-50 w-full transition-all duration-350 ${
+          scrolled 
           ? "bg-[#0B0F19]/95 backdrop-blur-md border-b border-brand-border/60 py-3 shadow-2xl" 
           : "bg-transparent py-5"
       }`}
@@ -153,10 +166,11 @@ export default function Header() {
           </div>
         </div>
       </Container>
+    </header>
 
-      {/* Mobile Drawer Overlay */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 top-20 bg-[#0B0F19]/98 backdrop-blur-xl border-t border-brand-border/40 z-45 flex flex-col justify-between overflow-y-auto animate-fade-in pb-10">
+    {/* Mobile Drawer Overlay */}
+    {mobileMenuOpen && (
+      <div className={`xl:hidden fixed inset-0 ${scrolled ? "top-16" : "top-20"} bg-[#0B0F19]/98 backdrop-blur-xl border-t border-brand-border/40 z-45 flex flex-col justify-between overflow-y-auto animate-fade-in pb-10`}>
           <div className="p-8 space-y-6">
             {/* Search Box */}
             <div className="relative w-full">
@@ -230,6 +244,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

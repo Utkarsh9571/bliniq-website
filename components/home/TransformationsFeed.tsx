@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
@@ -21,75 +21,80 @@ interface SocialPost {
   procedure?: string;
 }
 
-const ROW1_POSTS: SocialPost[] = [
-  {
-    "id": 104,
-    "feedType": "case",
-    "caseId": "breast-lift-case-1",
-    "caption": "Post-pregnancy surgical lift and restoring natural contour volume."
-  },
-  {
-    "id": 105,
-    "feedType": "case",
-    "caseId": "blepharoplasty-case-1",
-    "caption": "Upper and lower eyelid rejuvenation, eliminating heavy skin folds."
-  },
-  {
-    "id": 107,
-    "feedType": "case",
-    "caseId": "butt-augmentation-case-1",
-    "caption": "Clinical contouring study displaying enhanced shape and projection."
-  },
-  {
-    "id": 108,
-    "feedType": "case",
-    "caseId": "rhinoplasty-case-01",
-    "caption": "Rhinoplasty structural reconstruction, refining bridge projection & tip support."
-  }
-];
+const CUSTOM_CAPTIONS: Record<string, string> = {
+  "breast-lift-case-1": "Post-pregnancy surgical lift and restoring natural contour volume.",
+  "blepharoplasty-case-1": "Upper and lower eyelid rejuvenation, eliminating heavy skin folds.",
+  "butt-augmentation-case-1": "Clinical contouring study displaying enhanced shape and projection.",
+  "rhinoplasty-case-01": "Rhinoplasty structural reconstruction, refining bridge projection & tip support.",
+  "lip-reduction-case-1": "Volume reduction and structural refinement of lower lip. Balanced profile.",
+  "axillary-breast-excision-case-1": "Excision of accessory underarm breast tissue. Safe daycare correction.",
+  "breast-implants-mtf-case-1": "Feminization breast implants augmentation. Proportional result.",
+  "gynecomastia-correction-case-23": "Daycare surgical correction of grade 2 gynecomastia. Symmetrical chest contour.",
+  "buccal-fat-removal-case-01": "Buccal fat pad excision resulting in structural cheek hollow definition.",
+  "neck-lift-case-01": "Submentoplasty and neck lift correction. Defined jawline profile."
+};
 
-const ROW2_POSTS: SocialPost[] = [
-  {
-    "id": 203,
-    "feedType": "case",
-    "caseId": "lip-reduction-case-1",
-    "caption": "Volume reduction and structural refinement of lower lip. Balanced profile."
-  },
-  {
-    "id": 205,
-    "feedType": "case",
-    "caseId": "axillary-breast-excision-case-1",
-    "caption": "Excision of accessory underarm breast tissue. Safe daycare correction."
-  },
-  {
-    "id": 206,
-    "feedType": "case",
-    "caseId": "breast-implants-mtf-case-1",
-    "caption": "Feminization breast implants augmentation. Proportional result."
-  },
-  {
-    "id": 208,
-    "feedType": "case",
-    "caseId": "gynecomastia-correction-case-23",
-    "caption": "Daycare surgical correction of grade 2 gynecomastia. Symmetrical chest contour."
-  },
-  {
-    "id": 209,
-    "feedType": "case",
-    "caseId": "buccal-fat-removal-case-01",
-    "caption": "Buccal fat pad excision resulting in structural cheek hollow definition."
-  },
-  {
-    "id": 210,
-    "feedType": "case",
-    "caseId": "neck-lift-case-01",
-    "caption": "Submentoplasty and neck lift correction. Defined jawline profile."
+const getCategoryCaption = (category: string, title: string, caseId: string) => {
+  if (CUSTOM_CAPTIONS[caseId]) return CUSTOM_CAPTIONS[caseId];
+  
+  const cat = category.toLowerCase();
+  if (cat.includes("gynecomastia")) {
+    return "Surgical correction of gynecomastia. Achieving a flatter, natural chest contour.";
   }
-];
+  if (cat.includes("tummy tuck") || cat.includes("abdominoplasty")) {
+    return "Abdominoplasty restoration. Tightening abdominal muscles and removing excess skin.";
+  }
+  if (cat.includes("liposuction") || cat.includes("body contouring")) {
+    return `${title}. Refining body contours with advanced fat removal.`;
+  }
+  if (cat.includes("hair transplant")) {
+    return "Natural hairline restoration using advanced follicular extraction.";
+  }
+  if (cat.includes("breast implants") || cat.includes("breast lift") || cat.includes("breast reduction")) {
+    return `${title}. Balanced, proportional enhancement and structural refinement.`;
+  }
+  if (cat.includes("butt") || cat.includes("bbl")) {
+    return "Gluteal enhancement displaying improved projection and volume.";
+  }
+  if (cat.includes("rhinoplasty")) {
+    return "Structural nose reshaping to balance facial harmony and profile aesthetics.";
+  }
+  if (cat.includes("buccal")) {
+    return "Buccal fat excision resulting in defined cheek structure.";
+  }
+  if (cat.includes("neck lift")) {
+    return "Submentoplasty and neck rejuvenation. Defined jawline profile.";
+  }
+  return `${title}. Premium cosmetic correction with natural results.`;
+};
+
+// Generate all cases dynamically
+const ALL_CASES_POSTS: SocialPost[] = GALLERY_CASES.map((c, index) => ({
+  id: index + 1,
+  feedType: "case",
+  caseId: c.caseId,
+  caption: getCategoryCaption(c.category, c.title, c.caseId)
+}));
+
+// Split into rows for desktop view
+const ROW1_POSTS: SocialPost[] = ALL_CASES_POSTS.filter((_, idx) => idx % 2 === 0);
+const ROW2_POSTS: SocialPost[] = ALL_CASES_POSTS.filter((_, idx) => idx % 2 !== 0);
 
 export default function TransformationsFeed() {
   const [row1Paused, setRow1Paused] = useState(false);
   const [row2Paused, setRow2Paused] = useState(false);
+
+  // Responsive state
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Modal State
   const [activeCase, setActiveCase] = useState<GalleryCase | null>(null);
@@ -159,7 +164,7 @@ export default function TransformationsFeed() {
     return padded;
   };
 
-  const row1Items = getPaddedItems(ROW1_POSTS);
+  const row1Items = getPaddedItems(isMobile ? ALL_CASES_POSTS : ROW1_POSTS);
   const row2Items = getPaddedItems(ROW2_POSTS);
 
   return (
