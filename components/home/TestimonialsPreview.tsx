@@ -88,7 +88,7 @@ export default function TestimonialsPreview() {
         
         {/* Row 1: Leftward Scrolling */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-pan-y flex"
           onMouseEnter={() => setRow1Paused(true)}
           onMouseLeave={() => { if (!activeTestimonial) setRow1Paused(false); }}
           onTouchStart={() => setRow1Paused(true)}
@@ -110,7 +110,7 @@ export default function TestimonialsPreview() {
 
         {/* Row 2: Rightward Scrolling */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x hidden md:flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-pan-y hidden md:flex"
           onMouseEnter={() => setRow2Paused(true)}
           onMouseLeave={() => { if (!activeTestimonial) setRow2Paused(false); }}
           onTouchStart={() => setRow2Paused(true)}
@@ -187,7 +187,7 @@ export default function TestimonialsPreview() {
 
 function TestimonialCard({ item }: { item: Testimonial }) {
   return (
-    <div className="w-72 sm:w-80 lg:w-95 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 p-6 md:p-8 flex flex-col justify-between gap-6 hover:border-brand-accent/50 hover:bg-[#12192A]/85 hover:-translate-y-1 transition-all duration-300 select-none cursor-pointer">
+    <div className="w-72 sm:w-80 lg:w-95 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 p-6 md:p-8 flex flex-col justify-between gap-6 hover:border-brand-accent/50 hover:bg-[#12192A]/85 hover:-translate-y-1 transition-all duration-300 select-none cursor-default md:cursor-pointer pointer-events-none md:pointer-events-auto">
       <div className="space-y-4">
         {/* Stars */}
         <div className="flex items-center gap-1">

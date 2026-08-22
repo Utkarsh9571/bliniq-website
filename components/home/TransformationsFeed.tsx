@@ -197,7 +197,7 @@ export default function TransformationsFeed() {
         
         {/* Mobile Scroller Row: Includes ALL Gallery Image Sets continuously looping */}
         <div 
-          className="w-full overflow-x-auto touch-pan-x flex md:hidden"
+          className="w-full overflow-x-auto touch-pan-y flex md:hidden"
           onMouseEnter={() => setMobilePaused(true)}
           onMouseLeave={() => { if (!activeInstaPost && !activeCase) setMobilePaused(false); }}
           onTouchStart={() => setMobilePaused(true)}
@@ -349,8 +349,11 @@ function MarqueeCard({
 
     return (
       <div 
-        onClick={() => onOpenCase(resolvedCase, rowNum)}
-        className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-pointer select-none group"
+        onClick={() => {
+          if (window.innerWidth < 768) return;
+          onOpenCase(resolvedCase, rowNum);
+        }}
+        className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-default md:cursor-pointer select-none group"
       >
         {/* Cover Thumbnail — Complete uncropped image */}
         <div className="relative aspect-square w-full bg-[#0B0F19] overflow-hidden border-b border-brand-border/30 flex items-center justify-center">
@@ -369,13 +372,24 @@ function MarqueeCard({
         </div>
 
         {/* Info */}
-        <div className="p-5 text-left space-y-2">
+        <div className="p-5 text-left space-y-3">
           <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold block">
             {resolvedCase.category} &bull; Case File
           </span>
           <p className="text-brand-text-sec text-[11px] leading-relaxed font-sans line-clamp-2">
             {post.caption}
           </p>
+          <div className="md:hidden pt-1">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenCase(resolvedCase, rowNum);
+              }}
+              className="w-full py-2 bg-brand-accent/10 hover:bg-brand-accent/20 border border-brand-accent/30 text-brand-accent hover:text-brand-accent font-mono text-[9px] uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              View Photos
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -384,8 +398,11 @@ function MarqueeCard({
   // Instagram Card
   return (
     <div 
-      onClick={() => onOpenInsta(post, rowNum)}
-      className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-pointer select-none group"
+      onClick={() => {
+        if (window.innerWidth < 768) return;
+        onOpenInsta(post, rowNum);
+      }}
+      className="w-56 sm:w-64 shrink-0 bg-[#0F1524]/65 border border-brand-border/40 overflow-hidden hover:border-brand-accent/50 transition-all duration-350 cursor-default md:cursor-pointer select-none group"
     >
       {/* Thumbnail */}
       <div className="relative aspect-square w-full bg-[#0B0F19] overflow-hidden border-b border-brand-border/30">
@@ -409,13 +426,24 @@ function MarqueeCard({
       </div>
 
       {/* Info */}
-      <div className="p-5 text-left space-y-2">
+      <div className="p-5 text-left space-y-3">
         <span className="text-brand-accent text-[9px] uppercase tracking-[0.2em] font-mono font-semibold block">
           {post.procedure}
         </span>
         <p className="text-brand-text-sec text-[11px] leading-relaxed font-sans line-clamp-2">
           {post.caption}
         </p>
+        <div className="md:hidden pt-1">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenInsta(post, rowNum);
+            }}
+            className="w-full py-2 bg-brand-accent/10 hover:bg-brand-accent/20 border border-brand-accent/30 text-brand-accent hover:text-brand-accent font-mono text-[9px] uppercase tracking-wider transition-colors cursor-pointer"
+          >
+            View Post
+          </button>
+        </div>
       </div>
     </div>
   );
