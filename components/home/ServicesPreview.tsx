@@ -69,7 +69,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "Initial contour changes are visible immediately after swelling subsides (2–3 weeks), but high-definition muscle outlines settle fully around 3 to 6 months post-procedure."
       }
     ],
-    image: "/images/home/body-contouring-editorial.webp"
+    image: "/images/website/body-contouring-editorial.webp"
   },
   {
     title: "Gynecomastia Surgery (Male Chest Reduction)",
@@ -110,7 +110,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "No. Once the gland is completely excised surgically, it cannot regenerate. Results are permanent unless triggered by heavy steroid usage or massive weight gain."
       }
     ],
-    image: "/images/home/Gynecomastia-1.jpeg"
+    image: "/images/website/Gynecomastia-1.jpeg"
   },
   {
     title: "Abdominoplasty (Tummy Tuck)",
@@ -151,7 +151,7 @@ const ENRICHED_SERVICES: EnrichedService[] = [
         a: "Yes, it is safe, but it is highly recommended to complete childbearing before surgery to prevent stretching the repaired abdominal wall muscles."
       }
     ],
-    image: "/images/home/tummy-tuck-before.webp"
+    image: "/images/website/tummy-tuck-before.webp"
   }
 ];
 

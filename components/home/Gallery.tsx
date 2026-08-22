@@ -17,8 +17,8 @@ export default function Gallery() {
           {/* Case 1: Liposuction */}
           <div className="flex flex-col gap-4">
             <BeforeAfterSlider
-              beforeImage="/images/home/lipo_before_1782474133850.webp"
-              afterImage="/images/home/lipo_after_1782474148532.webp"
+              beforeImage="/images/website/lipo_before_1782474133850.webp"
+              afterImage="/images/website/lipo_after_1782474148532.webp"
               className="aspect-4/3 border border-brand-border/60"
             />
             <div className="text-center mt-4">
@@ -34,8 +34,8 @@ export default function Gallery() {
           {/* Case 2: Gynecomastia Chest Contouring */}
           <div className="flex flex-col gap-4">
             <BeforeAfterSlider
-              beforeImage="/images/home/gynecomastia_before_1782474167092.webp"
-              afterImage="/images/home/gynecomastia_after_1782474181819.webp"
+              beforeImage="/images/website/gynecomastia_before_1782474167092.webp"
+              afterImage="/images/website/gynecomastia_after_1782474181819.webp"
               className="aspect-4/3 border border-brand-border/60"
             />
             <div className="text-center mt-4">

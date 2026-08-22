@@ -3,7 +3,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 const workspace = "c:\\Users\\lenovo\\Desktop\\bliniq\\blinic-website";
-const galleryDir = path.join(workspace, "public", "images", "gallery");
+const galleryDir = path.join(workspace, "public", "images", "patient-transformations");
 
 // Category mapping
 const CATEGORY_MAP = {

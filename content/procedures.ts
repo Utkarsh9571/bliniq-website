@@ -68,7 +68,7 @@ export const PROCEDURES_DATA: ProcedureData[] = [
         a: "Initial contour changes are visible immediately after swelling subsides (2–3 weeks), but high-definition muscle outlines settle fully around 3 to 6 months post-procedure."
       }
     ],
-    image: "/images/home/Liposuction-Tummy360.jpeg",
+    image: "/images/website/Liposuction-Tummy360.jpeg",
     relatedSlugs: ["tummy-tuck", "gynecomastia-surgery-in-delhi", "six-pack-abs-creation"]
   },
   {
@@ -111,7 +111,7 @@ export const PROCEDURES_DATA: ProcedureData[] = [
         a: "No. Once the gland is completely excised surgically, it cannot regenerate. Results are permanent unless triggered by heavy steroid usage or massive weight gain."
       }
     ],
-    image: "/images/home/Gynecomastia-1.jpeg",
+    image: "/images/website/Gynecomastia-1.jpeg",
     relatedSlugs: ["liposuction-surgery-in-delhi", "tummy-tuck"]
   },
   {

@@ -1,25 +1,25 @@
 export const homepageImages = {
   hero: {
-    desktop: "/images/home/hero-beauty-desktop.webp",
-    mobile: "/images/home/hero-beauty-mobile.webp"
+    desktop: "/images/website/hero-beauty-desktop.webp",
+    mobile: "/images/website/hero-beauty-mobile.webp"
   },
   consultation: {
-    room01: "/images/home/consultation-room-01.webp",
-    room02: "/images/home/consultation-room-02.webp",
-    room03: "/images/home/consultation-room-03.webp"
+    room01: "/images/website/consultation-room-01.webp",
+    room02: "/images/website/consultation-room-02.webp",
+    room03: "/images/website/consultation-room-03.webp"
   },
   bodyContouring: {
-    editorial: "/images/home/body-contouring-editorial.webp",
-    mobile: "/images/home/body-contouring-editorial-mobile.webp"
+    editorial: "/images/website/body-contouring-editorial.webp",
+    mobile: "/images/website/body-contouring-editorial-mobile.webp"
   },
   transformations: {
-    before: "/images/home/tummy-tuck-before.webp",
-    infographic: "/images/home/transformation-infographic.webp"
+    before: "/images/website/tummy-tuck-before.webp",
+    infographic: "/images/website/transformation-infographic.webp"
   },
   doctor: {
-    spotlight: "/images/home/surgeon-spotlight.webp"
+    spotlight: "/images/website/surgeon-spotlight.webp"
   },
   gallery: {
-    tummyTuckBefore: "/images/home/tummy-tuck-before.webp"
+    tummyTuckBefore: "/images/website/tummy-tuck-before.webp"
   }
 };
