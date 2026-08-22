@@ -60,7 +60,7 @@ export default function AboutPage() {
               <ScrollReveal variant="image-reveal" className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
                 <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
                   <Image
-                    src="/images/doctors/Dr-Ashwini.jpg"
+                    src="/images/doctors/Dr-Ashwini.webp"
                     alt="Dr. Ashwani Kumar Chief Surgeon"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"

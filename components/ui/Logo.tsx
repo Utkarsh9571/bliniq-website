@@ -10,7 +10,7 @@ export function Logo({ className = "w-36 h-10" }: LogoProps) {
   return (
     <div className={`relative flex items-center select-none ${className}`}>
       <Image
-        src="/images/website/logo.png"
+        src="/images/website/logo.webp"
         alt="BLINIQ Aesthetic Clinic Logo"
         width={180}
         height={54}
