@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Button from "../ui/Button";
@@ -197,7 +198,7 @@ export default function TransformationsFeed() {
         
         {/* Mobile Scroller Row: Includes ALL Gallery Image Sets continuously looping */}
         <div 
-          className="w-full overflow-x-auto touch-pan-y flex md:hidden"
+          className="w-full overflow-x-auto touch-auto flex md:hidden"
           onMouseEnter={() => setMobilePaused(true)}
           onMouseLeave={() => { if (!activeInstaPost && !activeCase) setMobilePaused(false); }}
           onTouchStart={() => setMobilePaused(true)}
@@ -250,6 +251,15 @@ export default function TransformationsFeed() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* View All Transformations Button */}
+      <div className="flex justify-center mt-12 sm:mt-16">
+        <Link href="/picture-gallery">
+          <Button variant="primary" className="px-8 py-3.5 text-xs uppercase tracking-widest font-semibold min-h-11">
+            View All Transformations
+          </Button>
+        </Link>
       </div>
 
       {/* Instagram Post Detail Modal Lightbox */}

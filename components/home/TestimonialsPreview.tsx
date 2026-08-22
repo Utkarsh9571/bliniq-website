@@ -88,7 +88,7 @@ export default function TestimonialsPreview() {
         
         {/* Row 1: Leftward Scrolling */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-y flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-auto flex"
           onMouseEnter={() => setRow1Paused(true)}
           onMouseLeave={() => { if (!activeTestimonial) setRow1Paused(false); }}
           onTouchStart={() => setRow1Paused(true)}
@@ -110,7 +110,7 @@ export default function TestimonialsPreview() {
 
         {/* Row 2: Rightward Scrolling */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-y hidden md:flex"
+          className="w-full overflow-x-auto md:overflow-hidden touch-auto hidden md:flex"
           onMouseEnter={() => setRow2Paused(true)}
           onMouseLeave={() => { if (!activeTestimonial) setRow2Paused(false); }}
           onTouchStart={() => setRow2Paused(true)}
