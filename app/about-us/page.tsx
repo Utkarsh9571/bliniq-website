@@ -20,7 +20,7 @@ export default function AboutPage() {
   // Extract About Bliniq content (ID 8631 / slug 'about-us')
   const aboutPage = legitimatePages.find((p) => p.slug === "about-us") || {
     title: "About Bliniq",
-    content: "<p>BLINIQ Cosmetic Surgery Centre is a premier, state-of-the-art aesthetic clinic located in Dwarka, Delhi. Directed by chief board-certified plastic surgeon Dr. Ashwani Kumar, our clinic provides top-tier cosmetic procedures including high-definition VASER liposuction, gynecomastia corrections, abdominoplasty, and FUE hair restorations.</p><h2>Our Vision & Mission</h2><p>At BLINIQ, our mission is to deliver natural-looking aesthetic outcomes through the safest, most advanced FDA-approved technologies available globally. We prioritize patient confidentiality, medical ethics, and personalized post-operative care, ensuring a luxurious and comfortable environment for every patient's transformation journey.</p>",
+    content: "<p>BLINIQ Cosmetic Surgery Centre is a premier, state-of-the-art aesthetic clinic located in Dwarka, Delhi. Directed by chief board-certified plastic surgeon Dr. Ashwani Kumar, our clinic provides top-tier cosmetic procedures including high-definition Liposuction, gynecomastia corrections, abdominoplasty, and FUE hair restorations.</p><h2>Our Vision & Mission</h2><p>At BLINIQ, our mission is to deliver natural-looking aesthetic outcomes through the safest, most advanced FDA-approved technologies available globally. We prioritize patient confidentiality, medical ethics, and personalized post-operative care, ensuring a luxurious and comfortable environment for every patient's transformation journey.</p>",
   };
 
   let rawHtml = aboutPage.content || "";
@@ -60,7 +60,7 @@ export default function AboutPage() {
               <ScrollReveal variant="image-reveal" className="lg:col-span-5 relative aspect-3/4 w-full border border-brand-border bg-brand-card shadow-2xl p-2 group">
                 <div className="relative w-full h-full border border-brand-accent/20 overflow-hidden">
                   <Image
-                    src="/images/doctors/Dr-Ashwini.webp"
+                    src="/images/doctors/dr-ashwani-kumar.webp"
                     alt="Dr. Ashwani Kumar Chief Surgeon"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"

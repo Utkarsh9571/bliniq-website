@@ -30,7 +30,7 @@ export default function Footer() {
               Body Contouring
             </h4>
             <ul className="flex flex-col gap-3 text-xs text-brand-text-sec">
-              <li><Link href="/liposuction-surgery-in-delhi" className="hover:text-brand-accent transition-colors">VASER Liposuction</Link></li>
+              <li><Link href="/liposuction-surgery-in-delhi" className="hover:text-brand-accent transition-colors">High-Definition Liposuction</Link></li>
               <li><Link href="/gynecomastia-surgery-in-delhi" className="hover:text-brand-accent transition-colors">Gynecomastia Reduction</Link></li>
               <li><Link href="/tummy-tuck" className="hover:text-brand-accent transition-colors">Tummy Tuck (Abdominoplasty)</Link></li>
               <li><Link href="/six-pack-abs-creation" className="hover:text-brand-accent transition-colors">Six Pack Abs Creation</Link></li>
@@ -76,8 +76,10 @@ export default function Footer() {
                 <span className="text-brand-accent">Phone:</span>{" "}
                 <a href="tel:+917290062111" className="hover:text-brand-accent transition-colors">+91 72900 62111</a>
                 <br />
-                <span className="text-brand-accent">Email:</span> {" "}
-ashwani.kumar@bliniq.in
+                <span className="text-brand-accent">Email:</span>{" "}
+                <a href="mailto:Bliniqcosmeticsurgerycentre@gmail.com" className="hover:text-brand-accent transition-colors">
+                  Bliniqcosmeticsurgerycentre@gmail.com
+                </a>
               </p>
               <div className="flex items-center gap-2 mt-4">
                 <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
@@ -85,7 +87,7 @@ ashwani.kumar@bliniq.in
                 </Link>
               </div>
               <br />
-              📍 Dwarka Sector-7, New Delhi
+              📍 House no. 24, A-1 Block, Qutub Vihar-1, Dwarka Sector 19b, Delhi - 110071
               <br />
               ⏰ Mon-Sun: 9:00 AM - 9:00 PM
             </div>

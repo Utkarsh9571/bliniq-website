@@ -142,7 +142,7 @@ export default function ContactFormSection() {
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-brand-accent text-lg">📍</span>
-                <span>Qutab Vihar Phase-1, Dwarka, Delhi</span>
+                <span>House no. 24, A-1 Block, Qutub Vihar-1, Dwarka Sector 19b, Delhi - 110071</span>
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-brand-accent text-lg">⏰</span>

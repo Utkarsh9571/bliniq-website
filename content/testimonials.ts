@@ -34,7 +34,7 @@ export const TESTIMONIALS_ROW1: Testimonial[] = [
     id: 3,
     initials: "V.S.",
     name: "Vikram Singh",
-    procedure: "VASER 4D Liposuction",
+    procedure: "High-Definition 4D Liposuction",
     location: "New Delhi",
     rating: 5,
     text: "High definition liposuction results are unbelievable. The abdominal contouring is precise, and the post-op care guides you through every step. Dr. Ashwani Kumar is hands down the finest cosmetic surgeon in Delhi NCR.",

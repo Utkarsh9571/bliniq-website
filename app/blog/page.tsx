@@ -12,7 +12,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = getPageMetadata({
   title: "Clinical News & Insights | BLINIQ Clinic Delhi",
-  description: "Explore the BLINIQ cosmetic surgery journal for medical guides on FUE hair transplants, Gynecomastia recovery, VASER body contouring, and skin aesthetic technologies.",
+  description: "Explore the BLINIQ cosmetic surgery journal for medical guides on FUE hair transplants, Gynecomastia recovery, Ultrasound-assisted body contouring, and skin aesthetic technologies.",
   path: "blog"
 });
 

@@ -16,7 +16,7 @@ interface SlideItem {
 
 const SLIDES: SlideItem[] = [
   {
-    title: "VASER Liposuction",
+    title: "High-Definition Liposuction",
     description: "High-definition body sculpting to define abs, obliques, and contours using advanced ultrasonic technology.",
     highlights: [
       "Precision 4D muscle boundary framing",

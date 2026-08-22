@@ -7,7 +7,7 @@ export const clinicConfig = {
     "Facial Aesthetic Consultation",
     "Gynecomastia Surgery (Male Breast Reduction)",
     "Puffy Nipple Surgery",
-    "VASER 4D Liposuction (High-Definition Body Sculpting)",
+    "High-Definition Liposuction (High-Definition Body Sculpting)",
     "Abdominoplasty (Tummy Tuck)",
     "Six Pack Abs Creation",
     "Mommy Makeover",

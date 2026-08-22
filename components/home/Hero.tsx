@@ -20,12 +20,12 @@ interface SlideData {
 
 const SLIDES: SlideData[] = [
   {
-    service: "VASER 4D Liposuction",
+    service: "High-Definition 4D Liposuction",
     eyebrow: "PREMIUM BODY CONTOURING",
     headingPart1: "Define. Sculpt.",
     headingPart2Highlight: "Transform.",
     headingPart3: "",
-    description: "Advanced Vaser 4D High-Definition Liposuction to target resistant pockets of fat, sculpt natural muscular outlines, and achieve precision body contouring.",
+    description: "Advanced High-Definition 4D High-Definition Liposuction to target resistant pockets of fat, sculpt natural muscular outlines, and achieve precision body contouring.",
     beforeImage: "/images/website/lipo_before_1782474133850.webp",
     afterImage: "/images/website/lipo_after_1782474148532.webp"
   },

@@ -20,7 +20,7 @@ export interface NavigationSection {
 
 export const CANONICAL_DEPARTMENTS: NavigationSection[] = [
   {
-    title: "VASER 4D-HD Liposuction",
+    title: "High-Definition 4D Liposuction",
     type: "mega",
     href: "/liposuction-surgery-in-delhi",
     categories: [
@@ -196,12 +196,12 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
     type: "mega",
     categories: [
       {
-        title: "High-Definition VASER",
+        title: "High-Definition Ultrasound-assisted",
         procedures: [
           { 
             title: "Liposuction", 
             slug: "liposuction-surgery-in-delhi",
-            description: "Advanced VASER 4D ultrasonic fat emulsification & abdominal carving.",
+            description: "Advanced High-Definition 4D ultrasonic fat emulsification & abdominal carving.",
             image: "/images/home/lipo_after_1782474148532.webp"
           },
           { 
@@ -233,6 +233,12 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
             slug: "flank-love-handles",
             description: "Flank liposuction to eliminate stubborn love handles and define waist.",
             image: "/images/home/lipo_after_1782474148532.webp"
+          },
+          { 
+            title: "Gynecomastia", 
+            slug: "gynecomastia-surgery-in-delhi",
+            description: "Permanent correction of abnormally enlarged male chest tissue.",
+            image: "/images/home/gynecomastia_after_1782474181819.webp"
           }
         ]
       }
@@ -243,26 +249,8 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
     type: "mega",
     categories: [
       {
-        title: "Surgical Aesthetics",
+        title: "Breast",
         procedures: [
-          { 
-            title: "Rhinoplasty", 
-            slug: "nose-cosmetic-rhinoplasty",
-            description: "Nasal profile refinement and tip structural reshaping.",
-            image: "/images/home/rhinoplasty_after.webp"
-          },
-          { 
-            title: "Chin Surgery", 
-            slug: "chin-implant",
-            description: "Implants or genioplasty to balance the profile and jawline.",
-            image: "/images/home/rhinoplasty_before.webp"
-          },
-          { 
-            title: "Breast Reduction", 
-            slug: "breast-reduction",
-            description: "Gland and fat removal to resize breast proportions.",
-            image: "/images/home/gynecomastia_before_1782474167092.webp"
-          },
           { 
             title: "Breast Augmentation", 
             slug: "breast-implant-3",
@@ -270,10 +258,57 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
             image: "/images/home/gynecomastia_after_1782474181819.webp"
           },
           { 
+            title: "Breast Lift", 
+            slug: "breast-lift",
+            description: "Lift and reshape sagging breasts for a firmer, youthfully contoured bust.",
+            image: "/images/patient-transformations/breast-lift/breast-lift-case-01-01.webp"
+          },
+          { 
+            title: "Breast Reduction", 
+            slug: "breast-reduction",
+            description: "Gland and fat removal to resize breast proportions.",
+            image: "/images/home/gynecomastia_before_1782474167092.webp"
+          }
+        ]
+      },
+      {
+        title: "Face",
+        procedures: [
+          { 
             title: "Facelift", 
             slug: "face-lift",
             description: "Surgical lifting of sagging tissues to restore youthful contours.",
             image: "/images/home/rhinoplasty_after.webp"
+          },
+          { 
+            title: "Blepharoplasty", 
+            slug: "double-eyelid-surgery",
+            description: "Correct saggy eyelids and heavy bags to refresh and open the eyes.",
+            image: "/images/patient-transformations/blepharoplasty/blepharoplasty-case-01-01.webp"
+          },
+          { 
+            title: "Rhinoplasty", 
+            slug: "nose-cosmetic-rhinoplasty",
+            description: "Nasal profile refinement and tip structural reshaping.",
+            image: "/images/home/rhinoplasty_after.webp"
+          },
+          { 
+            title: "Buccal Fat Pad Removal", 
+            slug: "buccal-fat-pad-removal",
+            description: "Excision of deep cheek fat pads to create a sculpted face contour.",
+            image: "/images/patient-transformations/buccal-fat-removal/buccal-fat-removal-case-01-01.webp"
+          },
+          { 
+            title: "Chin Implant", 
+            slug: "chin-implant",
+            description: "Implants or surgical enhancement to define the chin structure.",
+            image: "/images/home/rhinoplasty_before.webp"
+          },
+          { 
+            title: "Genioplasty", 
+            slug: "genioplasty",
+            description: "Surgical chin repositioning to establish structural facial symmetry.",
+            image: "/images/home/rhinoplasty_before.webp"
           }
         ]
       }
@@ -284,20 +319,61 @@ export const HEADER_NAVIGATION_DATA: NavigationSection[] = [
     type: "mega",
     categories: [
       {
-        title: "Clinical Therapies",
+        title: "Hair Restoration",
         procedures: [
+          { 
+            title: "Direct Hair Transplant", 
+            slug: "hair-loss-treatments#dht",
+            description: "Direct implantation (DHT) for maximum graft viability.",
+            image: "/images/home/hair_after.webp"
+          },
+          { 
+            title: "Bio-Direct Hair Transplant", 
+            slug: "hair-loss-treatments#bio-dht",
+            description: "DHT combined with cell-enriching growth factor infusion.",
+            image: "/images/home/hair_before.webp"
+          },
+          { 
+            title: "GFC Therapy", 
+            slug: "hair-loss-treatments#gfc",
+            description: "Pure Growth Factor Concentrate to stimulate dormant follicles.",
+            image: "/images/home/hair_before.webp"
+          },
+          { 
+            title: "Exosome Therapy", 
+            slug: "hair-loss-treatments#exosome",
+            description: "Cellular nanovesicles signaling natural root rejuvenation.",
+            image: "/images/home/hair_after.webp"
+          },
+          { 
+            title: "QR-678 Mesotherapy", 
+            slug: "mesotherapy",
+            description: "Globally patented US-FDA approved scalp growth factors.",
+            image: "/images/home/hair_after.webp"
+          },
+          { 
+            title: "PRP Therapy", 
+            slug: "prp-therapy",
+            description: "Platelet-rich plasma scalp injections to reverse thinning.",
+            image: "/images/home/hair_before.webp"
+          },
+          { 
+            title: "Hair Fall Treatments Guide", 
+            slug: "hair-loss-treatments",
+            description: "Explore all surgical and non-surgical scalp restoration treatments.",
+            image: "/images/home/hair_after.webp"
+          },
           { 
             title: "Hair Transplant", 
             slug: "head",
             description: "High-density follicular graft restoration using micro-FUE.",
             image: "/images/home/hair_after.webp"
-          },
-          { 
-            title: "PRP Hair Therapy", 
-            slug: "prp-therapy",
-            description: "Platelet-rich plasma therapy to stimulate natural hair growth.",
-            image: "/images/home/hair_before.webp"
-          },
+          }
+        ]
+      },
+      {
+        title: "Medspa",
+        procedures: [
           { 
             title: "Laser Hair Removal", 
             slug: "laser-hair-removal",

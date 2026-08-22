@@ -18,7 +18,7 @@ import { getPageMetadata, getHomepageSchemaJson } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   title: "BLINIQ | Cosmetic & Plastic Surgery Clinic in Delhi",
-  description: "Premier luxury aesthetic and cosmetic plastic surgery clinic in Dwarka, Delhi under Dr. Ashwani Kumar. Specializing in VASER 4D Liposuction, Gynecomastia, & Rhinoplasty.",
+  description: "Premier luxury aesthetic and cosmetic plastic surgery clinic in Dwarka, Delhi under Dr. Ashwani Kumar. Specializing in High-Definition Liposuction, Gynecomastia, & Rhinoplasty.",
   path: ""
 });
 

@@ -23,7 +23,7 @@ export default function OriginSection() {
 
   const milestones = [
     { year: "2019", title: "Foundation", desc: "Dr. Ashwani Kumar establishes BLINIQ in Delhi NCR to offer bespoke, custom-tailored surgeries." },
-    { year: "2021", title: "Technology Expansion", desc: "Integration of high-definition VASER 4D ultrasound tech, upgrading body contouring standards." },
+    { year: "2021", title: "Technology Expansion", desc: "Integration of high-definition High-Definition 4D ultrasound tech, upgrading body contouring standards." },
     { year: "2024", title: "Clinical Leadership", desc: "Over 3,000 successful aesthetic procedures performed with outstanding patient care." }
   ];
 

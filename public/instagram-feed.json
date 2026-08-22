@@ -2,7 +2,7 @@
   {
     "id": 1,
     "type": "image",
-    "procedure": "VASER Liposuction",
+    "procedure": "Ultrasound-assisted Liposuction",
     "caption": "Abdominal contouring definition showing 4D muscle shadows. 3-months recovery.",
     "instagramUrl": "https://instagram.com/bliniq",
     "media": "/images/website/lipo_marquee.png"
@@ -43,7 +43,7 @@
     "id": 6,
     "type": "video",
     "procedure": "4D Contouring",
-    "caption": "VASER 4D post-care swelling resolution at 4 weeks.",
+    "caption": "High-Definition 4D post-care swelling resolution at 4 weeks.",
     "instagramUrl": "https://instagram.com/bliniq",
     "media": "/images/website/gyne_marquee.png"
   },

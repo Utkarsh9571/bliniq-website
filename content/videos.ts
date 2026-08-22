@@ -18,7 +18,7 @@ export const VIDEO_STORIES: VideoStory[] = [
   },
   {
     "id": "G5Y8LqSfk60",
-    "title": "High-Definition VASER Liposuction Experience",
+    "title": "High-Definition Liposuction Experience",
     "category": "Liposuction",
     "duration": "4:15",
     "desc": "Patient shares their physical transformation and experience with 4D abdominal carving.",

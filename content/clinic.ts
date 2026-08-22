@@ -26,7 +26,7 @@ export const CLINIC_DATA: ClinicData = {
   description: "Premier luxury aesthetic and cosmetic plastic surgery clinic in Dwarka, Delhi. Directed by chief surgeon Dr. Ashwani Kumar.",
   type: "Cosmetic Surgery Clinic",
   address: {
-    streetAddress: "Qutab Vihar Phase-1, Dwarka",
+    streetAddress: "House no. 24, A-1 Block, Qutub Vihar-1, Dwarka Sector 19b, Delhi - 110071",
     addressLocality: "New Delhi",
     addressRegion: "Delhi",
     postalCode: "110075",
@@ -34,7 +34,7 @@ export const CLINIC_DATA: ClinicData = {
   },
   phone: "+917290062111",
   phoneFormatted: "+91 72900 62111",
-  email: "ashwani.kumar@bliniq.in", 
+  email: "Bliniqcosmeticsurgerycentre@gmail.com", 
   openingHours: ["Mo-Su 09:00-21:00"],
   geo: {
     latitude: "28.5921",

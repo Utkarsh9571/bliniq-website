@@ -23,7 +23,7 @@ export default function BodyContouringSection() {
             </h2>
             <div className="text-brand-text-sec text-sm leading-relaxed space-y-4 font-sans">
               <p>
-                Achieve refined, natural body curves through state-of-the-art body shaping procedures. We perform VASER 4D Liposuction, Tummy Tucks, and complete Mommy Makeovers to remove resistant fat and reconstruct abdominal core muscles.
+                Achieve refined, natural body curves through state-of-the-art body shaping procedures. We perform High-Definition Liposuction, Tummy Tucks, and complete Mommy Makeovers to remove resistant fat and reconstruct abdominal core muscles.
               </p>
               <p>
                 Our high-definition sculpting techniques are tailored to highlight natural muscular contours, tighten loose skin tissues, and deliver proportionate body shapes.

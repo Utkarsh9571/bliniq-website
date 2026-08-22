@@ -25,7 +25,7 @@ export const COSMETIC_SERVICES: ServiceInfo[] = [
     slug: "liposuction-surgery-in-delhi",
     title: "Liposuction Surgery",
     category: "Body",
-    description: "Advanced fat removal and body contouring using high-definition VASER Liposuction in Delhi.",
+    description: "Advanced fat removal and body contouring using high-definition Liposuction in Delhi.",
     image: "/images/home/Liposuction-Tummy360.webp"
   },
   {

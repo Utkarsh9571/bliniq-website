@@ -8,14 +8,14 @@ import ScrollReveal from "../ui/ScrollReveal";
 
 export default function DoctorPreview() {
   const stats = [
-    { label: "High-Def VASER Lipo", value: "1200+" },
+    { label: "High-Def Lipo", value: "1200+" },
     { label: "Gynecomastia Reductions", value: "800+" },
     { label: "Rhinoplasty Reshaping", value: "500+" },
     { label: "Tummy Tuck Restorations", value: "400+" }
   ];
 
   const expertises = [
-    "High-Definition 4D VASER Liposuction & Abdominal Carving",
+    "High-Definition 4D Ultrasound-assisted Liposuction & Abdominal Carving",
     "Glandular Excision Gynecomastia Chest Corrections",
     "Aesthetic Nose Reshaping (Structural Rhinoplasty)",
     "Reconstructive Core Restorations (Abdominoplasty)"

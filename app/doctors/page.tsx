@@ -26,7 +26,7 @@ export default function DoctorsPage() {
               <Card className="flex flex-col md:flex-row gap-8 items-center md:items-start p-8">
               <div className="relative w-48 h-60 shrink-0 border border-brand-border overflow-hidden bg-brand-bg-sec">
                 <Image
-                  src="/images/doctors/Dr-Ashwini.webp"
+                  src="/images/doctors/dr-ashwani-kumar.webp"
                   alt="Dr. Ashwani Kumar"
                   fill
                   className="object-cover object-top transition-all duration-700"

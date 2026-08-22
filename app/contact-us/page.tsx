@@ -113,7 +113,7 @@ export default function ContactPage() {
                   Clinic Details
                 </h4>
                 <p className="text-brand-text-sec text-sm leading-relaxed mb-4">
-                  Qutab Vihar Phase-1, Dwarka
+                  House no. 24, A-1 Block, Qutub Vihar-1, Dwarka Sector 19b, Delhi - 110071
                   <br />
                   New Delhi - 110075, India
                 </p>
@@ -127,8 +127,13 @@ export default function ContactPage() {
                     +91 72900 62111
                   </a>
                   <br />
-                  <span className="text-brand-accent">Email:</span> {" "}
- ashwani.kumar@bliniq.in
+                  <span className="text-brand-accent">Email:</span>{" "}
+                  <a
+                    href="mailto:Bliniqcosmeticsurgerycentre@gmail.com"
+                    className="hover:text-brand-accent transition-colors"
+                  >
+                    Bliniqcosmeticsurgerycentre@gmail.com
+                  </a>
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <Link href="https://www.instagram.com/ashwanikumar.bliniq?igsh=YXo3ZWRzYzNqNDQ5" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">

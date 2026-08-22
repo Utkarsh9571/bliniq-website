@@ -313,7 +313,7 @@ export const GALLERY_CASES: GalleryCase[] = [
   },
   {
     "caseId": "vaser-4d-body-contouring-case-16",
-    "title": "VASER 4D Body Contouring — Case 16",
+    "title": "High-Definition 4D Body Contouring — Case 16",
     "category": "Liposuction",
     "coverImage": "/images/website/Liposuction-Tummy360.webp",
     "images": [
@@ -322,7 +322,7 @@ export const GALLERY_CASES: GalleryCase[] = [
   },
   {
     "caseId": "vaser-4d-body-contouring-case-17",
-    "title": "VASER 4D Body Contouring — Case 17",
+    "title": "High-Definition 4D Body Contouring — Case 17",
     "category": "Liposuction",
     "coverImage": "/images/website/page-Thigh-Liposuction.webp",
     "images": [
@@ -331,7 +331,7 @@ export const GALLERY_CASES: GalleryCase[] = [
   },
   {
     "caseId": "vaser-4d-body-contouring-case-18",
-    "title": "VASER 4D Body Contouring — Case 18",
+    "title": "High-Definition 4D Body Contouring — Case 18",
     "category": "Liposuction",
     "coverImage": "/images/website/page-Arms-Liposuction.webp",
     "images": [
@@ -349,7 +349,7 @@ export const GALLERY_CASES: GalleryCase[] = [
   },
   {
     "caseId": "vaser-4d-body-contouring-case-19",
-    "title": "VASER 4D Body Contouring — Case 19",
+    "title": "High-Definition 4D Body Contouring — Case 19",
     "category": "Liposuction",
     "coverImage": "/images/website/page-Back-Liposuction.webp",
     "images": [
@@ -358,7 +358,7 @@ export const GALLERY_CASES: GalleryCase[] = [
   },
   {
     "caseId": "vaser-4d-body-contouring-case-20",
-    "title": "VASER 4D Body Contouring — Case 20",
+    "title": "High-Definition 4D Body Contouring — Case 20",
     "category": "Liposuction",
     "coverImage": "/images/website/page-Arm-Liposuction.webp",
     "images": [
@@ -610,6 +610,16 @@ export const GALLERY_CASES: GalleryCase[] = [
       "/images/patient-transformations/breast-implants/breast-implants-case-03-09.webp",
       "/images/patient-transformations/breast-implants/breast-implants-case-03-10.webp",
       "/images/patient-transformations/breast-implants/breast-implants-case-03-11.webp"
+    ]
+  },
+  {
+    "caseId": "breast-implants-case-04",
+    "title": "Breast Implants — Case 4",
+    "category": "Breast Implants",
+    "coverImage": "/images/patient-transformations/breast-implants/breast-implants-case-04-02.webp",
+    "images": [
+      "/images/patient-transformations/breast-implants/breast-implants-case-04-01.webp",
+      "/images/patient-transformations/breast-implants/breast-implants-case-04-02.webp"
     ]
   },
   {

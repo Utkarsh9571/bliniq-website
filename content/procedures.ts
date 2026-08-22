@@ -29,11 +29,11 @@ export interface ProcedureData {
 
 export const PROCEDURES_DATA: ProcedureData[] = [
   {
-    title: "High-Definition VASER Liposuction",
+    title: "High-Definition Liposuction",
     slug: "liposuction-surgery-in-delhi",
     category: "Body Contouring",
-    shortDescription: "Advanced VASER 4D ultrasonic fat emulsification designed to selectively target deep and superficial fat layers, highlight natural abdominal muscle definition, and achieve athletic body contouring.",
-    overview: "VASER (Vibration Amplification of Sound Resonance at Surgery) is a cutting-edge liposuction technique that utilizes ultrasound energy to selectively dissolve fat cells prior to removal. Unlike traditional liposuction, VASER technology protects surrounding nerves, blood vessels, and connective tissues, leading to significantly less post-operative swelling, minimal bruising, and accelerated skin tightening.",
+    shortDescription: "Advanced High-Definition 4D ultrasonic fat emulsification designed to selectively target deep and superficial fat layers, highlight natural abdominal muscle definition, and achieve athletic body contouring.",
+    overview: "Ultrasound-assisted (Vibration Amplification of Sound Resonance at Surgery) is a cutting-edge liposuction technique that utilizes ultrasound energy to selectively dissolve fat cells prior to removal. Unlike traditional liposuction, Ultrasound-assisted technology protects surrounding nerves, blood vessels, and connective tissues, leading to significantly less post-operative swelling, minimal bruising, and accelerated skin tightening.",
     whoIsFor: "Ideal candidates are individuals at or near their stable body weight who have resistant pockets of localized fat in the abdomen, flanks, arms, neck, or thighs that do not respond to disciplined diet and exercise.",
     benefits: [
       "Selectively targets stubborn fat cells while preserving blood vessels, nerves, and connective tissues.",
@@ -56,11 +56,11 @@ export const PROCEDURES_DATA: ProcedureData[] = [
       { day: "Week 1", detail: "Return to light sedentary work; swelling begins to gradually peak." },
       { day: "Weeks 4–6", detail: "Compression wear removed; full gym activities and heavy lifting can resume." }
     ],
-    technology: "USFDA Approved VASER 4D-HD Ultrasound Emulsifiers with high-definition micro-cannulas.",
-    trustIndicators: ["FDA Approved VASER Tech", "Board Certified Care", "Daycare Discharge"],
+    technology: "USFDA Approved High-Definition 4D Ultrasound Emulsifiers with high-definition micro-cannulas.",
+    trustIndicators: ["FDA Approved Ultrasound-assisted Tech", "Board Certified Care", "Daycare Discharge"],
     faqs: [
       {
-        q: "Is the fat loss from VASER liposuction permanent?",
+        q: "Is the fat loss from ultrasound-assisted liposuction permanent?",
         a: "Yes. Once fat cells are removed via suction, they do not grow back. However, maintaining a stable weight post-op is crucial, as remaining fat cells in the body can still expand."
       },
       {
@@ -75,8 +75,8 @@ export const PROCEDURES_DATA: ProcedureData[] = [
     title: "Gynecomastia Surgery (Male Chest Reduction)",
     slug: "gynecomastia-surgery-in-delhi",
     category: "Body Contouring",
-    shortDescription: "Precision surgical excision of glandular tissue coupled with VASER liposuction. Specially tailored to treat puffy nipples, asymmetrical chests, and enlarged breast tissue in men.",
-    overview: "Gynecomastia surgery corrects abnormally enlarged breasts in men by combining direct surgical excision of dense glandular tissue with advanced VASER liposuction. Under the direction of Dr. Ashwani Kumar, the procedure permanently removes the underlying tissue to restore a flat, firm, and contoured chest wall structure.",
+    shortDescription: "Precision surgical excision of glandular tissue coupled with ultrasound-assisted liposuction. Specially tailored to treat puffy nipples, asymmetrical chests, and enlarged breast tissue in men.",
+    overview: "Gynecomastia surgery corrects abnormally enlarged breasts in men by combining direct surgical excision of dense glandular tissue with advanced ultrasound-assisted liposuction. Under the direction of Dr. Ashwani Kumar, the procedure permanently removes the underlying tissue to restore a flat, firm, and contoured chest wall structure.",
     whoIsFor: "Men suffering from enlarged breast glands, puffy areolas, or persistent chest fat pockets that cause psychological distress, areola asymmetry, or self-consciousness.",
     benefits: [
       "Provides an immediate, flat, and firm masculine chest contour with permanent reduction.",
@@ -99,7 +99,7 @@ export const PROCEDURES_DATA: ProcedureData[] = [
       { day: "Week 1", detail: "Incisions are examined; mild activities and walking can resume." },
       { day: "Week 4", detail: "Return to active chest workouts and heavy gym lifting." }
     ],
-    technology: "Surgical gland resection scissors paired with VASER fat-emulsifying probes.",
+    technology: "Surgical gland resection scissors paired with Ultrasound-assisted fat-emulsifying probes.",
     trustIndicators: ["Gland Excision Speciality", "Daycare Discharge", "No-Cost EMI Options"],
     faqs: [
       {
@@ -127,7 +127,7 @@ export const PROCEDURES_DATA: ProcedureData[] = [
       "Re-positions the belly button to sit naturally on a flat, taut abdominal wall."
     ],
     commonConcerns: [
-      "Timeline for recovery is longer than VASER liposuction alone.",
+      "Timeline for recovery is longer than ultrasound-assisted liposuction alone.",
       "Leaves a low-placed horizontal scar designed to be completely concealed by swimwear/underwear.",
       "Requires walking slightly bent forward during the first 5 to 7 days to avoid skin tension."
     ],
