@@ -6,6 +6,7 @@ import Image from "next/image";
 import Navigation from "./Navigation";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import { Logo } from "../ui/Logo";
 import { getAllProcedures } from "@/lib/navigation";
 import { trackEvent } from "@/lib/analytics";
 
@@ -87,16 +88,8 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 shrink-0">
-            <div className="relative w-40 h-10">
-              <Image
-                src="/images/seo/logo.png"
-                alt="BLINIQ"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+          <Link href="/" onClick={handleLogoClick} className="flex items-center shrink-0">
+            <Logo className="w-36 h-10" />
           </Link>
 
           {/* Desktop Navigation */}

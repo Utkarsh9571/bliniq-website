@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "../ui/Container";
+import { Logo } from "../ui/Logo";
 
 export default function Footer() {
   return (
@@ -99,14 +100,9 @@ ashwani.kumar@bliniq.in
         {/* Bottom Utility Row */}
         <div className="border-t border-brand-border/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-text-sec/60">
           <div className="flex items-center gap-3">
-            <div className="relative w-24 h-6 opacity-75 hover:opacity-100 transition-opacity">
-              <Image
-                src="/images/seo/logo.png"
-                alt="BLINIQ Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <Link href="/" className="shrink-0">
+              <Logo className="w-28 h-7 opacity-85 hover:opacity-100 transition-opacity" showTagline={false} />
+            </Link>
             <span>&copy; {new Date().getFullYear()} All rights reserved.</span>
           </div>
           <div className="flex flex-wrap gap-6 justify-center items-center">

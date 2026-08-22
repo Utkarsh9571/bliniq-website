@@ -81,20 +81,9 @@ const ROW1_POSTS: SocialPost[] = ALL_CASES_POSTS.filter((_, idx) => idx % 2 === 
 const ROW2_POSTS: SocialPost[] = ALL_CASES_POSTS.filter((_, idx) => idx % 2 !== 0);
 
 export default function TransformationsFeed() {
+  const [mobilePaused, setMobilePaused] = useState(false);
   const [row1Paused, setRow1Paused] = useState(false);
   const [row2Paused, setRow2Paused] = useState(false);
-
-  // Responsive state
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // Modal State
   const [activeCase, setActiveCase] = useState<GalleryCase | null>(null);
@@ -111,11 +100,9 @@ export default function TransformationsFeed() {
       label: post.procedure || "Instagram"
     });
 
-    if (rowNum === 1) {
-      setRow1Paused(true);
-    } else if (rowNum === 2) {
-      setRow2Paused(true);
-    }
+    if (rowNum === 0) setMobilePaused(true);
+    if (rowNum === 1) setRow1Paused(true);
+    if (rowNum === 2) setRow2Paused(true);
   };
 
   const openCaseModal = (resolvedCase: GalleryCase, rowNum: number) => {
@@ -128,43 +115,37 @@ export default function TransformationsFeed() {
       label: resolvedCase.title
     });
 
-    if (rowNum === 1) {
-      setRow1Paused(true);
-    } else if (rowNum === 2) {
-      setRow2Paused(true);
-    }
+    if (rowNum === 0) setMobilePaused(true);
+    if (rowNum === 1) setRow1Paused(true);
+    if (rowNum === 2) setRow2Paused(true);
   };
 
   const closeInstaModal = () => {
-    if (activeRow === 1) {
-      setRow1Paused(false);
-    } else if (activeRow === 2) {
-      setRow2Paused(false);
-    }
+    if (activeRow === 0) setMobilePaused(false);
+    if (activeRow === 1) setRow1Paused(false);
+    if (activeRow === 2) setRow2Paused(false);
     setActiveInstaPost(null);
     setActiveRow(null);
   };
 
   const closeCaseModal = () => {
-    if (activeRow === 1) {
-      setRow1Paused(false);
-    } else if (activeRow === 2) {
-      setRow2Paused(false);
-    }
+    if (activeRow === 0) setMobilePaused(false);
+    if (activeRow === 1) setRow1Paused(false);
+    if (activeRow === 2) setRow2Paused(false);
     setActiveCase(null);
     setActiveRow(null);
   };
 
   const getPaddedItems = (items: SocialPost[]) => {
     let padded = [...items];
-    // Pad array so there are at least 10 items in the marquee loop, preventing viewport gaps
     while (padded.length > 0 && padded.length < 12) {
       padded = [...padded, ...items];
     }
     return padded;
   };
 
-  const row1Items = getPaddedItems(isMobile ? ALL_CASES_POSTS : ROW1_POSTS);
+  const mobileItems = getPaddedItems(ALL_CASES_POSTS);
+  const row1Items = getPaddedItems(ROW1_POSTS);
   const row2Items = getPaddedItems(ROW2_POSTS);
 
   return (
@@ -195,10 +176,7 @@ export default function TransformationsFeed() {
         }
         @media (max-width: 768px) {
           .animate-transform-left {
-            animation-duration: 120s;
-          }
-          .animate-transform-right {
-            animation-duration: 120s;
+            animation-duration: 160s;
           }
         }
         .paused-state {
@@ -217,41 +195,57 @@ export default function TransformationsFeed() {
       {/* Marquee rows */}
       <div className="mt-16 flex flex-col gap-6 w-full relative">
         
-        {/* Row 1: Left direction */}
+        {/* Mobile Scroller Row: Includes ALL Gallery Image Sets continuously looping */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x flex"
-          onMouseEnter={() => setRow1Paused(true)}
-          onMouseLeave={() => { if (!activeInstaPost && !activeCase) setRow1Paused(false); }}
-          onTouchStart={() => setRow1Paused(true)}
-          onTouchEnd={() => { if (!activeInstaPost && !activeCase) setRow1Paused(false); }}
+          className="w-full overflow-x-auto touch-pan-x flex md:hidden"
+          onMouseEnter={() => setMobilePaused(true)}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase) setMobilePaused(false); }}
+          onTouchStart={() => setMobilePaused(true)}
+          onTouchEnd={() => { if (!activeInstaPost && !activeCase) setMobilePaused(false); }}
         >
-          {row1Items.length > 0 && (
-            <div className={`transform-marquee-container animate-transform-left ${row1Paused ? "paused-state" : ""}`}>
-              {row1Items.map((post, idx) => (
-                <MarqueeCard key={`${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+          {mobileItems.length > 0 && (
+            <div className={`transform-marquee-container animate-transform-left ${mobilePaused ? "paused-state" : ""}`}>
+              {mobileItems.map((post, idx) => (
+                <MarqueeCard key={`mob-${post.id}-${idx}`} post={post} rowNum={0} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
               ))}
-              {row1Items.map((post, idx) => (
-                <MarqueeCard key={`dup1-${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              {mobileItems.map((post, idx) => (
+                <MarqueeCard key={`mob-dup-${post.id}-${idx}`} post={post} rowNum={0} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
               ))}
             </div>
           )}
         </div>
 
-        {/* Row 2: Right direction */}
+        {/* Desktop Row 1: Left direction */}
         <div 
-          className="w-full overflow-x-auto md:overflow-hidden touch-pan-x hidden md:flex"
+          className="w-full overflow-hidden hidden md:flex"
+          onMouseEnter={() => setRow1Paused(true)}
+          onMouseLeave={() => { if (!activeInstaPost && !activeCase) setRow1Paused(false); }}
+        >
+          {row1Items.length > 0 && (
+            <div className={`transform-marquee-container animate-transform-left ${row1Paused ? "paused-state" : ""}`}>
+              {row1Items.map((post, idx) => (
+                <MarqueeCard key={`d1-${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+              {row1Items.map((post, idx) => (
+                <MarqueeCard key={`d1-dup-${post.id}-${idx}`} post={post} rowNum={1} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Row 2: Right direction */}
+        <div 
+          className="w-full overflow-hidden hidden md:flex"
           onMouseEnter={() => setRow2Paused(true)}
           onMouseLeave={() => { if (!activeInstaPost && !activeCase) setRow2Paused(false); }}
-          onTouchStart={() => setRow2Paused(true)}
-          onTouchEnd={() => { if (!activeInstaPost && !activeCase) setRow2Paused(false); }}
         >
           {row2Items.length > 0 && (
             <div className={`transform-marquee-container animate-transform-right ${row2Paused ? "paused-state" : ""}`}>
               {row2Items.map((post, idx) => (
-                <MarqueeCard key={`${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+                <MarqueeCard key={`d2-${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
               ))}
               {row2Items.map((post, idx) => (
-                <MarqueeCard key={`dup2-${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
+                <MarqueeCard key={`d2-dup-${post.id}-${idx}`} post={post} rowNum={2} onOpenInsta={openInstaModal} onOpenCase={openCaseModal} />
               ))}
             </div>
           )}
