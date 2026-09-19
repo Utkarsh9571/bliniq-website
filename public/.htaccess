@@ -9,22 +9,27 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
-  # HTTPS redirection if needed (handled by cPanel/SSL if active)
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # 1. Next.js RSC Payload mapping: Map dot-separated RSC requests to subfolder structure
+  # e.g. /appointment/__next.appointment.__PAGE__.txt -> /appointment/__next.appointment/__PAGE__.txt
+  # e.g. /botox-and-fillers/__next.$d$slug.__PAGE__.txt -> /botox-and-fillers/__next.$d$slug/__PAGE__.txt
+  RewriteCond %{DOCUMENT_ROOT}/$1/$2/__PAGE__.txt -f
+  RewriteRule ^(.*)/([^/]+)\.__PAGE__\.txt$ $1/$2/__PAGE__.txt [L,QSA]
 
-  # If a specific static file or directory exists directly, serve it
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
+  # Also handle root-level RSC payload requests if any: /__next.foo.__PAGE__.txt -> /__next.foo/__PAGE__.txt
+  RewriteCond %{DOCUMENT_ROOT}/$1/__PAGE__.txt -f
+  RewriteRule ^([^/]+)\.__PAGE__\.txt$ $1/__PAGE__.txt [L,QSA]
+
+  # 2. If a specific static file exists directly (e.g., .js, .css, .png, .txt, .html), serve it
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Try to serve .html file if URL does not include extension (e.g. /about-us -> /about-us.html)
-  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.*)/?$ $1.html [L]
-
-  # Try to serve index.html within a folder (e.g. /appointment/ or /appointment -> /appointment/index.html)
+  # 3. Explicitly rewrite directory paths to index.html to ensure both GET and HEAD requests work cleanly
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)/?$ $1/index.html [L]
+
+  # 4. Try to serve .html file if URL does not include extension (e.g. /about-us -> /about-us.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)/?$ $1.html [L]
 </IfModule>
 
 # Custom error pages
