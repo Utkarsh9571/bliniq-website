@@ -1,3 +1,35 @@
+# Disable directory listing and MultiViews
+Options -Indexes -MultiViews
+
+# Set default directory index
+DirectoryIndex index.html
+
+# Enable rewrite engine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # HTTPS redirection if needed (handled by cPanel/SSL if active)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # If a specific static file or directory exists directly, serve it
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Try to serve .html file if URL does not include extension (e.g. /about-us -> /about-us.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)/?$ $1.html [L]
+
+  # Try to serve index.html within a folder (e.g. /appointment/ or /appointment -> /appointment/index.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.*)/?$ $1/index.html [L]
+</IfModule>
+
+# Custom error pages
+ErrorDocument 404 /404.html
+
 # Enable Expires headers
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -62,11 +94,11 @@
 </IfModule>
 
 # Legacy WordPress redirects handled at Apache/cPanel level
-Redirect 301 /face-lift-2 /face-lift
-Redirect 301 /fat-injection-2 /fat-injection
-Redirect 301 /fat-injection-3 /fat-injection
-Redirect 301 /chin-implant-2 /chin-implant
-Redirect 301 /tummy-tuck-2 /tummy-tuck
-Redirect 301 /buccal-fat-pad-removal-2 /buccal-fat-pad-removal
-Redirect 301 /dimple-creation-surgery-2 /dimple-creation-surgery
-Redirect 301 /double-eyelid-surgery-2 /double-eyelid-surgery
+Redirect 301 /face-lift-2 /face-lift/
+Redirect 301 /fat-injection-2 /fat-injection/
+Redirect 301 /fat-injection-3 /fat-injection/
+Redirect 301 /chin-implant-2 /chin-implant/
+Redirect 301 /tummy-tuck-2 /tummy-tuck/
+Redirect 301 /buccal-fat-pad-removal-2 /buccal-fat-pad-removal/
+Redirect 301 /dimple-creation-surgery-2 /dimple-creation-surgery/
+Redirect 301 /double-eyelid-surgery-2 /double-eyelid-surgery/
