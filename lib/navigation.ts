@@ -92,18 +92,18 @@ export const CANONICAL_DEPARTMENTS: NavigationSection[] = [
       {
         title: "Face",
         procedures: [
-          { title: "Face Lift", slug: "face-lift-2" },
-          { title: "Eyelid Surgery", slug: "double-eyelid-surgery-2" },
-          { title: "Nose (Cosmetic Rhinoplasty)", slug: "nose-cosmetic-rhinoplasty-2" },
-          { title: "Buccal Fat Pad Removal", slug: "buccal-fat-pad-removal-2" },
-          { title: "Lip Reduction", slug: "lip-reduction-2" },
-          { title: "Chin Implant", slug: "chin-implant-2" }
+          { title: "Face Lift", slug: "face-lift" },
+          { title: "Eyelid Surgery", slug: "double-eyelid-surgery" },
+          { title: "Nose (Cosmetic Rhinoplasty)", slug: "nose-cosmetic-rhinoplasty" },
+          { title: "Buccal Fat Pad Removal", slug: "buccal-fat-pad-removal" },
+          { title: "Lip Reduction", slug: "lip-reduction" },
+          { title: "Chin Implant", slug: "chin-implant" }
         ]
       },
       {
         title: "Breast",
         procedures: [
-          { title: "Fat Injection (Breast)", slug: "fat-injection-3" },
+          { title: "Fat Injection (Breast)", slug: "fat-injection" },
           { title: "Breast Implant", slug: "breast-implant-3" },
           { title: "Breast Reduction", slug: "breast-reduction" },
           { title: "Breast Lift", slug: "breast-lift" }
@@ -112,13 +112,13 @@ export const CANONICAL_DEPARTMENTS: NavigationSection[] = [
       {
         title: "Arms",
         procedures: [
-          { title: "Saggy Arms Surgery", slug: "saggy-arms-surgery-2" }
+          { title: "Saggy Arms Surgery", slug: "saggy-arms-surgery" }
         ]
       },
       {
         title: "Tummy",
         procedures: [
-          { title: "Tummy Tuck", slug: "tummy-tuck-2" }
+          { title: "Tummy Tuck", slug: "tummy-tuck" }
         ]
       },
       {
