@@ -7,6 +7,14 @@ import Card from "@/components/ui/Card";
 import Link from "next/link";
 import { COSMETIC_SERVICES } from "@/lib/services";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Clinical Specialties & Aesthetic Procedures Index | BLINIQ Delhi",
+  description: "Complete directory of cosmetic plastic surgery and aesthetic procedures offered at BLINIQ Clinic Delhi, including body contouring, breast surgery, and facial aesthetics.",
+  path: "/services"
+});
 
 export default function ServicesPage() {
   // Group services by category

@@ -2,6 +2,14 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Accessibility Statement | BLINIQ Clinic Delhi",
+  description: "Read the accessibility statement for BLINIQ Cosmetic Surgery Clinic Delhi.",
+  path: "/accessibility"
+});
 
 export default function AccessibilityPage() {
   return (

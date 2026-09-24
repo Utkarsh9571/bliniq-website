@@ -15,12 +15,13 @@ export function getPageMetadata({
   path?: string;
   noIndex?: boolean;
 }): Metadata {
-  const url = `https://bliniq.in${path}`;
+  const normalizedPath = path === "" || path === "/" ? "/" : (path.endsWith("/") ? path : `${path}/`);
+  const url = `https://bliniq.in${normalizedPath === "/" ? "" : normalizedPath}`;
   return {
     title,
     description,
     alternates: {
-      canonical: url
+      canonical: normalizedPath === "/" ? "https://bliniq.in/" : `https://bliniq.in${normalizedPath}`
     },
     openGraph: {
       title,
@@ -398,7 +399,7 @@ export function getProcedurePageSchemaJson(
   description: string,
   contentHtml: string
 ) {
-  const pageUrl = `https://bliniq.in/${slug}`;
+  const pageUrl = `https://bliniq.in/${slug}/`;
 
   // 1. Breadcrumbs
   const crumbs = [

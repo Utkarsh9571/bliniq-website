@@ -9,20 +9,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Standard static pages
   const staticPages = [
     "",
-    "/about-us",
-    "/accessibility",
-    "/appointment",
-    "/blog",
-    "/contact-us",
-    "/cookie-policy",
-    "/doctors",
-    "/gallery",
-    "/picture-gallery",
-    "/privacy-policy",
-    "/services",
-    "/terms-conditions"
+    "/about-us/",
+    "/accessibility/",
+    "/appointment/",
+    "/blog/",
+    "/contact-us/",
+    "/cookie-policy/",
+    "/doctors/",
+    "/gallery/",
+    "/picture-gallery/",
+    "/privacy-policy/",
+    "/services/",
+    "/terms-conditions/"
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: route === "" ? `${baseUrl}/` : `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "weekly" as const,
     priority: route === "" ? 1.0 : 0.8
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicPages = legitimatePages
     .filter((p) => p.type === "procedure" || p.type === "seo-page" || p.type === "blog" || p.type === "service" || p.type === "doctor")
     .map((p) => ({
-      url: `${baseUrl}/${p.slug}`,
+      url: `${baseUrl}/${p.slug}/`,
       lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "weekly" as const,
       priority: p.type === "blog" ? 0.7 : 0.9

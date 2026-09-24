@@ -5,8 +5,15 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import AppointmentForm from "@/components/appointment/AppointmentForm";
-
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Book an Appointment | Consult Dr. Ashwani Kumar | BLINIQ Delhi",
+  description: "Schedule your confidential cosmetic surgery or aesthetic treatment consultation at BLINIQ Clinic, Dwarka, Delhi. Flexible slots and expert evaluation.",
+  path: "/appointment"
+});
 
 export default function AppointmentPage() {
   return (

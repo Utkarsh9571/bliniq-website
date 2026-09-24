@@ -2,6 +2,14 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Terms & Conditions | BLINIQ Clinic Delhi",
+  description: "Read the official terms and conditions for consultations and clinical services at BLINIQ Cosmetic Surgery Centre Delhi.",
+  path: "/terms-conditions"
+});
 
 export default function TermsConditionsPage() {
   return (

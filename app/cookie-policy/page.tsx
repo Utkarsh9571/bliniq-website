@@ -2,6 +2,14 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Cookie Policy | BLINIQ Clinic Delhi",
+  description: "Read about cookie usage and analytical preferences at BLINIQ Cosmetic Surgery Centre in Delhi.",
+  path: "/cookie-policy"
+});
 
 export default function CookiePolicyPage() {
   return (

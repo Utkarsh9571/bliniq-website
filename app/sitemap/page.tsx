@@ -5,7 +5,15 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
 import { CANONICAL_DEPARTMENTS } from "@/lib/navigation";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "HTML Sitemap & Navigation Directory | BLINIQ Delhi",
+  description: "Explore the complete HTML sitemap and directory index of BLINIQ Cosmetic Surgery Centre in Delhi.",
+  path: "/sitemap"
+});
 
 export default function SitemapPage() {
   return (

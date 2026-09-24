@@ -13,7 +13,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = getPageMetadata({
   title: "About Us | BLINIQ Cosmetic & Plastic Surgery Clinic Delhi",
   description: "Learn about BLINIQ Clinic in Dwarka, Delhi. Guided by Chief Surgeon Dr. Ashwani Kumar, we specialize in high-definition body sculpting, FUE hair transplants, and facial aesthetics.",
-  path: "about-us"
+  path: "/about-us"
 });
 
 export default function AboutPage() {

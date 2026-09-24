@@ -4,6 +4,14 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Advanced Hair Loss Treatments & Transplants | BLINIQ Delhi",
+  description: "Explore surgical and non-surgical hair restoration options at BLINIQ Delhi: DHT, Bio-DHT, GFC Therapy, Exosomes, QR-678, and PRP hair treatments under Dr. Ashwani Kumar.",
+  path: "/hair-loss-treatments"
+});
 
 const TREATMENTS = [
   {

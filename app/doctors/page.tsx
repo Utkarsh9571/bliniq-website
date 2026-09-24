@@ -6,6 +6,14 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = getPageMetadata({
+  title: "Dr. Ashwani Kumar | Chief Plastic & Cosmetic Surgeon | BLINIQ Delhi",
+  description: "Meet Dr. Ashwani Kumar (MS, M.Ch Plastic Surgery), Chief Surgeon at BLINIQ Delhi with 18+ years experience and 3000+ successful cosmetic procedures.",
+  path: "/doctors"
+});
 
 export default function DoctorsPage() {
   return (

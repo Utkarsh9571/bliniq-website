@@ -21,8 +21,19 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Bliniq - Dark Luxury Medical Aesthetic Clinic",
-  description: "Experience premium cosmetic surgery and advanced aesthetic treatments at Bliniq Clinic.",
+  metadataBase: new URL("https://bliniq.in"),
+  title: {
+    default: "BLINIQ | Cosmetic & Plastic Surgery Clinic in Delhi",
+    template: "%s | BLINIQ Delhi"
+  },
+  description: "Experience premium cosmetic surgery and advanced aesthetic treatments in Dwarka, Delhi under Dr. Ashwani Kumar.",
+  alternates: {
+    canonical: "/"
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
 
 export default function RootLayout({
