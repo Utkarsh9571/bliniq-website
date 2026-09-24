@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Navigation from "./Navigation";
 import Container from "../ui/Container";
 import Button from "../ui/Button";

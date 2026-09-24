@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 import { GalleryCase } from "@/content/gallery";
 
 interface PatientCaseModalProps {
@@ -15,16 +14,18 @@ export default function PatientCaseModal({
   activeCase,
   onClose,
 }: PatientCaseModalProps) {
+  const [prevCaseId, setPrevCaseId] = useState<string | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
   // Swipe gesture variables
   const touchStart = useRef<number | null>(null);
   const touchEnd = useRef<number | null>(null);
 
-  // Reset active image index whenever the case changes
-  useEffect(() => {
+  // Adjust state during render when activeCase changes without cascading useEffect render
+  if (activeCase && activeCase.caseId !== prevCaseId) {
+    setPrevCaseId(activeCase.caseId);
     setActiveImageIndex(0);
-  }, [activeCase]);
+  }
 
   const nextImage = useCallback(() => {
     if (!activeCase) return;

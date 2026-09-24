@@ -58,27 +58,24 @@ export default function ScrollReveal({
 }: ScrollRevealProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [hasRevealed, setHasRevealed] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = React.useSyncExternalStore(
+    (callback) => {
+      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false
+  );
 
   useEffect(() => {
-    // Check prefers-reduced-motion
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleMediaChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaChange);
-
     // Defer mount confirmation asynchronously to prevent synchronous render cascades
     const frame = requestAnimationFrame(() => {
       setIsMounted(true);
     });
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
       cancelAnimationFrame(frame);
     };
   }, []);
